@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:host": "next dev -H 192.168.2.102",
+    "dev:host": "next dev -H 192.168.2.101",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -41,7 +41,8 @@
     "eslint-plugin-react": "7.33.2",
     "husky": "8.0.3",
     "prettier": "3.2.2"
-  },  "lint-staged": {
+  },
+  "lint-staged": {
     "./*/**/*.{js,jsx,ts,tsx}": [
       "npm run prettier:fix",
       "npm run eslint:fix"

@@ -1,99 +1,10 @@
 import type { Config } from 'tailwindcss';
+import colors from 'tailwindcss/colors';
 
 /**
  * Color Palette
  */
 const colorPalette = {
-  // Custom Dark Theme 1
-  customDark1: {
-    '50': '#f0f0f6',
-    '100': '#d9d9e6',
-    '200': '#c2c2d9',
-    '300': '#acaccc',
-    '400': '#9595bf',
-    '500': '#7f7fa2', // reference color
-    '600': '#68688f',
-    '700': '#51517d',
-    '800': '#3b3b6a',
-    '900': '#242456',
-    '950': '#04001e',
-  },
-
-  // Custom Dark Theme 2
-  customDark2: {
-    '50': '#e6e6f2',
-    '100': '#ccccdf',
-    '200': '#b3b3cc',
-    '300': '#9999b8',
-    '400': '#8080a5',
-    '500': '#666692', // reference color
-    '600': '#4d4d7f',
-    '700': '#333366',
-    '800': '#1a1a52',
-    '900': '#00003e',
-    '950': '#1f1f3a',
-  },
-
-  // Custom Dark Theme 3
-  customDark3: {
-    '50': '#f2f1f7',
-    '100': '#dfd9e6',
-    '200': '#ccc2d9',
-    '300': '#b9accf',
-    '400': '#a696c2',
-    '500': '#937fad', // reference color
-    '600': '#7f678f',
-    '700': '#6c5180',
-    '800': '#593a72',
-    '900': '#452463',
-    '950': '#06002d',
-  },
-
-  // Light Theme based on Custom Dark 1
-  customLight1: {
-    '50': '#ffffff',
-    '100': '#e6e6e6',
-    '200': '#cccccc',
-    '300': '#b3b3b3',
-    '400': '#999999',
-    '500': '#7f7fa2', // reference color
-    '600': '#68688f',
-    '700': '#51517d',
-    '800': '#3b3b6a',
-    '900': '#242456',
-    '950': '#04001e',
-  },
-
-  // Light Theme based on Custom Dark 2
-  customLight2: {
-    '50': '#ffffff',
-    '100': '#e6e6f2',
-    '200': '#ccccdf',
-    '300': '#b3b3cc',
-    '400': '#9999b8',
-    '500': '#666692', // reference color
-    '600': '#4d4d7f',
-    '700': '#333366',
-    '800': '#1a1a52',
-    '900': '#00003e',
-    '950': '#1f1f3a',
-  },
-
-  // Light Theme based on Custom Dark 3
-  customLight3: {
-    '50': '#ffffff',
-    '100': '#f2f1f7',
-    '200': '#dfd9e6',
-    '300': '#ccc2d9',
-    '400': '#b9accf',
-    '500': '#937fad', // reference color
-    '600': '#7f678f',
-    '700': '#6c5180',
-    '800': '#593a72',
-    '900': '#452463',
-    '950': '#06002d',
-  },
-
   // Primary Color Palette
   primary: {
     '50': '#b4dbf1',
@@ -254,12 +165,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        dark1: colorPalette.customDark1,
-        dark2: colorPalette.customDark2,
-        dark3: colorPalette.customDark3,
-        light1: colorPalette.customLight1,
-        light2: colorPalette.customLight2,
-        light3: colorPalette.customLight3,
+        dark: colors.slate,
+        light: colors.slate,
         customNeutral: colorPalette.customNeutral,
         primary: colorPalette.primary,
         secondary: colorPalette.secondary,
@@ -279,19 +186,12 @@ const config: Config = {
         textColorAccent5: colorPalette.accent5,
         textColorAccent6: colorPalette.accent6,
         textColorAccent7: colorPalette.accent7,
-        textColorDark1: colorPalette.customDark1,
-        textColorDark2: colorPalette.customDark2,
-        textColorDark3: colorPalette.customDark3,
-        textColorLight1: colorPalette.customLight1,
-        textColorLight2: colorPalette.customLight2,
-        textColorLight3: colorPalette.customLight3,
-        textColorNeutral: colorPalette.customNeutral,
-        bgDark1: colorPalette.customDark1[950],
-        bgDark2: colorPalette.customDark2[950],
-        bgDark3: colorPalette.customDark3[950],
-        bgLight1: colorPalette.customLight1[50],
-        bgLight2: colorPalette.customLight2[50],
-        bgLight3: colorPalette.customLight3[50],
+        textColorDark: colors.slate,
+        textColorLight: colors.slate,
+        textColorNeutral: colors.neutral,
+        bgDark1: '#04001e',
+        bgDark2: '#06002d',
+        bgDark3: '#1f1f3a',
       },
     },
   },

@@ -9,7 +9,7 @@
 @layer base {
   /* Set the background color for the entire body */
   body {
-    @apply bg-bgLight3 dark:bg-bgDark3 text-textColorDark1-950 dark:text-textColorLight1-50;
+    @apply bg-bgDark2 text-textColorLight-50;
   }
 
   /* Focus-visible styles for better accessibility */
@@ -23,23 +23,23 @@
     inline-size: 10px;
   }
   *::-webkit-scrollbar-track {
-    background-color: #007bff;
+    background-color: #1f1f3a80;
   }
   *::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background-color: #1f1f3a80;
+    background-color: #007bff;
   }
 
   /* Custom scrollbar styles for elements with the class 'scroll-card--light' */
-  .scroll-card--light::-webkit-scrollbar {
+  .scroll-card::-webkit-scrollbar {
     inline-size: 4px;
   }
-  .scroll-card--light::-webkit-scrollbar-track {
-    background-color: #007bff;
-  }
-  .scroll-card--light::-webkit-scrollbar-thumb {
-    border-radius: 2px;
+  .scroll-card::-webkit-scrollbar-track {
     background-color: #1f1f3a80;
+  }
+  .scroll-card::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #007bff;
   }
 
   /* Custom style for minimum height on small screens (sm) for banners */
@@ -60,7 +60,7 @@
 @layer utilities {
   /* Custom utility class for focus styles */
   .focus {
-    @apply focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500;
+    @apply focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500;
   }
 }
 
@@ -125,38 +125,50 @@
 
   /* Button styles */
   .button {
-    @apply inline-flex items-center justify-center gap-2 rounded-md text-base font-medium;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg text-base font-medium;
   }
   .padding-button {
     @apply py-2 px-6;
   }
   .padding-icon {
-    @apply p-2;
+    @apply p-2.5;
   }
   .button-primary {
-    @apply button text-textColorNeutral-900 hover:text-textColorNeutral-50 bg-customGray-50 hover:bg-primary-500 transition-colors focus;
+    @apply button text-textColorDark-100 hover:text-textColorDark-50 bg-primary-500 hover:bg-primary-600 transition-colors focus;
   }
   .button-secondary {
-    @apply button text-textColorNeutral-50 bg-customNeutral-50/20 backdrop-blur-lg hover:bg-customNeutral-50/30 transition-colors focus;
+    @apply button text-textColorDark-950 bg-dark-50 backdrop-blur-lg hover:bg-dark-50/30 transition-colors focus;
   }
   .button-tertiary {
-    @apply button text-textColorNeutral-50 bg-customNeutral-900/50 backdrop-blur-lg hover:bg-customNeutral-900/70 transition-colors focus;
+    @apply button text-textColorDark-50 bg-dark-900/50 backdrop-blur-lg hover:bg-dark-900/70 transition-colors focus;
   }
   .button-outlined {
-    @apply button ring-1 ring-inset text-textColorNeutral-100 bg-dark-900/30 ring-customNeutral-50/10 hover:bg-dark-50/5 hover:text-textColorNeutral-50 transition-colors focus;
+    @apply button ring-1 ring-inset text-textColorDark-100 bg-dark-900/30 ring-dark-50/10 hover:bg-dark-50/5 hover:text-textColorDark-50 transition-colors focus;
   }
   .button-text {
     @apply button transition-colors focus text-dark-300 hover:text-dark-50 hover:bg-dark-50/5;
   }
 
   /* Navbar item styles */
+  .navbar-menu-close {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  .navbar-menu-open {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
   .navbar-item {
-    @apply w-full xl:w-fit font-normal text-textColorNeutral-100 transition-all duration-200 focus:outline-none hover:text-textColorNeutral-50 focus:ring-1 focus:ring-dark-900 focus:ring-offset-2;
+    @apply w-full xl:w-fit font-medium text-textColorDark-400 hover:text-textColorDark-50 focus:ring-1 focus:ring-primary-500 focus:ring-offset-2;
   }
   .navbar-item-sm {
     @apply navbar-item text-base;
   }
   .navbar-item-lg {
-    @apply navbar-item text-base;
+    @apply navbar-item text-base px-2;
+  }
+  .navbar-item-active-sm {
+    @apply text-textColorDark-50;
+  }
+  .navbar-item-active-lg {
+    @apply border-b-2 border-primary-500 text-textColorDark-50;
   }
 }

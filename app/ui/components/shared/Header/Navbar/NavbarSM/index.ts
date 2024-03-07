@@ -1,0 +1,1 @@
+export { NavbarSM } from './NavbarSM';

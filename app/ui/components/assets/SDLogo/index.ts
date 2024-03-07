@@ -1,0 +1,1 @@
+export { SDLogo } from './SDLogo';
