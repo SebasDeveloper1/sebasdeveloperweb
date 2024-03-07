@@ -8,7 +8,7 @@ export function NavbarLG({ links, pathname }: NavbarLGprops): JSX.Element {
    */
   return (
     <section className="hidden lg:flex justify-center items-center w-auto">
-      <ul className="flex justify-center items-center gap-6 w-full">
+      <ul className="flex justify-center items-center gap-4 w-full">
         {/* Map through the array of navigation links */}
         {links.map((link) => {
           const isActive = pathname.startsWith(link?.href);
@@ -30,6 +30,9 @@ export function NavbarLG({ links, pathname }: NavbarLGprops): JSX.Element {
           );
         })}
       </ul>
+      <button type="button" className="button-primary padding-button ml-4">
+        Contáctame
+      </button>
     </section>
   );
 }
