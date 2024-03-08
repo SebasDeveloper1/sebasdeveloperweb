@@ -7,7 +7,7 @@ import { StarsSVG } from './StarsSVG';
 
 export function Hero() {
   return (
-    <section className="overflow-hidden relative flex justify-center items-center w-full min-h-screen bg-gray-950">
+    <section className="overflow-hidden relative flex justify-center items-center w-full min-h-screen bg-dark-950">
       <video
         autoPlay
         muted
@@ -15,7 +15,7 @@ export function Hero() {
         className="absolute inset-0 w-full h-full object-cover object-center"
         src={videoHero}
       />
-      <div className="z-10 absolute inset-0 flex justify-center items-center w-full h-full pt-16 lg:pt-[4.5rem] backdrop-blur-[3px]">
+      <div className="z-10 absolute inset-0 flex justify-center items-center w-full h-full pt-16 lg:pt-[4.5rem] bg-dark-950/60 backdrop-blur-[3px]">
         <article className="relative grid grid-cols-1 md:grid-flow-col gap-8 w-11/12 lg:w-9/12">
           <StarsSVG />
           <figure
@@ -39,7 +39,7 @@ export function Hero() {
             <h1 className="heading-1 text-dark-50 font-bold">
               Sebastian Pedroza
             </h1>
-            <span className="mt-6 text-xl text-gray-300 [&>strong]:text-accent3-500 [&>strong]:font-semibold">
+            <span className="mt-6 text-xl text-dark-300 [&>strong]:text-accent3-500 [&>strong]:font-semibold">
               Ingeniero de Sistemas y Desarrollador Web con
               <strong> +2 años de experiencia.</strong> Especializado en el
               desarrollo de aplicaciones web únicas y de gran impacto.

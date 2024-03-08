@@ -62,6 +62,11 @@
   .focus {
     @apply focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500;
   }
+
+  /* Gradients */
+  .gradient-primary {
+    @apply bg-gradient-to-tr from-indigo-900 from-5% via-violet-800 via-10% to-pink-700 to-95%;
+  }
 }
 
 /* ================================
