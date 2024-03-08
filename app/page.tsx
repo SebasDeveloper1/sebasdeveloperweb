@@ -1,3 +1,8 @@
+import { Hero } from '@/app/ui/components/Home/Hero';
 export default function Home() {
-  return <main>Hello word!</main>;
+  return (
+    <main>
+      <Hero />
+    </main>
+  );
 }

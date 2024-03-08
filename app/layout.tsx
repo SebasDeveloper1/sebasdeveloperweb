@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import { Onest } from 'next/font/google';
 import { Header } from '@/app/ui/components/shared/Header';
 import './styles/globals.css';
 
-const poppins = Poppins({
+const onest = Onest({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={onest.className}>
         <Header />
         {children}
       </body>

@@ -21,11 +21,8 @@ export function Navbar() {
     // Add more links as needed
   ];
   return (
-    <nav className="flex justify-between items-center w-full h-16 lg:h-[4.5rem] px-5 py-3 bg-bgDark1">
-      <Link
-        href={'/'}
-        className="h-5/6 text-slate-950 dark:text-textColorLight-50"
-      >
+    <nav className="z-[100] fixed flex justify-between items-center w-full h-16 lg:h-[4.5rem] px-5 py-3 bg-dark-950 shadow-lg shadow-[#00000080]">
+      <Link href={'/'} className="h-5/6 text-darl-950 dark:text-dark-50">
         <SDLogo />
       </Link>
       {/* Small screen navbar */}

@@ -1,0 +1,1 @@
+export { StarsSVG } from './StarsSVG';

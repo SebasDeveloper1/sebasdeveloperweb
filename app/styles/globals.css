@@ -9,7 +9,7 @@
 @layer base {
   /* Set the background color for the entire body */
   body {
-    @apply bg-bgDark2 text-textColorLight-50;
+    @apply bg-dark-100 dark:bg-dark-900 text-dark-950 dark:text-dark-50;
   }
 
   /* Focus-visible styles for better accessibility */
@@ -71,7 +71,7 @@
 @layer components {
   /* Heading styles */
   .heading-1 {
-    @apply text-5xl sm:text-6xl md:text-7xl xl:text-8xl tracking-tight;
+    @apply text-4xl sm:text-5xl md:text-6xl xl:text-7xl tracking-tight;
   }
   .heading-2 {
     @apply text-4xl sm:text-5xl tracking-tight;
@@ -107,6 +107,9 @@
   }
 
   /* Span styles */
+  .span-2xl {
+    @apply text-2xl tracking-tight;
+  }
   .span-xl {
     @apply text-xl tracking-tight;
   }
@@ -134,16 +137,16 @@
     @apply p-2.5;
   }
   .button-primary {
-    @apply button text-textColorDark-100 hover:text-textColorDark-50 bg-primary-500 hover:bg-primary-600 transition-colors focus;
+    @apply button text-dark-100 hover:text-dark-50 bg-primary-500 hover:bg-primary-600 transition-colors focus;
   }
   .button-secondary {
-    @apply button text-textColorDark-950 bg-dark-50 backdrop-blur-lg hover:bg-dark-50/30 transition-colors focus;
+    @apply button text-dark-950 bg-dark-50 backdrop-blur-lg hover:bg-dark-50/30 transition-colors focus;
   }
   .button-tertiary {
-    @apply button text-textColorDark-50 bg-dark-900/50 backdrop-blur-lg hover:bg-dark-900/70 transition-colors focus;
+    @apply button text-dark-50 bg-dark-900/50 backdrop-blur-lg hover:bg-dark-900/70 transition-colors focus;
   }
   .button-outlined {
-    @apply button ring-1 ring-inset text-textColorDark-100 bg-dark-900/30 ring-dark-50/10 hover:bg-dark-50/5 hover:text-textColorDark-50 transition-colors focus;
+    @apply button ring-1 ring-inset text-dark-100 bg-dark-900/30 ring-dark-50/10 hover:bg-dark-50/5 hover:text-dark-50 transition-colors focus;
   }
   .button-text {
     @apply button transition-colors focus text-dark-300 hover:text-dark-50 hover:bg-dark-50/5;
@@ -157,7 +160,7 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
   .navbar-item {
-    @apply w-full xl:w-fit font-medium text-textColorDark-400 hover:text-textColorDark-50 focus:ring-1 focus:ring-primary-500 focus:ring-offset-2;
+    @apply w-full xl:w-fit font-medium text-dark-400 hover:text-dark-50 focus:ring-1 focus:ring-primary-500 focus:ring-offset-2;
   }
   .navbar-item-sm {
     @apply navbar-item text-base;
@@ -166,9 +169,9 @@
     @apply navbar-item text-base px-2;
   }
   .navbar-item-active-sm {
-    @apply text-textColorDark-50;
+    @apply text-dark-50;
   }
   .navbar-item-active-lg {
-    @apply border-b-2 border-primary-500 text-textColorDark-50;
+    @apply border-b-2 border-primary-500 text-dark-50;
   }
 }
