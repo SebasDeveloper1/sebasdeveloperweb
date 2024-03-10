@@ -40,7 +40,7 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
   return (
     <section
       ref={menuRef}
-      className="lg:hidden flex items-center gap-2 bg-dark-50 dark:bg-dark-950"
+      className="lg:hidden order-1 flex items-center gap-2 bg-dark-50 dark:bg-dark-950"
     >
       <button
         type="button"

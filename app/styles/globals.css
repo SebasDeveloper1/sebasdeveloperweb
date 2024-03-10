@@ -154,7 +154,7 @@
     @apply button ring-1 ring-inset text-dark-100 bg-dark-900/30 ring-dark-50/10 hover:bg-dark-50/5 hover:text-dark-50 transition-colors focus;
   }
   .button-text {
-    @apply button transition-colors focus text-dark-300 hover:text-dark-50 hover:bg-dark-50/5;
+    @apply button transition-colors text-dark-500 dark:text-dark-300 hover:text-dark-950 dark:hover:text-dark-50 hover:bg-dark-950/5 dark:hover:bg-dark-50/5;
   }
 
   /* Navbar item styles */
@@ -165,7 +165,7 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
   .navbar-item {
-    @apply w-full xl:w-fit font-medium text-dark-400 hover:text-dark-50 focus:ring-1 focus:ring-primary-500 focus:ring-offset-2;
+    @apply w-full xl:w-fit font-medium text-dark-700 dark:text-dark-200 hover:text-primary-400 dark:hover:text-primary-400;
   }
   .navbar-item-sm {
     @apply navbar-item text-base;
@@ -177,6 +177,6 @@
     @apply text-dark-50;
   }
   .navbar-item-active-lg {
-    @apply border-b-2 border-primary-500 text-dark-50;
+    @apply text-primary-400 dark:text-primary-500;
   }
 }

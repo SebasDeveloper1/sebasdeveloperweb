@@ -5,6 +5,7 @@ import { SDLogo } from '@/app/ui/components/assets/SDLogo';
 import { NavbarLG } from './NavbarLG';
 import { NavbarSM } from './NavbarSM';
 import { NavbarProps } from './Navbar.model';
+import { ThemeSwich } from '../ThemeSwich';
 
 export function Navbar() {
   const pathname = usePathname();
@@ -21,14 +22,17 @@ export function Navbar() {
     // Add more links as needed
   ];
   return (
-    <nav className="z-[100] fixed flex justify-between items-center w-full h-16 lg:h-[4.5rem] px-5 py-3 bg-dark-950 shadow-lg shadow-[#00000080]">
-      <Link href={'/'} className="h-5/6 text-darl-950 dark:text-dark-50">
+    <nav className="z-[100] fixed flex justify-between items-center w-full h-16 px-5 py-3 lg:border-b lg:border-dark-900/10 dark:border-dark-50/[0.06] bg-dark-50/95 dark:bg-dark-950">
+      <Link href={'/'} className="h-5/6 text-dark-700 dark:text-dark-50">
         <SDLogo />
       </Link>
-      {/* Small screen navbar */}
-      <NavbarSM links={links} pathname={pathname} />
-      {/* Large screen navbar */}
-      <NavbarLG links={links} pathname={pathname} />
+      <div className="grid grid-flow-col place-items-center gap-4">
+        {/* Small screen navbar */}
+        <NavbarSM links={links} pathname={pathname} />
+        {/* Large screen navbar */}
+        <NavbarLG links={links} pathname={pathname} />
+        <ThemeSwich />
+      </div>
     </nav>
   );
 }

@@ -4,7 +4,6 @@ export function SDLogo(props: SDLogoProps) {
   return (
     <svg
       viewBox="0 0 381 80"
-      width="auto"
       height="100%"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
