@@ -18,7 +18,7 @@ export default function ThemeProviderWrapper({
   }
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system">
+    <ThemeProvider attribute="class" defaultTheme="dark">
       {children}
     </ThemeProvider>
   );
