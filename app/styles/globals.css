@@ -1,46 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('./base.css');
 
 /* ================================
-   BASE STYLES
-   ================================ */
-
-@layer base {
-  /* Set the background color for the entire body */
-  body {
-    @apply bg-dark-100 dark:bg-dark-900 text-dark-950 dark:text-dark-50;
-  }
-
-  /* Focus-visible styles for better accessibility */
-
-  /* Custom scrollbar styles for elements with the class 'scroll-card--light' */
-  .scroll-card::-webkit-scrollbar {
-    inline-size: 4px;
-  }
-  .scroll-card::-webkit-scrollbar-track {
-    background-color: #1f1f3a80;
-  }
-  .scroll-card::-webkit-scrollbar-thumb {
-    border-radius: 2px;
-    background-color: #007bff;
-  }
-
-  /* Custom style for minimum height on small screens (sm) for banners */
-  .min-height-banner--sm {
-    min-height: calc(100vh - 4rem);
-  }
-
-  /* Custom style for minimum height on large screens (lg) for banners */
-  .min-height-banner--lg {
-    min-height: calc(100vh - 4.5rem);
-  }
-}
-
-/* ================================
-       UTILITY CLASSES
-       ================================ */
-
+UTILITY CLASSES
+================================ */
 @layer utilities {
   /* Custom utility class for focus styles */
   .focus {
@@ -54,8 +19,8 @@
 }
 
 /* ================================
-       COMPONENT STYLES
-       ================================ */
+COMPONENT STYLES
+================================ */
 
 @layer components {
   /* Heading styles */
@@ -149,7 +114,7 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
   .navbar-item {
-    @apply w-full xl:w-fit font-medium text-dark-600 dark:text-dark-400 hover:text-dark-900 dark:hover:text-dark-200;
+    @apply w-full xl:w-fit font-medium text-dark-700 dark:text-dark-200 hover:text-primary-400 dark:hover:text-primary-400;
   }
   .navbar-item-sm {
     @apply navbar-item text-base;
@@ -158,9 +123,9 @@
     @apply navbar-item text-base px-2;
   }
   .navbar-item-active-sm {
-    @apply text-dark-900 dark:text-dark-200;
+    @apply text-dark-50;
   }
   .navbar-item-active-lg {
-    @apply text-dark-900 dark:text-dark-200;
+    @apply text-primary-400 dark:text-primary-500;
   }
 }

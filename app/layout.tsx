@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Onest } from 'next/font/google';
-import ThemeProviderWrapper from '@/app/providers/ThemeProviderWrapper';
+import ThemeProvider from '@/app/providers/ThemeProvider';
 import { Header } from '@/app/ui/components/shared/Header';
 import './styles/globals.css';
 
@@ -22,10 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={onest.className}>
-        <ThemeProviderWrapper>
+        <ThemeProvider>
           <Header />
           {children}
-        </ThemeProviderWrapper>
+        </ThemeProvider>
       </body>
     </html>
   );

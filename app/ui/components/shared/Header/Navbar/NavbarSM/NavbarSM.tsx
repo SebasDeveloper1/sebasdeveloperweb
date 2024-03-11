@@ -90,7 +90,7 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
       </button>
       {/* Menu section */}
       <article
-        className={`overflow-y-auto scroll-card fixed inset-0 bg-dark-50 dark:bg-dark-950 mt-16 transform transition-all  ${openMenu ? 'navbar-menu-open' : 'navbar-menu-close'}`}
+        className={`overflow-y-auto fixed inset-0 bg-dark-50 dark:bg-dark-950 mt-16 transform transition-all  ${openMenu ? 'navbar-menu-open' : 'navbar-menu-close'}`}
       >
         <div className="flex flex-col justify-center gap-6 w-full px-4 pt-2 pb-6">
           <section className="overflow-hidden w-full bg-dark-500/20 rounded-lg">

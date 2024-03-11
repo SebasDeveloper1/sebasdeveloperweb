@@ -1,12 +1,8 @@
 'use client';
-import { ThemeProvider } from 'next-themes';
+import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import { ReactNode, useEffect, useState } from 'react';
 
-export default function ThemeProviderWrapper({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function ThemeProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -18,8 +14,8 @@ export default function ThemeProviderWrapper({
   }
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system">
+    <NextThemeProvider attribute="class" defaultTheme="system">
       {children}
-    </ThemeProvider>
+    </NextThemeProvider>
   );
 }
