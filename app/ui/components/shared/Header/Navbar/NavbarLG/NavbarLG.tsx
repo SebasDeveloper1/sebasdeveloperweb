@@ -11,7 +11,7 @@ export function NavbarLG({ links, pathname }: NavbarLGprops): JSX.Element {
       <ul className="flex justify-center items-center gap-4 w-full">
         {/* Map through the array of navigation links */}
         {links.map((link) => {
-          const isActive = pathname.startsWith(link?.href);
+          const isActive = pathname === link?.href;
           return (
             <li
               key={`Navbar-link-${link?.name}`}
