@@ -1,8 +1,5 @@
 import Image from 'next/image';
 import SDPhoto from '@/public/images/sebastian2.jpg';
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-//@ts-ignore
-import videoHero from '@/public/videos/herobackground.mp4';
 import { StarsSVG } from './StarsSVG';
 
 export function Hero() {
@@ -13,7 +10,9 @@ export function Hero() {
         muted
         loop
         className="absolute inset-0 w-full h-full object-cover object-center"
-        src={videoHero}
+        src={
+          'https://5wks3vhrfrwwt6gq.public.blob.vercel-storage.com/herobackground-WNgWtEXNFLh8ZJCEWxWeHtsvPi3CEc.mp4'
+        }
       />
       <div className="z-10 absolute inset-0 flex justify-center items-center w-full h-full pt-16 lg:pt-[4.5rem] bg-dark-950/60 backdrop-blur-[3px]">
         <article className="relative grid grid-cols-1 md:grid-flow-col gap-8 w-11/12 lg:w-9/12">
