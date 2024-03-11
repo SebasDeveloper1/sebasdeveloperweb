@@ -97,10 +97,10 @@ export function ThemeSwich() {
 
   if (!mounted) {
     return (
-      <div className="padding-icon bg-dark-700 animate-pulse">
+      <div className="padding-icon rounded-lg bg-dark-700/10 text-transparent animate-pulse">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-device-desktop text-transparent"
+          className="icon icon-tabler icon-tabler-device-desktop"
           width={24}
           height={24}
           viewBox="0 0 24 24"

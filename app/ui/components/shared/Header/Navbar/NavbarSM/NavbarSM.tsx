@@ -195,7 +195,7 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
           <ul className="flex flex-col items-center gap-4 w-full pt-6 border-t border-customNeutral-700 ">
             {/* Map through the array of navigation links */}
             {links.map((link) => {
-              const isActive = pathname.startsWith(link?.href);
+              const isActive = pathname === link?.href;
               return (
                 <li
                   key={`Navbar-link-${link.name}`}
