@@ -50,7 +50,7 @@
 
   /* Set the background color for the entire body */
   body {
-    @apply bg-dark-100 dark:bg-dark-900 text-dark-950 dark:text-dark-50;
+    @apply bg-light-100 dark:bg-dark-900 text-dark-950 dark:text-light-50;
   }
 
   /* Custom style for minimum height on small screens (sm) for banners */

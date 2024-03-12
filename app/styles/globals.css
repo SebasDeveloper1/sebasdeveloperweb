@@ -91,19 +91,19 @@ COMPONENT STYLES
     @apply p-2.5;
   }
   .button-primary {
-    @apply button text-dark-100 hover:text-dark-50 bg-primary-500 hover:bg-primary-600 transition-colors focus;
+    @apply button text-light-100 hover:text-light-50 bg-primary-500 hover:bg-primary-600 transition-colors focus;
   }
   .button-secondary {
-    @apply button text-dark-950 bg-dark-50 backdrop-blur-lg hover:bg-dark-50/30 transition-colors focus;
+    @apply button text-light-100 hover:text-light-50 bg-secondary-500 hover:bg-secondary-600 transition-colors focus;
   }
   .button-tertiary {
     @apply button text-dark-50 bg-dark-900/50 backdrop-blur-lg hover:bg-dark-900/70 transition-colors focus;
   }
   .button-outlined {
-    @apply button ring-1 ring-inset text-dark-100 bg-dark-900/30 ring-dark-50/10 hover:bg-dark-50/5 hover:text-dark-50 transition-colors focus;
+    @apply button ring-1 ring-inset text-light-100 bg-dark-900/30 ring-dark-50/10 hover:bg-light-50/5 hover:text-light-50 transition-colors focus;
   }
   .button-text {
-    @apply button transition-colors text-dark-500 dark:text-dark-300 hover:text-dark-950 dark:hover:text-dark-50 hover:bg-dark-950/5 dark:hover:bg-dark-50/5;
+    @apply button transition-colors text-dark-500 dark:text-light-300 hover:text-dark-950 dark:hover:text-light-50 hover:bg-dark-950/5 dark:hover:bg-light-50/5;
   }
 
   /* Navbar item styles */
@@ -114,7 +114,7 @@ COMPONENT STYLES
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
   .navbar-item {
-    @apply w-full xl:w-fit font-medium text-dark-700 dark:text-dark-200 hover:text-primary-400 dark:hover:text-primary-400;
+    @apply w-full xl:w-fit font-medium text-dark-700 dark:text-light-200 hover:text-primary-400 dark:hover:text-primary-400;
   }
   .navbar-item-sm {
     @apply navbar-item text-base;
@@ -123,7 +123,7 @@ COMPONENT STYLES
     @apply navbar-item text-base px-2;
   }
   .navbar-item-active-sm {
-    @apply text-dark-50;
+    @apply text-primary-400 dark:text-primary-500;
   }
   .navbar-item-active-lg {
     @apply text-primary-400 dark:text-primary-500;

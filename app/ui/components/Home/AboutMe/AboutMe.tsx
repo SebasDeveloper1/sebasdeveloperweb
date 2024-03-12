@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import SDAboutMe from '@/public/images/aboutme.jpg';
 
-export function AboutMe() {
+export function AboutMe(): JSX.Element {
   return (
     <section className="flex justify-center items-center w-full py-20 gradient-primary">
-      <article className="grid grid-cols-1 md:grid-flow-col place-items-center gap-8 w-11/12 lg:w-9/12">
+      <article className="grid grid-cols-1 md:grid-flow-col place-items-center gap-8 w-11/12 lg:w-10/12">
         <figure
-          className="z-[12] order-1 md:order-2 overflow-hidden relative w-8/12 md:w-72 aspect-square rounded-full drop-shadow-xl"
+          className="z-[12] order-1 md:order-2 overflow-hidden relative w-8/12 md:w-80 aspect-square rounded-full drop-shadow-xl"
           style={{
             borderRadius: '30% 70% 67% 33% / 30% 30% 70% 70% ',
           }}
@@ -22,10 +22,10 @@ export function AboutMe() {
           />
         </figure>
         <section className="order-2 md:order-1 w-full">
-          <div className="flex justify-center items-center gap-4 w-full mb-8">
+          <div className="flex flex-col justify-center items-start gap-4 w-full mb-8">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-user-code w-12 aspect-square p-1 rounded-full border-[3px] border-pink-300 bg-pink-500 text-white"
+              className="icon icon-tabler icon-tabler-user-code w-14 aspect-square p-1 rounded-full border-[3px] border-pink-300 bg-pink-500 text-pink-50"
               viewBox="0 0 24 24"
               strokeWidth={2}
               stroke="currentColor"

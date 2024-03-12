@@ -178,6 +178,9 @@ const config: Config = {
         accent6: colorPalette.accent6,
         accent7: colorPalette.accent7,
       },
+      backgroundImage: {
+        bgSection1: "url('../../public/assets/bgSection1.png')",
+      },
     },
   },
   plugins: [],

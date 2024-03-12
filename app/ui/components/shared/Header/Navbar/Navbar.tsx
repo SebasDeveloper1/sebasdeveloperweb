@@ -22,8 +22,8 @@ export function Navbar() {
     // Add more links as needed
   ];
   return (
-    <nav className="z-[100] fixed flex justify-between items-center w-full h-16 px-5 py-3 lg:border-b lg:border-dark-900/10 dark:border-dark-50/[0.06] bg-dark-50 dark:bg-dark-950">
-      <Link href={'/'} className="h-5/6 text-dark-700 dark:text-dark-50">
+    <nav className="z-[100] fixed flex justify-between items-center w-full h-16 px-5 py-3 lg:border-b lg:border-dark-900/10 dark:border-light-50/[0.06] bg-light-50 dark:bg-dark-950">
+      <Link href={'/'} className="h-5/6 text-dark-700 dark:text-light-50">
         <SDLogo />
       </Link>
       <div className="grid grid-flow-col place-items-center gap-4">

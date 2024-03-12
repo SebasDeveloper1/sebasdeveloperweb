@@ -40,7 +40,7 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
   return (
     <section
       ref={menuRef}
-      className="lg:hidden order-1 flex items-center gap-2 bg-dark-50 dark:bg-dark-950"
+      className="lg:hidden order-1 flex items-center gap-2 bg-light-50 dark:bg-dark-950"
     >
       <button
         type="button"
@@ -90,10 +90,10 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
       </button>
       {/* Menu section */}
       <article
-        className={`overflow-y-auto fixed inset-0 bg-dark-50 dark:bg-dark-950 mt-16 transform transition-all  ${openMenu ? 'navbar-menu-open' : 'navbar-menu-close'}`}
+        className={`overflow-y-auto fixed inset-0 bg-light-50 dark:bg-dark-950 mt-16 transform transition-all  ${openMenu ? 'navbar-menu-open' : 'navbar-menu-close'}`}
       >
         <div className="flex flex-col justify-center gap-6 w-full px-4 pt-2 pb-6">
-          <section className="overflow-hidden w-full bg-dark-500/20 rounded-lg">
+          <section className="overflow-hidden w-full bg-light-200 dark:bg-dark-900 rounded-lg">
             <article className="flex flex-col items-center gap-4 w-full">
               <div className="relative w-full h-24 bg-gradient-to-tr from-primary-500 to-accent2-500">
                 <svg
@@ -135,10 +135,10 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
                 </div>
               </div>
               <div className="flex flex-col justify-center w-full h-full p-4 pt-6">
-                <span className="span-lg whitespace-nowrap capitalize text-dark-950 dark:text-dark-50 font-semibold">
+                <span className="span-lg whitespace-nowrap capitalize text-dark-950 dark:text-light-50 font-semibold">
                   Sebastian pedroza
                 </span>
-                <span className="span-sm whitespace-nowrap text-dark-800 dark:text-dark-400">
+                <span className="span-sm whitespace-nowrap text-dark-800 dark:text-light-400">
                   @SebasDeveloper
                 </span>
                 <div className="flex flex-wrap gap-4 w-full mt-4">

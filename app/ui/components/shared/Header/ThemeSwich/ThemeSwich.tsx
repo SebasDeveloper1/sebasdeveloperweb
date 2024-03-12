@@ -129,6 +129,7 @@ export function ThemeSwich() {
     <>
       <button
         type="button"
+        title={theme}
         ref={menuThemeRef1}
         className="relative button-text padding-icon navbar-item"
         onClick={() => setMenuTheme(!menuTheme)}
@@ -196,8 +197,8 @@ export function ThemeSwich() {
             {themeOptions.map((option) => (
               <li key={`theme-${option?.theme}`} className="w-full">
                 <button
-                  className="w-full button-text padding-button justify-start navbar-item"
                   type="button"
+                  className="w-full button-text padding-button justify-start navbar-item"
                   onClick={() => handleTheme(option?.theme)}
                 >
                   {option?.icon}
