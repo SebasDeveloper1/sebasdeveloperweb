@@ -77,7 +77,7 @@ export function ToolList(): JSX.Element {
       </ul>
       <button
         type="button"
-        className="w-full max-w-xs button-secondary padding-button"
+        className="w-full md:max-w-xs button-secondary padding-button"
         onClick={toggleShowAll}
       >
         {showAll ? (

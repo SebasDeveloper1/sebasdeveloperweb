@@ -8,27 +8,21 @@ export function Tools(): JSX.Element {
           <article className="flex flex-col justify-center items-center gap-16">
             <div className="flex flex-col justify-center items-center gap-6 w-full text-center">
               <div className="flex flex-col justify-center items-center gap-4 w-full mb-8">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="icon icon-tabler icons-tabler-outline icon-tabler-settings-cog w-14 aspect-square p-1 rounded-full border-[3px] border-indigo-300 bg-indigo-500 text-indigo-100"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M12.003 21c-.732 .001 -1.465 -.438 -1.678 -1.317a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c.886 .215 1.325 .957 1.318 1.694" />
-                  <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-                  <path d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                  <path d="M19.001 15.5v1.5" />
-                  <path d="M19.001 21v1.5" />
-                  <path d="M22.032 17.25l-1.299 .75" />
-                  <path d="M17.27 20l-1.3 .75" />
-                  <path d="M15.97 17.25l1.3 .75" />
-                  <path d="M20.733 20l1.3 .75" />
-                </svg>
+                <div className="flex justify-center items-center w-14 aspect-square p-1 rounded-full border-4 border-indigo-400 bg-indigo-600 text-indigo-200">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="icon icon-tabler icons-tabler-outline icon-tabler-tool w-4/5"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5" />
+                  </svg>
+                </div>
                 <h2 className="heading-2 w-full font-bold text-dark-900 dark:text-light-50">
                   Habilidades y Herramientas
                 </h2>
@@ -43,6 +37,20 @@ export function Tools(): JSX.Element {
             <ToolList />
           </article>
         </div>
+      </div>
+      <div className="overflow-hidden">
+        <svg
+          preserveAspectRatio="none"
+          viewBox="0 0 1200 120"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+          className="text-light-50 dark:text-dark-900 w-full h-5"
+          style={{
+            transform: 'rotate(180deg) scaleX(-1)',
+          }}
+        >
+          <path d="M1200 120L0 16.48V0h1200v120z" />
+        </svg>
       </div>
     </section>
   );
