@@ -11,7 +11,7 @@ export function Hero(): JSX.Element {
         loop
         className="absolute inset-0 w-full h-full object-cover object-center"
         src={
-          'https://5wks3vhrfrwwt6gq.public.blob.vercel-storage.com/herobackground-WNgWtEXNFLh8ZJCEWxWeHtsvPi3CEc.mp4'
+          'https://firebasestorage.googleapis.com/v0/b/sd-website-f934d.appspot.com/o/videos%2Fhero-background.mp4?alt=media&token=328b71ee-e89a-420e-8dc7-9fe88c188bb5'
         }
       />
       <div className="z-10 flex justify-center items-center w-full min-h-screen py-24 bg-dark-950/60 backdrop-blur-[3px]">
