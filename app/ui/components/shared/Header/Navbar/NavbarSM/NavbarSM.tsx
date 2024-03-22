@@ -58,7 +58,7 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
             width={24}
             height={24}
             viewBox="0 0 24 24"
-            strokeWidth={2}
+            strokeWidth={1.5}
             stroke="currentColor"
             fill="none"
             strokeLinecap="round"
@@ -100,7 +100,7 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
                   xmlns="http://www.w3.org/2000/svg"
                   className="icon icon-tabler icon-tabler-brand-react-native absolute -top-10 -right-10 w-32 aspect-square opacity-20"
                   viewBox="0 0 24 24"
-                  strokeWidth={2}
+                  strokeWidth={1.5}
                   stroke="currentColor"
                   fill="none"
                   strokeLinecap="round"
@@ -152,7 +152,7 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
                       width={24}
                       height={24}
                       viewBox="0 0 24 24"
-                      strokeWidth={2}
+                      strokeWidth={1.5}
                       stroke="currentColor"
                       fill="none"
                       strokeLinecap="round"
@@ -175,7 +175,7 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
                       width={24}
                       height={24}
                       viewBox="0 0 24 24"
-                      strokeWidth={2}
+                      strokeWidth={1.5}
                       stroke="currentColor"
                       fill="none"
                       strokeLinecap="round"

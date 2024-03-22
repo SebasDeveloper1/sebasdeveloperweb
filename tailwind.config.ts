@@ -181,6 +181,8 @@ const config: Config = {
       },
       backgroundImage: {
         bgSection1: "url('../../public/assets/bgSection1.png')",
+        bgSection2: "url('../../public/assets/bgSection2.png')",
+        bgSection3: "url('../../public/assets/bgSection3.png')",
         blurCyan: "url('../../public/assets/blurCyan.webp')",
       },
     },

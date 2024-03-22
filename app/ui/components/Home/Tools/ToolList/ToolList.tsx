@@ -1,11 +1,11 @@
 'use client';
-import { useState } from 'react';
+import { RefObject, useState } from 'react';
 import { ToolCard } from '../ToolCard';
 import { buttonText } from './ToolList.model';
 
 const buttonText: buttonText = {
   showMore: {
-    text: 'Ver más habilidades',
+    text: 'Ver más...',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +14,7 @@ const buttonText: buttonText = {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth={2}
+        strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
         className="icon icon-tabler icons-tabler-outline icon-tabler-eye"
@@ -26,7 +26,7 @@ const buttonText: buttonText = {
     ),
   },
   showLess: {
-    text: 'Ver menos habilidades',
+    text: 'Ver menos...',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ const buttonText: buttonText = {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth={2}
+        strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
         className="icon icon-tabler icons-tabler-outline icon-tabler-eye-closed"
@@ -51,7 +51,11 @@ const buttonText: buttonText = {
   },
 };
 
-export function ToolList(): JSX.Element {
+export function ToolList({
+  sectionRef,
+}: {
+  sectionRef: RefObject<HTMLUListElement>;
+}): JSX.Element {
   const arrayTest: number[] = Array.from({ length: 11 }, (_, index) => index);
   const [showAll, setShowAll] = useState(false);
 
@@ -59,6 +63,9 @@ export function ToolList(): JSX.Element {
 
   const toggleShowAll = () => {
     setShowAll(!showAll);
+    if (showAll && sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -75,23 +82,25 @@ export function ToolList(): JSX.Element {
           </div>
         </li>
       </ul>
-      <button
-        type="button"
-        className="w-full md:max-w-xs button-secondary padding-button"
-        onClick={toggleShowAll}
-      >
-        {showAll ? (
-          <>
-            {buttonText?.showLess?.icon}
-            {buttonText?.showLess?.text}
-          </>
-        ) : (
-          <>
-            {buttonText?.showMore?.icon}
-            {buttonText?.showMore?.text}
-          </>
-        )}
-      </button>
+      {arrayTest.length > 5 ? (
+        <button
+          type="button"
+          className="w-full md:w-fit button-secondary padding-button"
+          onClick={toggleShowAll}
+        >
+          {showAll ? (
+            <>
+              {buttonText?.showLess?.icon}
+              {buttonText?.showLess?.text}
+            </>
+          ) : (
+            <>
+              {buttonText?.showMore?.icon}
+              {buttonText?.showMore?.text}
+            </>
+          )}
+        </button>
+      ) : null}
     </section>
   );
 }

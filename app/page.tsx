@@ -2,6 +2,7 @@ import { Hero } from '@/app/ui/components/Home/Hero';
 import { AboutMe } from '@/app/ui/components/Home/AboutMe';
 import { Tools } from '@/app/ui/components/Home/Tools';
 import { Projects } from '@/app/ui/components/Home/Projects';
+import { Experience } from './ui/components/Home/Experience';
 export default function Home(): JSX.Element {
   return (
     <main>
@@ -9,6 +10,7 @@ export default function Home(): JSX.Element {
       <AboutMe />
       <Tools />
       <Projects />
+      <Experience />
     </main>
   );
 }
