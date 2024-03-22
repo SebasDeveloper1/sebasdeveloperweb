@@ -100,7 +100,7 @@ COMPONENT STYLES
     @apply button text-dark-50 bg-dark-900/50 backdrop-blur-lg hover:bg-dark-900/70 transition-colors focus;
   }
   .button-outlined {
-    @apply button ring-1 ring-inset text-light-100 bg-dark-900/30 ring-dark-50/10 hover:bg-light-50/5 hover:text-light-50 transition-colors focus;
+    @apply button ring-1 ring-inset text-light-100 bg-dark-900/30 ring-dark-50/10 hover:bg-light-50/5 dark:hover:bg-primary-50/10 hover:text-light-50 transition-colors focus;
   }
   .button-text {
     @apply button transition-colors text-dark-500 dark:text-light-300 hover:text-dark-950 dark:hover:text-light-50 hover:bg-dark-950/5 dark:hover:bg-light-50/10;

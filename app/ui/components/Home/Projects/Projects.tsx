@@ -5,7 +5,7 @@ export function Projects() {
   return (
     <section className="bg-light-100 dark:bg-dark-950">
       <div className="flex justify-center items-center w-full bg-bgSection3 bg-cover bg-center">
-        <article className="flex flex-col md:flex-row justify-center gap-10 w-11/12 lg:w-10/12 py-16 md:py-32">
+        <article className="flex flex-col md:flex-row justify-center gap-10 w-11/12 lg:w-10/12 py-16 md:py-32 border-t border-primary-900">
           <div className="flex flex-col justify-center gap-4 w-full h-full">
             <div className="flex flex-col justify-center gap-8 w-full">
               <div className="flex justify-center items-center w-14 aspect-square p-1 rounded-full border-[3px] border-indigo-400 bg-indigo-600 text-indigo-200">
@@ -36,18 +36,16 @@ export function Projects() {
             </p>
             <Link
               href={'/'}
-              className="button-tertiary padding-button flex flex-nowrap gap-2 items-center w-fit hover:pr-5 hover:opacity-80 hover:translate-x-2 transition-all duration-300 ease-in-out"
+              className="button-secondary padding-button w-full md:w-fit mt-4"
             >
-              <h2 className="heading-6 font-medium text-textColorNeutral-50">
-                Ver más proyectos
-              </h2>
+              Ver más...
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="icon icon-tabler icon-tabler-chevron-right"
                 width={24}
                 height={24}
                 viewBox="0 0 24 24"
-                strokeWidth={1.5}
+                strokeWidth={2}
                 stroke="currentColor"
                 fill="none"
                 strokeLinecap="round"
