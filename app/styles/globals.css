@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url('./base.css');
+@import url('./animations.css');
 
 /* ================================
 UTILITY CLASSES
@@ -15,6 +16,9 @@ UTILITY CLASSES
   /* Gradients */
   .gradient-primary {
     @apply bg-gradient-to-tr from-indigo-900 from-5% via-violet-800 via-10% to-pink-700 to-95%;
+  }
+  .gradient-secondary {
+    @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
   }
 }
 
@@ -91,19 +95,25 @@ COMPONENT STYLES
     @apply p-2.5;
   }
   .button-primary {
-    @apply button text-light-100 hover:text-light-50 bg-primary-500 hover:bg-primary-600 transition-colors focus;
+    @apply button text-light-100 hover:text-light-50 bg-primary-500 hover:bg-primary-600 active:bg-primary-700 disabled:bg-primary-100 disabled:text-primary-400 transition-colors focus;
   }
   .button-secondary {
-    @apply button text-light-100 hover:text-light-50 bg-secondary-500 hover:bg-secondary-600 transition-colors focus;
+    @apply button text-light-100 hover:text-light-50 bg-secondary-500 hover:bg-secondary-600 active:bg-secondary-700 disabled:bg-secondary-100 disabled:text-secondary-400 transition-colors focus;
   }
   .button-tertiary {
-    @apply button text-dark-50 bg-dark-900/50 backdrop-blur-lg hover:bg-dark-900/70 transition-colors focus;
+    @apply button h-9 rounded-full text-sm font-semibold whitespace-nowrap px-3 focus:outline-none focus:ring-2 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 hover:text-indigo-700 focus:ring-indigo-600 dark:bg-light-700 dark:text-light-100 dark:hover:bg-light-600 dark:hover:text-light-50 dark:focus:ring-light-500;
   }
   .button-outlined {
-    @apply button ring-1 ring-inset text-light-100 bg-dark-900/30 ring-dark-50/10 hover:bg-light-50/5 dark:hover:bg-primary-50/10 hover:text-light-50 transition-colors focus;
+    @apply button text-light-900 bg-light-50 border border-light-300 focus:outline-none hover:bg-light-100 focus:ring-4 focus:ring-light-100 dark:bg-dark-800 dark:text-light-50 dark:border-dark-600 dark:hover:bg-dark-700 dark:hover:border-dark-600 dark:focus:ring-dark-700;
   }
   .button-text {
     @apply button transition-colors text-dark-500 dark:text-light-300 hover:text-dark-950 dark:hover:text-light-50 hover:bg-dark-950/5 dark:hover:bg-light-50/10;
+  }
+  .button-dark {
+    @apply button text-light-50 bg-light-800 hover:bg-light-900 focus:outline-none focus:ring-4 focus:ring-light-300 dark:bg-dark-800 dark:hover:bg-dark-700 dark:focus:ring-dark-700 dark:border-dark-700;
+  }
+  .button-alternative {
+    @apply button  text-light-900 focus:outline-none bg-light-50 rounded-lg border border-light-200 hover:bg-light-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-light-100 dark:focus:ring-dark-700 dark:bg-dark-800 dark:text-dark-400 dark:border-dark-600 dark:hover:text-light-50 dark:hover:bg-dark-700;
   }
 
   /* Navbar item styles */

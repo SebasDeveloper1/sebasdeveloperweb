@@ -3,9 +3,9 @@ import { ProjectList } from './ProjectList';
 
 export function Projects() {
   return (
-    <section className="bg-light-100 dark:bg-dark-950">
-      <div className="flex justify-center items-center w-full bg-bgSection3 bg-cover bg-center">
-        <article className="flex flex-col md:flex-row justify-center gap-10 w-11/12 lg:w-10/12 py-16 md:py-32 border-t border-primary-900">
+    <section className="bg-white dark:bg-dark-950">
+      <div className="flex justify-center items-center w-full dark:bg-bgSection3 dark:bg-cover dark:bg-center">
+        <article className="flex flex-col md:flex-row justify-center gap-10 w-11/12 lg:w-10/12 py-16 md:py-32">
           <div className="flex flex-col justify-center gap-4 w-full h-full">
             <div className="flex flex-col justify-center gap-8 w-full">
               <div className="flex justify-center items-center w-14 aspect-square p-1 rounded-full border-[3px] border-indigo-400 bg-indigo-600 text-indigo-200">
@@ -36,9 +36,9 @@ export function Projects() {
             </p>
             <Link
               href={'/'}
-              className="button-secondary padding-button w-full md:w-fit mt-4"
+              className="button-tertiary w-fit mt-3 bg-indigo-100 text-indigo-600 hover:bg-indigo-100 hover:text-indigo-700 focus:ring-indigo-600"
             >
-              Ver más...
+              Ver más
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="icon icon-tabler icon-tabler-chevron-right"

@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Config } from 'tailwindcss';
 import colors from 'tailwindcss/colors';
+// @ts-ignore
+import animations from '@midudev/tailwind-animations';
 
 /**
  * Color Palette
@@ -7,92 +10,92 @@ import colors from 'tailwindcss/colors';
 const colorPalette = {
   // Primary Color Palette
   primary: {
-    '50': '#b4dbf1',
-    '100': '#8dc6f3',
-    '200': '#66b2f5',
-    '300': '#3f9df7',
-    '400': '#1889f9',
-    '500': '#007bff', // reference color
-    '600': '#006ccc',
-    '700': '#0057aa',
-    '800': '#004389',
-    '900': '#002f67',
-    '950': '#001a44',
+    '50': '#eff8ff',
+    '100': '#dff0ff',
+    '200': '#b8e3ff',
+    '300': '#78cdff',
+    '400': '#1eadff',
+    '500': '#069bf1',
+    '600': '#007ace',
+    '700': '#0061a7',
+    '800': '#02528a',
+    '900': '#084572',
+    '950': '#062b4b',
   },
 
   // Secondary Color Palette
   secondary: {
-    '50': '#ccabf9',
-    '100': '#ad86f8',
-    '200': '#8e61f7',
-    '300': '#6f3cf6',
-    '400': '#5017f5',
-    '500': '#692eff', // reference color
-    '600': '#541fdc',
-    '700': '#401bb9',
-    '800': '#2b1496',
-    '900': '#170e73',
-    '950': '#030950',
+    '50': '#f3f2ff',
+    '100': '#eae7ff',
+    '200': '#d6d2ff',
+    '300': '#b9aeff',
+    '400': '#9680ff',
+    '500': '#764dff',
+    '600': '#692eff',
+    '700': '#5716eb',
+    '800': '#4912c5',
+    '900': '#3d11a1',
+    '950': '#22076e',
   },
 
   // Custom Neutral Color Palette
   customNeutral: {
-    '50': '#e8e7e4',
-    '100': '#dffbff',
-    '200': '#c4dce3',
-    '300': '#a8bcc7',
-    '400': '#8d9dab',
-    '500': '#727e8f',
-    '600': '#565e72',
-    '700': '#3b3f56',
-    '800': '#1f1f3a',
-    '900': '#04001e',
-    '950': '#000004',
+    '50': '#f5f7f8',
+    '100': '#ecf1f3',
+    '200': '#dde4e8',
+    '300': '#c8d3d9',
+    '400': '#b1bec8',
+    '500': '#9cabb8',
+    '600': '#8693a5',
+    '700': '#727e8f',
+    '800': '#5e6775',
+    '900': '#4f5660',
+    '950': '#2e3238',
   },
 
   // Accent Color Palette 1
   accent1: {
-    '50': '#d7fafa',
-    '100': '#a1e5e5',
-    '200': '#6bd0d0',
-    '300': '#35baba',
-    '400': '#00a5a5',
-    '500': '#10fefe',
-    '600': '#00d1d1',
-    '700': '#00aaaa',
-    '800': '#008383',
-    '900': '#005c5c',
-    '950': '#002828',
+    '50': '#ebfffc',
+    '100': '#cbfffa',
+    '200': '#9efff9',
+    '300': '#5cfff7',
+    '400': '#10fefe',
+    '500': '#00dfe4',
+    '600': '#00b2bf',
+    '700': '#048e9a',
+    '800': '#0d717d',
+    '900': '#105d69',
+    '950': '#033e49',
   },
 
   // Accent Color Palette 2
   accent2: {
-    '50': '#ffafc3',
-    '100': '#ff8cba',
-    '200': '#ff63b2',
-    '300': '#ff3ba9',
-    '400': '#ff12a0',
-    '500': '#f00070',
-    '600': '#ff006f',
-    '700': '#ff005d',
-    '800': '#ff004b',
-    '900': '#ff0039',
-    '950': '#ff0026',
+    '50': '#fff0f8',
+    '100': '#ffe3f5',
+    '200': '#ffc6ea',
+    '300': '#ff98d7',
+    '400': '#ff58bb',
+    '500': '#ff279e',
+    '600': '#f00070',
+    '700': '#df005c',
+    '800': '#b8004c',
+    '900': '#980342',
+    '950': '#5f0023',
   },
 
   // Accent Color Palette 3
   accent3: {
-    '50': '#ffffdf',
-    '100': '#ffffb4',
-    '200': '#ffff89',
-    '300': '#ffff5e',
-    '400': '#ffff33',
-    '500': '#fff326',
-    '600': '#ffed00',
-    '700': '#e4d400',
-    '800': '#c9b500',
-    '900': '#ae9b00',
-    '950': '#938100',
+    '50': '#fdfee8',
+    '100': '#fbffc2',
+    '200': '#fbff87',
+    '300': '#fffe43',
+    '400': '#fff326',
+    '500': '#efd803',
+    '600': '#ceaa00',
+    '700': '#a47a04',
+    '800': '#885f0b',
+    '900': '#734d10',
+    '950': '#432905',
   },
 
   // Accent Color Palette 4
@@ -112,17 +115,17 @@ const colorPalette = {
 
   // Accent Color Palette 5
   accent5: {
-    '50': '#c5d0ff',
-    '100': '#9babff',
-    '200': '#7776ff',
-    '300': '#5351ff',
-    '400': '#2e2bff',
-    '500': '#6a77ff',
-    '600': '#4f64ff',
-    '700': '#3451ff',
-    '800': '#1a3dff',
-    '900': '#002aff',
-    '950': '#001318',
+    '50': '#edf1ff',
+    '100': '#dee6ff',
+    '200': '#c4d0ff',
+    '300': '#a0b1ff',
+    '400': '#6a77ff',
+    '500': '#5b5df9',
+    '600': '#483dee',
+    '700': '#3d2fd3',
+    '800': '#3229aa',
+    '900': '#2c2986',
+    '950': '#1c184e',
   },
 
   // Accent Color Palette 6
@@ -142,17 +145,17 @@ const colorPalette = {
 
   // Accent Color Palette 7
   accent7: {
-    '50': '#00bf73',
-    '100': '#00aa63',
-    '200': '#009552',
-    '300': '#008142',
-    '400': '#006d31',
-    '500': '#00a252',
-    '600': '#008c46',
-    '700': '#00763f',
-    '800': '#006039',
-    '900': '#004b32',
-    '950': '#003527',
+    '50': '#f3fbea',
+    '100': '#e3f5d2',
+    '200': '#c8ecaa',
+    '300': '#a5dd79',
+    '400': '#85cc4f',
+    '500': '#66b131',
+    '600': '#4d8d23',
+    '700': '#407321',
+    '800': '#33561e',
+    '900': '#2c4a1d',
+    '950': '#14280b',
   },
 };
 
@@ -184,9 +187,10 @@ const config: Config = {
         bgSection2: "url('../../public/assets/bgSection2.png')",
         bgSection3: "url('../../public/assets/bgSection3.png')",
         blurCyan: "url('../../public/assets/blurCyan.webp')",
+        backgroundBlue: "url('../../public/assets/background-blue.webp')",
       },
     },
   },
-  plugins: [],
+  plugins: [animations],
 };
 export default config;

@@ -1,0 +1,1 @@
+export { UdecLogo } from './UdecLogo';

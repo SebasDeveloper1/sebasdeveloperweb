@@ -1,0 +1,1 @@
+export { PlatziLogo } from './PlatziLogo';

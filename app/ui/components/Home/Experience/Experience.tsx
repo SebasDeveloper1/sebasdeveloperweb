@@ -1,6 +1,6 @@
 export function Experience() {
   return (
-    <section className="bg-light-50 dark:bg-primary-950/10">
+    <section className="bg-light-100 dark:bg-dark-900">
       <div className="flex justify-center items-center w-full">
         <article className="flex flex-col justify-center items-center gap-16 w-11/12 lg:w-10/12 py-16">
           <div className="flex flex-col justify-center items-center gap-16 w-full">
@@ -62,7 +62,7 @@ export function Experience() {
                       Cinergia Perú
                     </a>
                   </div>
-                  <p className="col-span-2 p-4 rounded-lg rounded-tl-none paragraph-blg font-medium max-w-prose text-dark-600 dark:text-light-400 bg-dark-200/60 dark:bg-slate-900/70">
+                  <p className="col-span-2 p-4 rounded-xl paragraph-blg font-medium max-w-prose text-dark-600 dark:text-light-400 bg-light-200 dark:bg-dark-800">
                     Responsable de la plataforma, componentes y utilidades para
                     la creación y desarrollo de aplicaciones web. Mejora de un
                     30% en la entrega de software. Implantación de medidas de
@@ -105,7 +105,7 @@ export function Experience() {
                       Cinergia Perú
                     </a>
                   </div>
-                  <p className="col-span-2 p-4 rounded-lg paragraph-blg font-medium max-w-prose text-dark-600 dark:text-light-400 bg-dark-200/60 dark:bg-slate-900/70">
+                  <p className="col-span-2 p-4 rounded-xl paragraph-blg font-medium max-w-prose text-dark-600 dark:text-light-400 bg-light-200 dark:bg-dark-800">
                     Responsable de la plataforma, componentes y utilidades para
                     la creación y desarrollo de aplicaciones web. Mejora de un
                     30% en la entrega de software. Implantación de medidas de

@@ -1,6 +1,6 @@
 export function ToolDesc() {
   return (
-    <section className="flex flex-col justify-center items-center gap-8 w-full pt-16 md:pt-32 pb-12 bg-bgSection1 bg-cover bg-center">
+    <section className="flex flex-col justify-center items-center gap-8 w-full pt-16 md:pt-32 pb-12 dark:bg-bgSection1 bg-cover bg-center">
       <article className="flex flex-col justify-center gap-4 w-11/12 lg:w-10/12">
         <div className="flex flex-col justify-center gap-8 w-full">
           <div className="flex justify-center items-center w-14 aspect-square p-1 rounded-full border-[3px] border-sky-400 bg-sky-600 text-sky-200">
