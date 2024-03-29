@@ -4,6 +4,7 @@ import { Tools } from '@/app/ui/components/Home/Tools';
 import { Projects } from '@/app/ui/components/Home/Projects';
 import { Experience } from './ui/components/Home/Experience';
 import { Education } from './ui/components/Home/Education';
+import { Contact } from './ui/components/Home/Contact';
 export default function Home(): JSX.Element {
   return (
     <main>
@@ -13,6 +14,7 @@ export default function Home(): JSX.Element {
       <Projects />
       <Experience />
       <Education />
+      <Contact />
     </main>
   );
 }

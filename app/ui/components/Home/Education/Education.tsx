@@ -5,7 +5,6 @@ import { PlatziLogo } from '../../assets/PlatziLogo';
 export function Education() {
   return (
     <section className="w-full bg-white dark:bg-dark-950">
-      <div className="w-full h-1 gradient-secondary"></div>
       <div className="overflow-hidden relative flex flex-col justify-center items-center w-full py-16">
         <section className="z-10 flex flex-col justify-center items-center gap-16 w-11/12 lg:w-10/12">
           <article className=" flex flex-col justify-center gap-4 w-full">
@@ -65,7 +64,7 @@ export function Education() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <PlatziLogo className="w-full text-dark-800 dark:text-light-50 group-hover:text-dark-950 dark:group-hover:text-[#0AE98A]" />
+                <PlatziLogo className="w-full text-dark-800 dark:text-[#0AE98A] md:dark:text-light-50 group-hover:text-dark-950 dark:group-hover:text-[#0AE98A]" />
               </EducationCard>
             </li>
             <li className="w-1/3 md:w-1/4">
