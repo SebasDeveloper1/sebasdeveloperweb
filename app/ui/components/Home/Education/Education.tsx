@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { EducationCard } from './EducationCard';
 import { PlatziLogo } from '../../assets/PlatziLogo';
+import { UdecLogo } from '../../assets/UdecLogo';
 
 export function Education() {
   return (
@@ -57,23 +58,23 @@ export function Education() {
               </svg>
             </Link>
           </article>
-          <ul className="flex justify-evenly items-center gap-8 place-items-center w-11/12 md:w-full">
-            <li className="w-1/3 md:w-1/4">
+          <ul className="flex justify-evenly items-center gap-8 place-items-center w-11/12 md:w-full ">
+            <li className="w-2/5 md:w-1/4">
               <EducationCard
                 href="https://platzi.com/p/SebasDeveloper/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <PlatziLogo className="w-full text-dark-800 dark:text-[#0AE98A] md:dark:text-light-50 group-hover:text-dark-950 dark:group-hover:text-[#0AE98A]" />
+                <PlatziLogo className="w-full text-dark-800 dark:text-light-300 group-hover:text-dark-950 dark:group-hover:text-white transition-all duration-300" />
               </EducationCard>
             </li>
-            <li className="w-1/3 md:w-1/4">
+            <li className="w-2/5 md:w-1/4">
               <EducationCard
                 href="https://www.ucundinamarca.edu.co/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <PlatziLogo className="w-full text-dark-800 dark:text-light-50 group-hover:text-dark-950 dark:group-hover:text-[#0AE98A]" />
+                <UdecLogo className="w-full text-dark-800 dark:text-light-300 group-hover:text-dark-950 dark:group-hover:text-white transition-all duration-300" />
               </EducationCard>
             </li>
           </ul>
