@@ -1,3 +1,3 @@
-import { SVGProps } from 'react';
+import { HTMLAttributes } from 'react';
 
-export interface SDLogoProps extends SVGProps<SVGSVGElement> {}
+export interface SDLogoProps extends HTMLAttributes<SVGElement> {}

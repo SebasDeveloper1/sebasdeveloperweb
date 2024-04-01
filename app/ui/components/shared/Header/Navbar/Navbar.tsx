@@ -23,8 +23,11 @@ export function Navbar() {
   ];
   return (
     <nav className="z-[100] fixed flex justify-between items-center w-full h-16 px-5 py-3 lg:border-b lg:border-dark-900/10 dark:border-light-50/[0.06] bg-light-50 dark:bg-dark-950">
-      <Link href={'/'} className="h-5/6 text-dark-700 dark:text-light-50">
-        <SDLogo />
+      <Link
+        href={'/'}
+        className="overflow-hidden inline-block h-full text-dark-700 dark:text-light-50"
+      >
+        <SDLogo className="h-full" />
       </Link>
       <div className="grid grid-flow-col place-items-center gap-4">
         {/* Small screen navbar */}
