@@ -186,6 +186,7 @@ const config: Config = {
         bgSection1: "url('../../public/assets/bgSection1.png')",
         bgSection2: "url('../../public/assets/bgSection2.png')",
         bgSection3: "url('../../public/assets/bgSection3.png')",
+        bgSection4: "url('../../public/assets/bgSection4.avif')",
         blurCyan: "url('../../public/assets/blurCyan.webp')",
         backgroundBlue: "url('../../public/assets/background-blue.webp')",
       },

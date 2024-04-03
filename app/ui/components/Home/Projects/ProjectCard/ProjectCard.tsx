@@ -35,7 +35,7 @@ export function ProjectCard() {
           <span className="w-full span-sm font-semibold text-light-50 dark:text-light-50 capitalize truncate">
             Project Title
           </span>
-          <span className="span-xs text w-fit rounded-full px-1.5 py-0.5 font-medium leading-none text-light-50 dark:text-light-50 bg-accent2-500 dark:bg-accent2-500">
+          <span className="span-xs w-fit rounded-full px-1.5 py-0.5 font-medium leading-none text-light-50 dark:text-light-50 bg-accent2-500 dark:bg-accent2-500">
             Avanzado
           </span>
         </article>

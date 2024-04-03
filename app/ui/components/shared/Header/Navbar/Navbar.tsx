@@ -22,7 +22,7 @@ export function Navbar() {
     // Add more links as needed
   ];
   return (
-    <nav className="z-[100] fixed flex justify-between items-center w-full h-16 px-5 py-3 lg:border-b lg:border-dark-900/10 dark:border-light-50/[0.06] bg-light-50 dark:bg-dark-950">
+    <nav className="z-[100] fixed flex justify-between items-center w-full h-16 px-5 py-3 lg:border-b border-dark-900/10 dark:border-light-50/[0.06] bg-light-50 dark:bg-dark-950">
       <Link
         href={'/'}
         className="overflow-hidden inline-block h-full text-dark-700 dark:text-light-50"

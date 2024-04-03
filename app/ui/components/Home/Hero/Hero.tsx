@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import SDPhoto from '@/public/images/sebastian2.jpg';
-import { StarsSVG } from './StarsSVG';
+import { StarsSVG } from '../../assets/StarsSVG';
 
 export function Hero(): JSX.Element {
   return (

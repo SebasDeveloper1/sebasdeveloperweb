@@ -18,7 +18,7 @@ UTILITY CLASSES
     @apply bg-gradient-to-tr from-indigo-900 from-5% via-violet-800 via-10% to-pink-700 to-95%;
   }
   .gradient-secondary {
-    @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+    @apply bg-gradient-to-tr from-indigo-500 from-20% via-purple-500 via-80% to-pink-500 to-95%;
   }
 }
 
@@ -29,7 +29,7 @@ COMPONENT STYLES
 @layer components {
   /* Heading styles */
   .heading-1 {
-    @apply text-4xl sm:text-5xl md:text-6xl xl:text-7xl tracking-tight;
+    @apply text-4xl sm:text-5xl lg:text-6xl tracking-tight;
   }
   .heading-2 {
     @apply text-4xl sm:text-5xl tracking-tight;
