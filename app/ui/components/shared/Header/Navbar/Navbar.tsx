@@ -19,6 +19,10 @@ export function Navbar() {
       name: 'proyectos',
       href: '/projects',
     },
+    {
+      name: 'Educación',
+      href: '/education',
+    },
     // Add more links as needed
   ];
   return (

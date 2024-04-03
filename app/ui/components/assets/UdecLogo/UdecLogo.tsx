@@ -2,12 +2,11 @@ import { UdecLogoProps } from './UdecLogo.model';
 
 export function UdecLogo({ ...props }: UdecLogoProps): JSX.Element {
   return (
-    <div style={{ width: '100%', height: 'auto' }}>
+    <div>
       <svg
         viewBox="0 0 47 22"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ width: '100%', height: '100%' }}
         {...props}
       >
         <path

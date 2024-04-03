@@ -2,12 +2,11 @@ import { PlatziLogoProps } from './PlatziLogo.model';
 
 export function PlatziLogo({ ...props }: PlatziLogoProps): JSX.Element {
   return (
-    <div style={{ width: '100%', height: 'auto' }}>
+    <div>
       <svg
         fill="none"
         viewBox="0 0 62 22"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ width: '100%', height: '100%' }}
         {...props}
       >
         <mask
