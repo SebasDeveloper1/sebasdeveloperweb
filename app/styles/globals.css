@@ -20,6 +20,14 @@ UTILITY CLASSES
   .gradient-secondary {
     @apply bg-gradient-to-tr from-indigo-500 from-20% via-purple-500 via-80% to-pink-500 to-95%;
   }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
 }
 
 /* ================================

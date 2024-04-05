@@ -4,14 +4,14 @@ import { UdecLogo } from '@/app/ui/components/assets/UdecLogo';
 export function Hero() {
   return (
     <section className="w-full pt-16 bg-dark-950">
-      <article className="w-full bg-bgSection1 bg-cover bg-center">
+      <article className="w-full bg-section_dark bg-cover bg-center">
         <div className="flex justify-center items-center w-full py-20">
           <div className="flex flex-col justify-center items-center gap-10 w-11/12 lg:w-10/12">
             <div className="relative flex flex-col justify-center items-center gap-5 lg:gap-8 w-full text-center">
-              <h2 className="heading-1 font-bold text-light-50">
+              <h2 className="heading-1 font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
                 Mi preparación
               </h2>
-              <span className="span-2xl font-medium max-w-[50ch] text-dark-400 ">
+              <span className="span-xl max-w-[50ch] text-dark-300 ">
                 Conoce las instituciones que han apoyado mi crecimiento y las
                 habilidades que he obtenido en mi paso por ellas.
               </span>
@@ -22,14 +22,14 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <PlatziLogo className="h-12 md:h-16 text-light-400 hover:text-white transition-all duration-300" />
+                <PlatziLogo className="h-12 md:h-16 text-light-300 hover:text-white transition-all duration-300" />
               </a>
               <a
                 href="https://www.ucundinamarca.edu.co/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <UdecLogo className="h-12 md:h-16 text-light-400 hover:text-white transition-all duration-300" />
+                <UdecLogo className="h-12 md:h-16 text-light-300 hover:text-white transition-all duration-300" />
               </a>
             </section>
           </div>

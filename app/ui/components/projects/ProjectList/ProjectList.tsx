@@ -132,27 +132,25 @@ export function ProjectList() {
     },
   ];
   return (
-    <section className="w-full bg-light-100 dark:bg-dark-900">
+    <section className="w-full bg-light-50 dark:bg-dark-900">
       <div className="flex justify-center items-center w-full">
-        <article className="flex flex-col justify-center items-center gap-16 w-11/12 lg:w-10/12 py-16">
-          <header className="w-full">
-            <ul className="flex justify-around md:justify-start gap-x-7 items-center xl:gap-x-8">
+        <article className="flex flex-col justify-center items-center gap-10 w-full py-4 lg:py-16">
+          <header className="overflow-hidden w-full lg:w-10/12 ">
+            <ul className="relative overflow-x-auto hide-scrollbar flex flex-nowrap items-center gap-x-7 xl:gap-x-8 w-full p-4 lg:px-0">
               {navbarItems.map((item) => (
                 <li key={`item-${item?.name}`}>
                   <button
                     type="button"
-                    className="group w-full flex flex-col items-center gap-6 span-sm font-semibold capitalize"
+                    className="group w-full flex flex-col items-center gap-4 span-sm font-semibold capitalize whitespace-nowrap text-light-500 hover:text-light-700 dark:text-dark-400 dark:hover:text-dark-200"
                   >
-                    <span className="text-light-300 group-hover:text-light-400 dark:text-dark-600 dark:group-hover:text-dark-500">
-                      {item?.icon}
-                    </span>
+                    {item?.icon}
                     {item?.title}
                   </button>
                 </li>
               ))}
             </ul>
           </header>
-          <ul className="columns-3xs gap-4 md:gap-6 w-full">
+          <ul className="columns-3xs gap-4 md:gap-6 w-11/12 lg:w-10/12">
             {arrayTest.map((index) => {
               const randomIndex = Math.floor(Math.random() * 100);
               return (

@@ -4,7 +4,7 @@ import { ProjectList } from './ProjectList';
 export function Projects() {
   return (
     <section className="bg-white dark:bg-dark-950">
-      <div className="flex justify-center items-center w-full dark:bg-bgSection3 dark:bg-cover dark:bg-center">
+      <div className="flex justify-center items-center w-full dark:bg-section_3 dark:bg-cover dark:bg-center">
         <article className="flex flex-col md:flex-row justify-center gap-10 w-11/12 lg:w-10/12 py-16 md:py-32">
           <div className="flex flex-col justify-center gap-4 w-full h-full">
             <div className="flex flex-col justify-center gap-8 w-full">

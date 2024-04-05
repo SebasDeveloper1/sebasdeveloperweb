@@ -183,12 +183,27 @@ const config: Config = {
         accent7: colorPalette.accent7,
       },
       backgroundImage: {
-        bgSection1: "url('../../public/assets/bgSection1.png')",
-        bgSection2: "url('../../public/assets/bgSection2.png')",
-        bgSection3: "url('../../public/assets/bgSection3.png')",
-        bgSection4: "url('../../public/assets/bgSection4.avif')",
+        section_1: "url('../../public/assets/section_1.png')",
+        section_2: "url('../../public/assets/section_2.png')",
+        section_3: "url('../../public/assets/section_3.png')",
+        section_4: "url('../../public/assets/section_4.png')",
+        section_dark: "url('../../public/assets/section_dark.jpg')",
+        section_light: "url('../../public/assets/section_light.webp')",
+        section_light_full:
+          "url('../../public/assets/section_light_full.webp')",
         blurCyan: "url('../../public/assets/blurCyan.webp')",
-        backgroundBlue: "url('../../public/assets/background-blue.webp')",
+        thumbnail_bg_blue: "url('../../public/assets/thumbnail_bg_blue.webp')",
+        thumbnail_bg_green:
+          "url('../../public/assets/thumbnail_bg_green.webp')",
+        thumbnail_bg_orange:
+          "url('../../public/assets/thumbnail_bg_orange.webp')",
+        thumbnail_bg_purple:
+          "url('../../public/assets/thumbnail_bg_purple.webp')",
+        thumbnail_bg_red: "url('../../public/assets/thumbnail_bg_red.webp')",
+        thumbnail_bg_violet:
+          "url('../../public/assets/thumbnail_bg_violet.webp')",
+        thumbnail_bg_yellow:
+          "url('../../public/assets/thumbnail_bg_yellow.webp')",
       },
     },
   },
