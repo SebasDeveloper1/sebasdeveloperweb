@@ -1,0 +1,1 @@
+export { ScrollTopButtonWrapper } from './ScrollTopButtonWrapper';
