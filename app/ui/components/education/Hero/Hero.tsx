@@ -3,8 +3,8 @@ import { UdecLogo } from '@/app/ui/components/assets/UdecLogo';
 
 export function Hero() {
   return (
-    <section className="w-full pt-16 bg-primary-50 dark:bg-dark-900/40">
-      <article className="w-full">
+    <section className="w-full pt-16 bg-primary-50 dark:bg-dark-900/20">
+      <article className="w-full bg-education_hero_dark bg-cover bg-center">
         <div className="flex justify-center items-center w-full py-20">
           <div className="flex flex-col md:flex-row justify-center items-center gap-10 w-11/12 lg:w-10/12">
             <div className="relative flex flex-col justify-center items-start gap-5 lg:gap-8 w-full">

@@ -26,9 +26,9 @@ export function NavbarLG({ links, pathname }: NavbarLGprops): JSX.Element {
           );
         })}
       </ul>
-      <button type="button" className="button-primary padding-button ml-4">
+      <Link href={'/contact'} className="button-primary padding-button ml-4">
         Contáctame
-      </button>
+      </Link>
     </section>
   );
 }

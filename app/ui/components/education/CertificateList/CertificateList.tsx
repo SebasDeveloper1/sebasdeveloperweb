@@ -190,7 +190,7 @@ export function CertificateList() {
   return (
     <section className="w-full bg-white dark:bg-dark-950">
       <div className="flex justify-center items-center w-full">
-        <article className="flex flex-col justify-center items-center gap-10 w-full py-4 lg:py-16">
+        <article className="flex flex-col justify-center items-center gap-10 w-full py-4">
           <header className="overflow-hidden w-full lg:w-10/12 ">
             <ul className="relative overflow-x-auto hide-scrollbar flex flex-nowrap items-center gap-x-7 xl:gap-x-8 w-full p-4 lg:px-0">
               {navbarItems.map((item) => (

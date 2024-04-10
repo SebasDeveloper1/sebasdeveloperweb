@@ -143,7 +143,7 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
                 </span>
                 <div className="flex flex-wrap gap-4 w-full mt-4">
                   <button
-                    type="button"
+                    onClick={(e) => handleLink(e, '/contact')}
                     className="button-primary padding-button w-full md:w-fit"
                   >
                     <svg
