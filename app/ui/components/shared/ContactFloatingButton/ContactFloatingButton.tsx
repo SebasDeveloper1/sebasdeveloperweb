@@ -1,10 +1,15 @@
 'use client';
 // Import necessary dependencies and types
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import useOnClickOutside from '@/app/lib/hooks/useOnClickOutside';
 
-export function ContactButtonWrapper() {
+export function ContactFloatingButton(): JSX.Element {
+  const [mounted, setMounted] = useState(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const contactOptions: {
     name: string;
@@ -152,15 +157,35 @@ export function ContactButtonWrapper() {
 
   useOnClickOutside(showMenuRef1, () => setShowMenu(false), showMenuRef2);
 
+  if (!mounted) {
+    return (
+      <div className="z-[100] fixed bottom-5 right-5 p-3 rounded-full text-transparent animate-pulse">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="icon icon-tabler icon-tabler-message w-10 aspect-square"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M8 9h8" />
+          <path d="M8 13h6" />
+          <path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z" />
+        </svg>
+      </div>
+    );
+  }
+
   // Return the JSX representation of the ScrollTopButtonWrapper component
   return (
-    <div className="relative">
+    <>
       <button
         ref={showMenuRef1}
         type="button"
-        className={`z-[100] fixed bottom-5 right-5 button-primary p-3 rounded-full transition-all duration-300 transform ${
-          showMenu ? 'rotate-90' : ''
-        }`}
+        className="z-[100] fixed bottom-5 right-5 button-primary p-3 rounded-full animate-jump-in"
         title={`${showMenu ? 'Cerrar' : 'Contactar'}`}
         aria-label={`${showMenu ? 'Cerrar' : 'Contactar'}`}
         onClick={() => setShowMenu(!showMenu)}
@@ -168,7 +193,7 @@ export function ContactButtonWrapper() {
         {!showMenu ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="icon icon-tabler icon-tabler-message w-10 aspect-square"
+            className="icon icon-tabler icon-tabler-message w-9 aspect-square"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
@@ -184,7 +209,7 @@ export function ContactButtonWrapper() {
         ) : (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="icon icon-tabler icon-tabler-x w-10 aspect-square"
+            className="icon icon-tabler icon-tabler-x w-9 aspect-square"
             viewBox="0 0 24 24"
             strokeWidth="2"
             stroke="currentColor"
@@ -202,7 +227,7 @@ export function ContactButtonWrapper() {
         <div className="z-[99] fixed inset-0 mt-16 bg-dark-900/60 backdrop-blur-sm">
           <ul
             ref={showMenuRef2}
-            className="absolute bottom-16 right-16 w-fit max-w-xs rounded-lg shadow-lg py-4 bg-dark-100 dark:bg-dark-800 "
+            className="absolute bottom-16 right-16 w-fit max-w-xs rounded-lg shadow-lg py-4 bg-dark-100 dark:bg-dark-800"
           >
             {contactOptions.map((option) => (
               <li key={`link-${option?.name}`} className="w-full">
@@ -220,6 +245,6 @@ export function ContactButtonWrapper() {
           </ul>
         </div>
       ) : null}
-    </div>
+    </>
   );
 }
