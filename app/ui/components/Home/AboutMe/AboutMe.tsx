@@ -46,20 +46,20 @@ export function AboutMe(): JSX.Element {
             </h2>
           </div>
           <div className="w-full max-w-prose">
-            <p className="mb-6 paragraph-lg text-dark-100">
+            <p className="paragraph-lg span-lg text-dark-50 [&>strong]:text-accent3-500 [&>strong]:font-semibold">
               👋 ¡Hola! Soy Sebastián, un apasionado de la tecnología con un
               espíritu creativo, innovador y curioso. Busco colaborar de forma
               efectiva en el desarrollo personal y profesional de las personas
               con las que trabajo y en la elaboración de productos y servicios
               tecnológicos de alta calidad que aporten un valor agregado al
               mundo y que impacten de forma positiva en la vida de sus usuarios.
-            </p>
-            <span className="span-lg text-dark-50 [&>strong]:text-accent3-500 [&>strong]:font-semibold">
+              <br />
+              <br />
               ¡Si compartes mi visión y te entusiasma la idea de crear algo
               increíble, no dudes en ponerte en contacto conmigo! Estoy listo
               para formar parte de tu proyecto y juntos hacer historia.
               <strong> ¡Espero con ansias tu mensaje!</strong> 🚀
-            </span>
+            </p>
           </div>
         </section>
       </article>
