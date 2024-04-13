@@ -28,6 +28,11 @@ UTILITY CLASSES
   .hide-scrollbar {
     scrollbar-width: none;
   }
+
+  /* Custom style for minimum height on large screens (lg) for banners */
+  .min-height-banner {
+    min-height: calc(100vh - 4rem);
+  }
 }
 
 /* ================================

@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { Onest } from 'next/font/google';
 import ThemeProvider from '@/app/providers/ThemeProvider';
 import { Header } from '@/app/ui/components/shared/Header';
-import './styles/globals.css';
-import { Footer } from './ui/components/shared/Footer';
+import '@/app/styles/globals.css';
+import { Footer } from '@/app/ui/components/shared/Footer';
+import { ContactFloatingButton } from '@/app/ui/components/shared/ContactFloatingButton';
 
 const onest = Onest({
   subsets: ['latin'],
@@ -26,6 +27,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           {children}
+          <ContactFloatingButton />
           <Footer />
         </ThemeProvider>
       </body>
