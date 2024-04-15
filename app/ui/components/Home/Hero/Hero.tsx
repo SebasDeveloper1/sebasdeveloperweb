@@ -1,8 +1,25 @@
 import Image from 'next/image';
-import SDPhoto from '@/public/images/sebastian2.jpg';
 import { StarsSVG } from '../../assets/StarsSVG';
+import ReactMarkdown, { Components } from 'react-markdown';
+import { HeroProps, RendererProps } from './Hero.model';
 
-export function Hero(): JSX.Element {
+export function Hero({ personalInfo }: HeroProps): JSX.Element {
+  const {
+    name: personalName = 'Default Name',
+    shortDescription,
+    photo,
+    cv,
+  } = personalInfo?.personalInformationCollection?.items?.[0] || {};
+
+  const renderers = {
+    p: ({ children }: RendererProps) => (
+      <p className="span-xl max-w-prose mt-8 text-dark-300">{children}</p>
+    ),
+    strong: ({ children }: RendererProps) => (
+      <strong className="text-accent3-500 font-semibold">{children}</strong>
+    ),
+  };
+
   return (
     <section className="overflow-hidden relative flex justify-center items-center w-full min-h-screen bg-light-950 dark:bg-dark-950">
       <video
@@ -26,7 +43,7 @@ export function Hero(): JSX.Element {
             <Image
               fill
               sizes="100%"
-              src={SDPhoto}
+              src={`${photo?.url}`}
               alt={'SebasDeveloper'}
               placeholder="blur"
               loading="lazy"
@@ -35,16 +52,14 @@ export function Hero(): JSX.Element {
           </figure>
           <div className="z-[12] order-2 md:order-1 flex flex-col justify-center items-start gap-4 w-full">
             <span className="heading-2 text-dark-200 font-bold">Hey, soy</span>
-            <h1 className="heading-1 text-dark-50 font-bold">
-              Sebastian Pedroza
-            </h1>
-            <span className="span-xl max-w-prose mt-8 text-dark-300 [&>strong]:text-accent3-500 [&>strong]:font-semibold">
-              Ingeniero de Sistemas y Desarrollador Web con
-              <strong> +2 años de experiencia.</strong> Especializado en el
-              desarrollo de aplicaciones web únicas y de gran impacto.
-            </span>
-            <button
-              type="button"
+            <h1 className="heading-1 text-dark-50 font-bold">{personalName}</h1>
+            <ReactMarkdown components={renderers as Partial<Components>}>
+              {shortDescription}
+            </ReactMarkdown>
+            <a
+              href={`${cv?.url}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="button-outlined padding-button w-full md:w-fit mt-2"
             >
               <svg
@@ -65,7 +80,7 @@ export function Hero(): JSX.Element {
                 <path d="M12 4l0 12" />
               </svg>
               Descargar CV
-            </button>
+            </a>
           </div>
         </article>
       </div>
