@@ -1,11 +1,19 @@
 import { getClient } from '@/lib/client';
-import { GetPersonalInfoQuery } from '@/app/lib/api/generated/graphql';
-import { GetPersonalInfo } from '../queries/queries';
+import {
+  GetAboutMeInfoQuery,
+  GetHeroHomeInfoQuery,
+  GetNavbarInfoQuery,
+} from '@/app/lib/api/generated/graphql';
+import {
+  GetAboutMeInfo,
+  GetHeroHomeInfo,
+  GetNavbarInfo,
+} from '../queries/queries';
 
-export const fetchPersonalInfo = async () => {
+export const fetchNavbarInfo = async () => {
   try {
-    const { data }: { data: GetPersonalInfoQuery } = await getClient().query({
-      query: GetPersonalInfo,
+    const { data }: { data: GetNavbarInfoQuery } = await getClient().query({
+      query: GetNavbarInfo,
       context: {
         fetchOptions: {
           next: { revalidate: 5 },
@@ -14,6 +22,37 @@ export const fetchPersonalInfo = async () => {
     });
     return data;
   } catch (error) {
-    throw new Error(`Error fetching personal info ${error}`);
+    throw new Error(`Error fetching navbar personal info ${error}`);
+  }
+};
+
+export const fetchHeroHomeInfo = async () => {
+  try {
+    const { data }: { data: GetHeroHomeInfoQuery } = await getClient().query({
+      query: GetHeroHomeInfo,
+      context: {
+        fetchOptions: {
+          next: { revalidate: 5 },
+        },
+      },
+    });
+    return data;
+  } catch (error) {
+    throw new Error(`Error fetching hero personal info ${error}`);
+  }
+};
+export const fetchAboutMeInfo = async () => {
+  try {
+    const { data }: { data: GetAboutMeInfoQuery } = await getClient().query({
+      query: GetAboutMeInfo,
+      context: {
+        fetchOptions: {
+          next: { revalidate: 5 },
+        },
+      },
+    });
+    return data;
+  } catch (error) {
+    throw new Error(`Error fetching about me personal info ${error}`);
   }
 };

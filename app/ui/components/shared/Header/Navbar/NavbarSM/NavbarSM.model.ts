@@ -1,6 +1,8 @@
-import { NavbarProps } from '../Navbar.model';
+import { GetNavbarInfoQuery } from '@/app/lib/api/generated/graphql';
+import { NavbarLinks } from '../Navbar.model';
 
 export interface NavbarSMprops {
-  links: NavbarProps[];
+  personalInfo: GetNavbarInfoQuery;
+  links: NavbarLinks[];
   pathname: string;
 }

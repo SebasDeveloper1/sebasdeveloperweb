@@ -1,6 +1,6 @@
-import { NavbarProps } from '../Navbar.model';
+import { NavbarLinks } from '../Navbar.model';
 
 export interface NavbarLGprops {
-  links: NavbarProps[];
+  links: NavbarLinks[];
   pathname: string;
 }

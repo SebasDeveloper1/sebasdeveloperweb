@@ -614,6 +614,7 @@ export type PersonalInformation = Entry & {
   photo?: Maybe<Asset>;
   shortDescription?: Maybe<Scalars['String']['output']>;
   sys: Sys;
+  userName?: Maybe<Scalars['String']['output']>;
 };
 
 
@@ -668,6 +669,12 @@ export type PersonalInformationShortDescriptionArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
+/** personal information with name, short description, long description, photo [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/personalInformation) */
+export type PersonalInformationUserNameArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type PersonalInformationCollection = {
   __typename?: 'PersonalInformationCollection';
   items: Array<Maybe<PersonalInformation>>;
@@ -706,6 +713,13 @@ export type PersonalInformationFilter = {
   shortDescription_not_contains?: InputMaybe<Scalars['String']['input']>;
   shortDescription_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sys?: InputMaybe<SysFilter>;
+  userName?: InputMaybe<Scalars['String']['input']>;
+  userName_contains?: InputMaybe<Scalars['String']['input']>;
+  userName_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  userName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  userName_not?: InputMaybe<Scalars['String']['input']>;
+  userName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  userName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type PersonalInformationLinkingCollections = {
@@ -731,7 +745,9 @@ export enum PersonalInformationOrder {
   SysPublishedAtAsc = 'sys_publishedAt_ASC',
   SysPublishedAtDesc = 'sys_publishedAt_DESC',
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  UserNameAsc = 'userName_ASC',
+  UserNameDesc = 'userName_DESC'
 }
 
 export type Query = {
@@ -875,7 +891,17 @@ export type _Node = {
   _id: Scalars['ID']['output'];
 };
 
-export type GetPersonalInfoQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetHeroHomeInfoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPersonalInfoQuery = { __typename?: 'Query', personalInformationCollection?: { __typename?: 'PersonalInformationCollection', items: Array<{ __typename?: 'PersonalInformation', name?: string | null, shortDescription?: string | null, photo?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null, cv?: { __typename?: 'Asset', url?: string | null } | null } | null> } | null };
+export type GetHeroHomeInfoQuery = { __typename?: 'Query', personalInformationCollection?: { __typename?: 'PersonalInformationCollection', items: Array<{ __typename?: 'PersonalInformation', name?: string | null, shortDescription?: string | null, photo?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null, cv?: { __typename?: 'Asset', url?: string | null } | null, bgVideo?: { __typename?: 'Asset', url?: string | null } | null } | null> } | null };
+
+export type GetNavbarInfoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetNavbarInfoQuery = { __typename?: 'Query', personalInformationCollection?: { __typename?: 'PersonalInformationCollection', items: Array<{ __typename?: 'PersonalInformation', name?: string | null, userName?: string | null, photo?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null, cv?: { __typename?: 'Asset', url?: string | null } | null } | null> } | null };
+
+export type GetAboutMeInfoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAboutMeInfoQuery = { __typename?: 'Query', personalInformationCollection?: { __typename?: 'PersonalInformationCollection', items: Array<{ __typename?: 'PersonalInformation', aboutMe?: string | null, cover?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null };

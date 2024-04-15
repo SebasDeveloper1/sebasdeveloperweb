@@ -1,7 +1,24 @@
 import Image from 'next/image';
-import SDAboutMe from '@/public/images/aboutme.jpg';
+import { fetchAboutMeInfo } from '@/app/lib/api/data/fetch';
+import { GetAboutMeInfoQuery } from '@/app/lib/api/generated/graphql';
+import ReactMarkdown, { Components } from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import { RendererProps } from './AbotMe.model';
 
-export function AboutMe(): JSX.Element {
+export async function AboutMe(): Promise<JSX.Element> {
+  const { personalInformationCollection }: GetAboutMeInfoQuery =
+    await fetchAboutMeInfo();
+  const { aboutMe, cover } = personalInformationCollection?.items[0] || {};
+
+  const renderers = {
+    p: ({ children }: RendererProps) => (
+      <p className="paragraph-lg text-dark-50">{children}</p>
+    ),
+    strong: ({ children }: RendererProps) => (
+      <strong className="text-accent3-500 font-semibold">{children}</strong>
+    ),
+  };
+
   return (
     <section className="flex justify-center items-center w-full py-20 gradient-primary">
       <article className="grid grid-cols-1 md:grid-flow-col place-items-center gap-8 w-11/12 lg:w-10/12">
@@ -14,8 +31,8 @@ export function AboutMe(): JSX.Element {
           <Image
             fill
             sizes="100%"
-            src={SDAboutMe}
-            alt={'SebasDeveloper'}
+            src={`${cover?.url}`}
+            alt={`${cover?.title}`}
             placeholder="blur"
             loading="lazy"
             blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
@@ -46,20 +63,12 @@ export function AboutMe(): JSX.Element {
             </h2>
           </div>
           <div className="w-full max-w-prose">
-            <p className="paragraph-lg span-lg text-dark-50 [&>strong]:text-accent3-500 [&>strong]:font-semibold">
-              👋 ¡Hola! Soy Sebastián, un apasionado de la tecnología con un
-              espíritu creativo, innovador y curioso. Busco colaborar de forma
-              efectiva en el desarrollo personal y profesional de las personas
-              con las que trabajo y en la elaboración de productos y servicios
-              tecnológicos de alta calidad que aporten un valor agregado al
-              mundo y que impacten de forma positiva en la vida de sus usuarios.
-              <br />
-              <br />
-              ¡Si compartes mi visión y te entusiasma la idea de crear algo
-              increíble, no dudes en ponerte en contacto conmigo! Estoy listo
-              para formar parte de tu proyecto y juntos hacer historia.
-              <strong> ¡Espero con ansias tu mensaje!</strong> 🚀
-            </p>
+            <ReactMarkdown
+              rehypePlugins={[rehypeRaw]}
+              components={renderers as Partial<Components>}
+            >
+              {aboutMe}
+            </ReactMarkdown>
           </div>
         </section>
       </article>

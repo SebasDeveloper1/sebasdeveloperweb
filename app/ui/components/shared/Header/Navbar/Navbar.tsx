@@ -4,24 +4,24 @@ import Link from 'next/link';
 import { SDLogo } from '@/app/ui/components/assets/SDLogo';
 import { NavbarLG } from './NavbarLG';
 import { NavbarSM } from './NavbarSM';
-import { NavbarProps } from './Navbar.model';
+import { NavbarLinks, NavbarProps } from './Navbar.model';
 import { ThemeSwich } from '../ThemeSwich';
 
-export function Navbar() {
+export function Navbar({ personalInfo }: NavbarProps) {
   const pathname = usePathname();
-  // Define an array of navigation links with names, hrefs, and icons
-  const links: NavbarProps[] = [
+  // Define an array of navigation links with names, paths, and icons
+  const links: NavbarLinks[] = [
     {
       name: 'Inicio',
-      href: '/',
+      path: '/',
     },
     {
       name: 'proyectos',
-      href: '/projects',
+      path: '/projects',
     },
     {
       name: 'Educación',
-      href: '/education',
+      path: '/education',
     },
     // Add more links as needed
   ];
@@ -35,7 +35,7 @@ export function Navbar() {
       </Link>
       <div className="grid grid-flow-col place-items-center gap-4">
         {/* Small screen navbar */}
-        <NavbarSM links={links} pathname={pathname} />
+        <NavbarSM links={links} pathname={pathname} personalInfo={personalInfo}/>
         {/* Large screen navbar */}
         <NavbarLG links={links} pathname={pathname} />
         <ThemeSwich />

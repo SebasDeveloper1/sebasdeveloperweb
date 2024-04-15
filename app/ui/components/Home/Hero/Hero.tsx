@@ -4,12 +4,8 @@ import ReactMarkdown, { Components } from 'react-markdown';
 import { HeroProps, RendererProps } from './Hero.model';
 
 export function Hero({ personalInfo }: HeroProps): JSX.Element {
-  const {
-    name: personalName = 'Default Name',
-    shortDescription,
-    photo,
-    cv,
-  } = personalInfo?.personalInformationCollection?.items?.[0] || {};
+  const { name, shortDescription, photo, cv, bgVideo } =
+    personalInfo?.personalInformationCollection?.items?.[0] || {};
 
   const renderers = {
     p: ({ children }: RendererProps) => (
@@ -27,9 +23,7 @@ export function Hero({ personalInfo }: HeroProps): JSX.Element {
         muted
         loop
         className="absolute inset-0 w-full h-full object-cover object-center"
-        src={
-          'https://firebasestorage.googleapis.com/v0/b/sd-website-f934d.appspot.com/o/videos%2Fhero-background.mp4?alt=media&token=328b71ee-e89a-420e-8dc7-9fe88c188bb5'
-        }
+        src={`${bgVideo?.url}`}
       />
       <div className="z-10 flex justify-center items-center w-full min-h-screen py-24 bg-dark-950/60 backdrop-blur-[3px]">
         <article className="relative grid grid-cols-1 md:grid-flow-col items-center gap-8 md:gap-10 w-11/12 lg:w-9/12">
@@ -44,7 +38,7 @@ export function Hero({ personalInfo }: HeroProps): JSX.Element {
               fill
               sizes="100%"
               src={`${photo?.url}`}
-              alt={'SebasDeveloper'}
+              alt={`${photo?.title}`}
               placeholder="blur"
               loading="lazy"
               blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
@@ -52,7 +46,7 @@ export function Hero({ personalInfo }: HeroProps): JSX.Element {
           </figure>
           <div className="z-[12] order-2 md:order-1 flex flex-col justify-center items-start gap-4 w-full">
             <span className="heading-2 text-dark-200 font-bold">Hey, soy</span>
-            <h1 className="heading-1 text-dark-50 font-bold">{personalName}</h1>
+            <h1 className="heading-1 text-dark-50 font-bold">{name}</h1>
             <ReactMarkdown components={renderers as Partial<Components>}>
               {shortDescription}
             </ReactMarkdown>

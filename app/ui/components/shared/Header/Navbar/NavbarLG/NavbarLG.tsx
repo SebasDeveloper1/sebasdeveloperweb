@@ -11,14 +11,14 @@ export function NavbarLG({ links, pathname }: NavbarLGprops): JSX.Element {
       <ul className="flex justify-center items-center gap-2 w-full">
         {/* Map through the array of navigation links */}
         {links.map((link) => {
-          const isActive = pathname === link?.href;
+          const isActive = pathname === link?.path;
           return (
             <li
               key={`Navbar-link-${link?.name}`}
               className={`navbar-item-lg w-full capitalize ${isActive ? 'navbar-item-active-lg' : ''}`}
             >
-              {/* Link to the specified href */}
-              <Link className="" href={link?.href} title={link?.name}>
+              {/* Link to the specified path */}
+              <Link className="" href={link?.path} title={link?.name}>
                 {/* Display the link name */}
                 {link?.name}
               </Link>

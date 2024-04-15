@@ -1,11 +1,10 @@
 import { gql } from '@apollo/client';
 
-export const GetPersonalInfo = gql`
-  query GetPersonalInfo {
+export const GetHeroHomeInfo = gql`
+  query GetHeroHomeInfo {
     personalInformationCollection(limit: 1) {
       items {
         name
-        shortDescription
         photo {
           title
           url
@@ -13,6 +12,40 @@ export const GetPersonalInfo = gql`
         cv {
           url
         }
+        bgVideo {
+          url
+        }
+        shortDescription
+      }
+    }
+  }
+`;
+export const GetNavbarInfo = gql`
+  query GetNavbarInfo {
+    personalInformationCollection(limit: 1) {
+      items {
+        name
+        userName
+        photo {
+          title
+          url
+        }
+        cv {
+          url
+        }
+      }
+    }
+  }
+`;
+export const GetAboutMeInfo = gql`
+  query GetAboutMeInfo {
+    personalInformationCollection(limit: 1) {
+      items {
+        cover {
+          title
+          url
+        }
+        aboutMe
       }
     }
   }

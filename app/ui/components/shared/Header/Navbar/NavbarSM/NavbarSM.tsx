@@ -5,9 +5,14 @@ import Image from 'next/image';
 import { useState, useRef, MouseEvent } from 'react';
 import useOnClickOutside from '@/app/lib/hooks/useOnClickOutside';
 import { NavbarSMprops } from './NavbarSM.model';
-import SDPhoto from '@/public/images/sebastian2.jpg';
 
-export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
+export function NavbarSM({
+  links,
+  pathname,
+  personalInfo,
+}: NavbarSMprops): JSX.Element {
+  const { name, photo, userName, cv } =
+    personalInfo?.personalInformationCollection?.items[0] || {};
   // State for controlling the visibility of the search input and menu
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
@@ -125,8 +130,8 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
                     <Image
                       fill
                       sizes="100%"
-                      src={SDPhoto}
-                      alt={'SebasDeveloper'}
+                      src={`${photo?.url}`}
+                      alt={`${photo?.title}`}
                       placeholder="blur"
                       loading="lazy"
                       blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
@@ -136,14 +141,16 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
               </div>
               <div className="flex flex-col justify-center w-full h-full p-4 pt-6">
                 <span className="span-lg whitespace-nowrap capitalize text-dark-950 dark:text-light-50 font-semibold">
-                  Sebastian pedroza
+                  {name}
                 </span>
                 <span className="span-sm whitespace-nowrap text-dark-800 dark:text-light-400">
-                  @SebasDeveloper
+                  {userName}
                 </span>
                 <div className="flex flex-wrap gap-4 w-full mt-4">
-                  <button
-                    type="button"
+                  <a
+                    href={`${cv?.url}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="button-outlined padding-button w-full md:w-fit"
                   >
                     <svg
@@ -164,7 +171,7 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
                       <path d="M12 4l0 12" />
                     </svg>
                     Descargar CV
-                  </button>
+                  </a>
                 </div>
               </div>
             </article>
@@ -172,17 +179,17 @@ export function NavbarSM({ links, pathname }: NavbarSMprops): JSX.Element {
           <ul className="flex flex-col items-center gap-4 w-full pt-6 border-t border-customNeutral-700 ">
             {/* Map through the array of navigation links */}
             {links.map((link) => {
-              const isActive = pathname === link?.href;
+              const isActive = pathname === link?.path;
               return (
                 <li
                   key={`Navbar-link-${link.name}`}
                   className={`navbar-item-sm w-full ${isActive ? 'navbar-item-active-sm' : null}`}
                 >
-                  {/* Link to the specified href */}
+                  {/* Link to the specified path */}
                   <button
                     type="button"
                     className="flex items-center gap-3 w-full capitalize"
-                    onClick={(e) => handleLink(e, link?.href)}
+                    onClick={(e) => handleLink(e, link?.path)}
                   >
                     {/* Display the link name */}
                     {link?.name}

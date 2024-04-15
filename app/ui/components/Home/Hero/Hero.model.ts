@@ -1,7 +1,7 @@
-import { GetPersonalInfoQuery } from '@/app/lib/api/generated/graphql';
+import { GetHeroHomeInfoQuery } from '@/app/lib/api/generated/graphql';
 
 export interface HeroProps {
-  personalInfo: GetPersonalInfoQuery;
+  personalInfo: GetHeroHomeInfoQuery;
 }
 
 export interface RendererProps {
