@@ -171,6 +171,7 @@ export type AssetLinkingCollections = {
   __typename?: 'AssetLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
   personalInformationCollection?: Maybe<PersonalInformationCollection>;
+  toolCollection?: Maybe<ToolCollection>;
 };
 
 
@@ -183,6 +184,14 @@ export type AssetLinkingCollectionsEntryCollectionArgs = {
 
 
 export type AssetLinkingCollectionsPersonalInformationCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type AssetLinkingCollectionsToolCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
@@ -760,6 +769,8 @@ export type Query = {
   jobExperienceCollection?: Maybe<JobExperienceCollection>;
   personalInformation?: Maybe<PersonalInformation>;
   personalInformationCollection?: Maybe<PersonalInformationCollection>;
+  tool?: Maybe<Tool>;
+  toolCollection?: Maybe<ToolCollection>;
 };
 
 
@@ -830,6 +841,23 @@ export type QueryPersonalInformationCollectionArgs = {
   where?: InputMaybe<PersonalInformationFilter>;
 };
 
+
+export type QueryToolArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryToolCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<ToolOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ToolFilter>;
+};
+
 export type ResourceLink = {
   sys: ResourceSys;
 };
@@ -887,6 +915,116 @@ export type SysFilter = {
   publishedVersion_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
+/** This type of content is tools. [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/tool) */
+export type Tool = Entry & {
+  __typename?: 'Tool';
+  contentfulMetadata: ContentfulMetadata;
+  description?: Maybe<Scalars['String']['output']>;
+  linkedFrom?: Maybe<ToolLinkingCollections>;
+  logo?: Maybe<Asset>;
+  name?: Maybe<Scalars['String']['output']>;
+  sys: Sys;
+  url?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** This type of content is tools. [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/tool) */
+export type ToolDescriptionArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** This type of content is tools. [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/tool) */
+export type ToolLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** This type of content is tools. [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/tool) */
+export type ToolLogoArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** This type of content is tools. [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/tool) */
+export type ToolNameArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** This type of content is tools. [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/tool) */
+export type ToolUrlArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ToolCollection = {
+  __typename?: 'ToolCollection';
+  items: Array<Maybe<Tool>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type ToolFilter = {
+  AND?: InputMaybe<Array<InputMaybe<ToolFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<ToolFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_contains?: InputMaybe<Scalars['String']['input']>;
+  description_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  description_not?: InputMaybe<Scalars['String']['input']>;
+  description_not_contains?: InputMaybe<Scalars['String']['input']>;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  logo_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_contains?: InputMaybe<Scalars['String']['input']>;
+  name_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  name_not?: InputMaybe<Scalars['String']['input']>;
+  name_not_contains?: InputMaybe<Scalars['String']['input']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sys?: InputMaybe<SysFilter>;
+  url?: InputMaybe<Scalars['String']['input']>;
+  url_contains?: InputMaybe<Scalars['String']['input']>;
+  url_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  url_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url_not?: InputMaybe<Scalars['String']['input']>;
+  url_not_contains?: InputMaybe<Scalars['String']['input']>;
+  url_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ToolLinkingCollections = {
+  __typename?: 'ToolLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type ToolLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export enum ToolOrder {
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  UrlAsc = 'url_ASC',
+  UrlDesc = 'url_DESC'
+}
+
 export type _Node = {
   _id: Scalars['ID']['output'];
 };
@@ -905,3 +1043,8 @@ export type GetAboutMeInfoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetAboutMeInfoQuery = { __typename?: 'Query', personalInformationCollection?: { __typename?: 'PersonalInformationCollection', items: Array<{ __typename?: 'PersonalInformation', aboutMe?: string | null, cover?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null };
+
+export type GetToolListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetToolListQuery = { __typename?: 'Query', toolCollection?: { __typename?: 'ToolCollection', items: Array<{ __typename?: 'Tool', name?: string | null, description?: string | null, url?: string | null, logo?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null };

@@ -1,4 +1,4 @@
-export interface buttonText {
+export interface ButtonText {
   showMore: {
     text: string;
     icon: JSX.Element;

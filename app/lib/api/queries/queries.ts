@@ -50,3 +50,18 @@ export const GetAboutMeInfo = gql`
     }
   }
 `;
+export const GetToolList = gql`
+  query GetToolList {
+    toolCollection(order: sys_firstPublishedAt_ASC) {
+      items {
+        name
+        description
+        url
+        logo {
+          title
+          url
+        }
+      }
+    }
+  }
+`;

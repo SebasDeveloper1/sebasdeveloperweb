@@ -3,11 +3,13 @@ import {
   GetAboutMeInfoQuery,
   GetHeroHomeInfoQuery,
   GetNavbarInfoQuery,
+  GetToolListQuery,
 } from '@/app/lib/api/generated/graphql';
 import {
   GetAboutMeInfo,
   GetHeroHomeInfo,
   GetNavbarInfo,
+  GetToolList,
 } from '../queries/queries';
 
 export const fetchNavbarInfo = async () => {
@@ -54,5 +56,20 @@ export const fetchAboutMeInfo = async () => {
     return data;
   } catch (error) {
     throw new Error(`Error fetching about me personal info ${error}`);
+  }
+};
+export const fetchToolList = async () => {
+  try {
+    const { data }: { data: GetToolListQuery } = await getClient().query({
+      query: GetToolList,
+      context: {
+        fetchOptions: {
+          next: { revalidate: 5 },
+        },
+      },
+    });
+    return data;
+  } catch (error) {
+    throw new Error(`Error fetching tool list ${error}`);
   }
 };

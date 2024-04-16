@@ -1,9 +1,10 @@
 'use client';
 import { RefObject, useState } from 'react';
 import { ToolCard } from '../ToolCard';
-import { buttonText } from './ToolList.model';
+import { ButtonText } from './ToolList.model';
+import { ToolCollection } from '@/app/lib/api/generated/graphql';
 
-const buttonText: buttonText = {
+const buttonText: ButtonText = {
   showMore: {
     text: 'Ver más...',
     icon: (
@@ -53,13 +54,16 @@ const buttonText: buttonText = {
 
 export function ToolList({
   sectionRef,
+  toolCollection,
 }: {
   sectionRef: RefObject<HTMLUListElement>;
+  toolCollection: ToolCollection;
 }): JSX.Element {
-  const arrayTest: number[] = Array.from({ length: 11 }, (_, index) => index);
   const [showAll, setShowAll] = useState(false);
 
-  const visibleItems = showAll ? arrayTest : arrayTest.slice(0, 5);
+  const ToolList = toolCollection?.items || [];
+
+  const visibleItems = showAll ? ToolList : ToolList.slice(0, 5);
 
   const toggleShowAll = () => {
     setShowAll(!showAll);
@@ -71,8 +75,8 @@ export function ToolList({
   return (
     <section className="flex flex-col justify-center items-center gap-16 w-full">
       <ul className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 place-items-center gap-5 w-full">
-        {visibleItems.map((index) => (
-          <ToolCard key={index} /> // Agrega la prop key
+        {visibleItems.map((tool) => (
+          <ToolCard key={tool?.name} toolData={tool} /> // Agrega la prop key
         ))}
         <li className="overflow-hidden w-full min-h-[6.5rem] h-full rounded-lg border-2 border-dashed border-primary-500">
           <div className="flex place-items-center w-full min-h-[6.5rem] h-full p-4 text-center">
@@ -82,7 +86,7 @@ export function ToolList({
           </div>
         </li>
       </ul>
-      {arrayTest.length > 5 ? (
+      {ToolList.length > 5 ? (
         <button
           type="button"
           className="w-full md:w-fit button-secondary padding-button"
