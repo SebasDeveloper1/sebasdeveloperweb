@@ -4,13 +4,10 @@ import { Tools } from '@/app/ui/components/Home/Tools';
 import { Projects } from '@/app/ui/components/Home/Projects';
 import { Experience } from '@/app/ui/components/Home/Experience';
 import { Education } from '@/app/ui/components/Home/Education';
-import { fetchHeroHomeInfo } from '../lib/api/data/fetch';
 export default async function Home(): Promise<JSX.Element> {
-  const personalInfo = await fetchHeroHomeInfo();
-
   return (
     <main>
-      <Hero personalInfo={personalInfo} />
+      <Hero />
       <AboutMe />
       <Tools />
       <Projects />

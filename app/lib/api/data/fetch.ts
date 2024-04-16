@@ -10,7 +10,7 @@ import {
   GetHeroHomeInfo,
   GetNavbarInfo,
   GetToolList,
-} from '../queries/queries';
+} from '@/app/lib/api/queries/queries';
 
 export const fetchNavbarInfo = async () => {
   try {

@@ -1,9 +1,12 @@
 import Image from 'next/image';
-import { StarsSVG } from '../../assets/StarsSVG';
 import ReactMarkdown, { Components } from 'react-markdown';
-import { HeroProps, RendererProps } from './Hero.model';
+import { fetchHeroHomeInfo } from '@/app/lib/api/data/fetch';
+import { StarsSVG } from '@/app/ui/components/assets/StarsSVG';
+import { RendererProps } from './Hero.model';
 
-export function Hero({ personalInfo }: HeroProps): JSX.Element {
+export async function Hero(): Promise<JSX.Element> {
+  const personalInfo = await fetchHeroHomeInfo();
+
   const { name, shortDescription, photo, cv, bgVideo } =
     personalInfo?.personalInformationCollection?.items?.[0] || {};
 
