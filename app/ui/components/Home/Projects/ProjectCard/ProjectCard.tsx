@@ -1,45 +1,35 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import SDPhoto from '@/public/images/sebastian2.jpg';
+import { ProjectCardProps } from './ProjectCard.model';
 
-export function ProjectCard() {
+export function ProjectCard({ project }: ProjectCardProps) {
+  const { name, slug, level, imagesCollection } = project;
+
   return (
-    <Link
-      href={'/projects'}
-      className="group overflow-hidden relative w-full h-full rounded-lg"
-    >
+    <Link href={`/projects/${slug}`} className="group relative w-full h-full">
       <figure className="relative w-full h-full">
         <Image
           fill
           sizes="100%"
-          src={SDPhoto}
-          alt={'SebasDeveloper'}
+          src={`${imagesCollection?.items[0]?.url}`}
+          alt={`${imagesCollection?.items[0]?.title}`}
           placeholder="blur"
           loading="lazy"
-          className="object-cover object-center"
+          className="object-cover object-center lg:transform lg:group-hover:scale-150 lg:transition-all"
           blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
         />
       </figure>
-      <section className="opacity-0 md:group-hover:opacity-100 md:group-focus:opacity-100 transition-all duration-200 ease-in absolute inset-0 w-full h-full backdrop-blur-[8px]">
-        <article className="flex flex-col justify-center items-center gap-1 w-full h-full p-4">
-          <span className="w-full span-base font-semibold text-light-50 dark:text-light-50 text-center capitalize truncate">
-            Project Title
-          </span>
-          <span className="span-sm w-fit rounded-full px-1.5 py-0.5 font-medium leading-none text-light-50 dark:text-light-50 bg-accent2-500 dark:bg-accent2-500">
-            Avanzado
+
+      <section className="absolute inset-0 bg-gradient-to-t from-gray-950 to-transparent">
+        <article className="flex flex-col justify-end w-full h-full p-2 md:p-3">
+          <span className="span-base md:span-lg w-full font-semibold text-light-50 dark:text-light-50 capitalize truncate">
+            {name}
           </span>
         </article>
       </section>
-      <section className="md:hidden absolute inset-0 w-full h-full bg-gradient-to-t from-dark-950 to-transparent">
-        <article className="flex flex-col justify-end w-full h-full p-2">
-          <span className="w-full span-sm font-semibold text-light-50 dark:text-light-50 capitalize truncate">
-            Project Title
-          </span>
-          <span className="span-xs w-fit rounded-full px-1.5 py-0.5 font-medium leading-none text-light-50 dark:text-light-50 bg-accent2-500 dark:bg-accent2-500">
-            Avanzado
-          </span>
-        </article>
-      </section>
+      <span className="absolute top-0 right-0 span-xs md:span-sm w-fit rounded-bl-full px-4 py-0.5 leading-5 font-semibold text-accent5-50 bg-accent5-600 capitalize">
+        {level}
+      </span>
     </Link>
   );
 }

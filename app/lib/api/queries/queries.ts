@@ -65,3 +65,20 @@ export const GetToolList = gql`
     }
   }
 `;
+export const GetHomeProjects = gql`
+  query GetHomeProjects {
+    projectsCollection(order: sys_firstPublishedAt_DESC, limit: 5) {
+      items {
+        name
+        slug
+        level
+        imagesCollection {
+          items {
+            title
+            url
+          }
+        }
+      }
+    }
+  }
+`;

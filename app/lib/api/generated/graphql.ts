@@ -171,6 +171,7 @@ export type AssetLinkingCollections = {
   __typename?: 'AssetLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
   personalInformationCollection?: Maybe<PersonalInformationCollection>;
+  projectsCollection?: Maybe<ProjectsCollection>;
   toolCollection?: Maybe<ToolCollection>;
 };
 
@@ -184,6 +185,14 @@ export type AssetLinkingCollectionsEntryCollectionArgs = {
 
 
 export type AssetLinkingCollectionsPersonalInformationCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type AssetLinkingCollectionsProjectsCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
@@ -759,6 +768,228 @@ export enum PersonalInformationOrder {
   UserNameDesc = 'userName_DESC'
 }
 
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
+export type Projects = Entry & {
+  __typename?: 'Projects';
+  category?: Maybe<Scalars['String']['output']>;
+  contentfulMetadata: ContentfulMetadata;
+  description?: Maybe<Scalars['String']['output']>;
+  device?: Maybe<Scalars['String']['output']>;
+  imagesCollection?: Maybe<AssetCollection>;
+  level?: Maybe<Scalars['String']['output']>;
+  linkRepo?: Maybe<Scalars['String']['output']>;
+  linkView?: Maybe<Scalars['String']['output']>;
+  linkedFrom?: Maybe<ProjectsLinkingCollections>;
+  name?: Maybe<Scalars['String']['output']>;
+  slug?: Maybe<Scalars['String']['output']>;
+  sys: Sys;
+  tools?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
+export type ProjectsCategoryArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
+export type ProjectsDescriptionArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
+export type ProjectsDeviceArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
+export type ProjectsImagesCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
+export type ProjectsLevelArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
+export type ProjectsLinkRepoArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
+export type ProjectsLinkViewArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
+export type ProjectsLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
+export type ProjectsNameArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
+export type ProjectsSlugArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
+export type ProjectsToolsArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
+export type ProjectsTypeArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProjectsCollection = {
+  __typename?: 'ProjectsCollection';
+  items: Array<Maybe<Projects>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type ProjectsFilter = {
+  AND?: InputMaybe<Array<InputMaybe<ProjectsFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<ProjectsFilter>>>;
+  category?: InputMaybe<Scalars['String']['input']>;
+  category_contains?: InputMaybe<Scalars['String']['input']>;
+  category_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  category_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  category_not?: InputMaybe<Scalars['String']['input']>;
+  category_not_contains?: InputMaybe<Scalars['String']['input']>;
+  category_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_contains?: InputMaybe<Scalars['String']['input']>;
+  description_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  description_not?: InputMaybe<Scalars['String']['input']>;
+  description_not_contains?: InputMaybe<Scalars['String']['input']>;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  device?: InputMaybe<Scalars['String']['input']>;
+  device_contains?: InputMaybe<Scalars['String']['input']>;
+  device_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  device_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  device_not?: InputMaybe<Scalars['String']['input']>;
+  device_not_contains?: InputMaybe<Scalars['String']['input']>;
+  device_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  imagesCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  level?: InputMaybe<Scalars['String']['input']>;
+  level_contains?: InputMaybe<Scalars['String']['input']>;
+  level_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  level_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  level_not?: InputMaybe<Scalars['String']['input']>;
+  level_not_contains?: InputMaybe<Scalars['String']['input']>;
+  level_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  linkRepo?: InputMaybe<Scalars['String']['input']>;
+  linkRepo_contains?: InputMaybe<Scalars['String']['input']>;
+  linkRepo_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  linkRepo_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  linkRepo_not?: InputMaybe<Scalars['String']['input']>;
+  linkRepo_not_contains?: InputMaybe<Scalars['String']['input']>;
+  linkRepo_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  linkView?: InputMaybe<Scalars['String']['input']>;
+  linkView_contains?: InputMaybe<Scalars['String']['input']>;
+  linkView_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  linkView_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  linkView_not?: InputMaybe<Scalars['String']['input']>;
+  linkView_not_contains?: InputMaybe<Scalars['String']['input']>;
+  linkView_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_contains?: InputMaybe<Scalars['String']['input']>;
+  name_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  name_not?: InputMaybe<Scalars['String']['input']>;
+  name_not_contains?: InputMaybe<Scalars['String']['input']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  slug_contains?: InputMaybe<Scalars['String']['input']>;
+  slug_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  slug_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug_not?: InputMaybe<Scalars['String']['input']>;
+  slug_not_contains?: InputMaybe<Scalars['String']['input']>;
+  slug_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sys?: InputMaybe<SysFilter>;
+  tools?: InputMaybe<Scalars['String']['input']>;
+  tools_contains?: InputMaybe<Scalars['String']['input']>;
+  tools_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  tools_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tools_not?: InputMaybe<Scalars['String']['input']>;
+  tools_not_contains?: InputMaybe<Scalars['String']['input']>;
+  tools_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Scalars['String']['input']>;
+  type_contains?: InputMaybe<Scalars['String']['input']>;
+  type_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  type_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type_not?: InputMaybe<Scalars['String']['input']>;
+  type_not_contains?: InputMaybe<Scalars['String']['input']>;
+  type_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ProjectsLinkingCollections = {
+  __typename?: 'ProjectsLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type ProjectsLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export enum ProjectsOrder {
+  CategoryAsc = 'category_ASC',
+  CategoryDesc = 'category_DESC',
+  DeviceAsc = 'device_ASC',
+  DeviceDesc = 'device_DESC',
+  LevelAsc = 'level_ASC',
+  LevelDesc = 'level_DESC',
+  LinkRepoAsc = 'linkRepo_ASC',
+  LinkRepoDesc = 'linkRepo_DESC',
+  LinkViewAsc = 'linkView_ASC',
+  LinkViewDesc = 'linkView_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC',
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  ToolsAsc = 'tools_ASC',
+  ToolsDesc = 'tools_DESC',
+  TypeAsc = 'type_ASC',
+  TypeDesc = 'type_DESC'
+}
+
 export type Query = {
   __typename?: 'Query';
   _node?: Maybe<_Node>;
@@ -769,6 +1000,8 @@ export type Query = {
   jobExperienceCollection?: Maybe<JobExperienceCollection>;
   personalInformation?: Maybe<PersonalInformation>;
   personalInformationCollection?: Maybe<PersonalInformationCollection>;
+  projects?: Maybe<Projects>;
+  projectsCollection?: Maybe<ProjectsCollection>;
   tool?: Maybe<Tool>;
   toolCollection?: Maybe<ToolCollection>;
 };
@@ -839,6 +1072,23 @@ export type QueryPersonalInformationCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<PersonalInformationFilter>;
+};
+
+
+export type QueryProjectsArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryProjectsCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<ProjectsOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ProjectsFilter>;
 };
 
 
@@ -1048,3 +1298,8 @@ export type GetToolListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetToolListQuery = { __typename?: 'Query', toolCollection?: { __typename?: 'ToolCollection', items: Array<{ __typename?: 'Tool', name?: string | null, description?: string | null, url?: string | null, logo?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null };
+
+export type GetHomeProjectsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetHomeProjectsQuery = { __typename?: 'Query', projectsCollection?: { __typename?: 'ProjectsCollection', items: Array<{ __typename?: 'Projects', name?: string | null, slug?: string | null, level?: string | null, imagesCollection?: { __typename?: 'AssetCollection', items: Array<{ __typename?: 'Asset', title?: string | null, url?: string | null } | null> } | null } | null> } | null };

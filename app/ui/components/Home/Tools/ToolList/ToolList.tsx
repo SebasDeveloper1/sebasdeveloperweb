@@ -2,7 +2,7 @@
 import { RefObject, useState } from 'react';
 import { ToolCard } from '../ToolCard';
 import { ButtonText } from './ToolList.model';
-import { ToolCollection } from '@/app/lib/api/generated/graphql';
+import { Tool, ToolCollection } from '@/app/lib/api/generated/graphql';
 
 const buttonText: ButtonText = {
   showMore: {
@@ -76,7 +76,7 @@ export function ToolList({
     <section className="flex flex-col justify-center items-center gap-16 w-full">
       <ul className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 place-items-center gap-5 w-full">
         {visibleItems.map((tool) => (
-          <ToolCard key={tool?.name} toolData={tool} /> // Agrega la prop key
+          <ToolCard key={tool?.name} toolData={tool as Tool} /> // Agrega la prop key
         ))}
         <li className="overflow-hidden w-full min-h-[6.5rem] h-full rounded-lg border-2 border-dashed border-primary-500">
           <div className="flex place-items-center w-full min-h-[6.5rem] h-full p-4 text-center">

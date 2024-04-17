@@ -1,12 +1,20 @@
 import Link from 'next/link';
 import { ProjectList } from './ProjectList';
+import { fetchHomeProjects } from '@/app/lib/api/data/fetch';
+import {
+  GetHomeProjectsQuery,
+  ProjectsCollection,
+} from '@/app/lib/api/generated/graphql';
 
-export function Projects() {
+export async function Projects() {
+  const { projectsCollection }: GetHomeProjectsQuery =
+    await fetchHomeProjects();
+
   return (
     <section className="bg-white dark:bg-dark-950">
-      <div className="flex justify-center items-center w-full dark:bg-section_3 dark:bg-cover dark:bg-center">
-        <article className="flex flex-col md:flex-row justify-center gap-10 w-11/12 lg:w-10/12 py-16 md:py-32">
-          <div className="flex flex-col justify-center gap-4 w-full h-full">
+      <div className="flex justify-center items-center w-full">
+        <section className="grid grid-cols-1 md:grid-cols-7 justify-center gap-10 w-11/12 lg:w-10/12 py-16 md:py-32">
+          <article className="col-span-3 flex flex-col justify-start gap-4 w-full h-full">
             <div className="flex flex-col justify-center gap-8 w-full">
               <div className="flex justify-center items-center w-14 aspect-square p-1 rounded-full border-[3px] border-indigo-400 bg-indigo-600 text-indigo-200">
                 <svg
@@ -29,13 +37,13 @@ export function Projects() {
                 Últimos proyectos
               </h2>
             </div>
-            <p className="paragraph-lg max-w-prose text-dark-700 dark:text-light-400">
+            <p className="paragraph-lg max-w-prose text-dark-700 dark:text-light-300">
               Me apasiona participar en proyectos que desafíen mis habilidades,
               permitiéndome perfeccionar mis técnicas y brindándome la
               oportunidad de mostrar al mundo mi potencial como profesional.
             </p>
             <Link
-              href={'/'}
+              href={'/projects'}
               className="button-tertiary w-fit mt-3 bg-indigo-100 text-indigo-600 hover:bg-indigo-100 hover:text-indigo-700 focus:ring-indigo-600"
             >
               Ver más
@@ -55,9 +63,13 @@ export function Projects() {
                 <path d="M9 6l6 6l-6 6" />
               </svg>
             </Link>
-          </div>
-          <ProjectList />
-        </article>
+          </article>
+          <article className="col-span-4 w-full">
+            <ProjectList
+              projectsCollection={projectsCollection as ProjectsCollection}
+            />
+          </article>
+        </section>
       </div>
     </section>
   );

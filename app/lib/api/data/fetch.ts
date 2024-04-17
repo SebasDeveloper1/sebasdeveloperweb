@@ -2,12 +2,14 @@ import { getClient } from '@/lib/client';
 import {
   GetAboutMeInfoQuery,
   GetHeroHomeInfoQuery,
+  GetHomeProjectsQuery,
   GetNavbarInfoQuery,
   GetToolListQuery,
 } from '@/app/lib/api/generated/graphql';
 import {
   GetAboutMeInfo,
   GetHeroHomeInfo,
+  GetHomeProjects,
   GetNavbarInfo,
   GetToolList,
 } from '@/app/lib/api/queries/queries';
@@ -71,5 +73,20 @@ export const fetchToolList = async () => {
     return data;
   } catch (error) {
     throw new Error(`Error fetching tool list ${error}`);
+  }
+};
+export const fetchHomeProjects = async () => {
+  try {
+    const { data }: { data: GetHomeProjectsQuery } = await getClient().query({
+      query: GetHomeProjects,
+      context: {
+        fetchOptions: {
+          next: { revalidate: 5 },
+        },
+      },
+    });
+    return data;
+  } catch (error) {
+    throw new Error(`Error fetching project list ${error}`);
   }
 };

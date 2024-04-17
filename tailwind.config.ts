@@ -187,6 +187,8 @@ const config: Config = {
         section_2: "url('../../public/assets/section_2.png')",
         section_3: "url('../../public/assets/section_3.png')",
         section_4: "url('../../public/assets/section_4.png')",
+        section_5: "url('../../public/assets/section_5.png')",
+        section_6: "url('../../public/assets/section_6.png')",
         section_dark: "url('../../public/assets/section_dark.jpg')",
         section_light: "url('../../public/assets/section_light.webp')",
         section_light_full:
