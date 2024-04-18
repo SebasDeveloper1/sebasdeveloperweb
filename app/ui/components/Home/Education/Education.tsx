@@ -3,7 +3,7 @@ import { EducationCard } from './EducationCard';
 import { PlatziLogo } from '../../assets/PlatziLogo';
 import { UdecLogo } from '../../assets/UdecLogo';
 
-export function Education() {
+export function Education(): JSX.Element {
   return (
     <section className="w-full bg-white dark:bg-dark-950">
       <div className="overflow-hidden relative flex flex-col justify-center items-center w-full py-16">
@@ -37,7 +37,7 @@ export function Education() {
               Inglés y mucho más.
             </p>
             <Link
-              href={'/'}
+              href={'/education'}
               className="button-tertiary w-fit mt-3 bg-sky-100 text-sky-600 hover:bg-sky-100 hover:text-sky-700 focus:ring-sky-600"
             >
               Ver más

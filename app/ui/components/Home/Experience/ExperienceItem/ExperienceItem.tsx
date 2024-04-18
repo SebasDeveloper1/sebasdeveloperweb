@@ -1,32 +1,11 @@
 import ReactMarkdown, { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { ExperienceItemProps, RendererProps } from './ExperienceItem.model';
+import { formatDate } from '@/app/utils/formatDate';
+
 export function ExperienceItem({ experience }: ExperienceItemProps) {
   const { jobTitle, type, startDate, endDate, companyName, description, url } =
     experience;
-
-  function formatearFecha(fecha: string): string {
-    const meses = [
-      'enero',
-      'febrero',
-      'marzo',
-      'abril',
-      'mayo',
-      'junio',
-      'julio',
-      'agosto',
-      'septiembre',
-      'octubre',
-      'noviembre',
-      'diciembre',
-    ];
-
-    const date = new Date(fecha);
-    const mes = meses[date.getMonth()];
-    const año = date.getFullYear();
-
-    return `${mes.charAt(0).toUpperCase() + mes.slice(1)} ${año}`;
-  }
 
   const renderers = {
     p: ({ children }: RendererProps) => (
@@ -40,6 +19,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
       </strong>
     ),
   };
+
   return (
     <div className="flex flex-col items-start gap-4 mb-12 ms-10">
       <div className="absolute w-8 aspect-square rounded-full mt-8 p-1 -start-4 text-yellow-200 dark:text-yellow-200 border-2 border-yellow-400 dark:border-yellow-400  bg-yellow-600 dark:bg-yellow-600">
@@ -66,7 +46,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
             {type}
           </span>
           <time className="span-sm font-medium leading-none text-dark-600 dark:text-light-400">
-            {`${formatearFecha(startDate)} - ${formatearFecha(endDate)}`}
+            {`${formatDate(startDate)} - ${formatDate(endDate)}`}
           </time>
           <h3 className="span-xl font-semibold text-yellow-500 dark:text-yellow-400">
             {jobTitle}
