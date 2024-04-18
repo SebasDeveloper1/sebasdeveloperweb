@@ -97,3 +97,21 @@ export const GetHomeExperience = gql`
     }
   }
 `;
+export const GetProjectsList = gql`
+  query GetProjectsList {
+    projectsCollection(order: sys_firstPublishedAt_DESC) {
+      items {
+        name
+        slug
+        level
+        levelkey
+        imagesCollection {
+          items {
+            title
+            url
+          }
+        }
+      }
+    }
+  }
+`;

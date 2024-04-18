@@ -706,6 +706,7 @@ export type Projects = Entry & {
   device?: Maybe<Scalars['String']['output']>;
   imagesCollection?: Maybe<AssetCollection>;
   level?: Maybe<Scalars['String']['output']>;
+  levelkey?: Maybe<Scalars['String']['output']>;
   linkRepo?: Maybe<Scalars['String']['output']>;
   linkView?: Maybe<Scalars['String']['output']>;
   linkedFrom?: Maybe<ProjectsLinkingCollections>;
@@ -746,6 +747,12 @@ export type ProjectsImagesCollectionArgs = {
 
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
 export type ProjectsLevelArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
+export type ProjectsLevelkeyArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -832,6 +839,13 @@ export type ProjectsFilter = {
   level_not?: InputMaybe<Scalars['String']['input']>;
   level_not_contains?: InputMaybe<Scalars['String']['input']>;
   level_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  levelkey?: InputMaybe<Scalars['String']['input']>;
+  levelkey_contains?: InputMaybe<Scalars['String']['input']>;
+  levelkey_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  levelkey_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  levelkey_not?: InputMaybe<Scalars['String']['input']>;
+  levelkey_not_contains?: InputMaybe<Scalars['String']['input']>;
+  levelkey_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   linkRepo?: InputMaybe<Scalars['String']['input']>;
   linkRepo_contains?: InputMaybe<Scalars['String']['input']>;
   linkRepo_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -897,6 +911,8 @@ export enum ProjectsOrder {
   DeviceDesc = 'device_DESC',
   LevelAsc = 'level_ASC',
   LevelDesc = 'level_DESC',
+  LevelkeyAsc = 'levelkey_ASC',
+  LevelkeyDesc = 'levelkey_DESC',
   LinkRepoAsc = 'linkRepo_ASC',
   LinkRepoDesc = 'linkRepo_DESC',
   LinkViewAsc = 'linkView_ASC',
@@ -1226,4 +1242,9 @@ export type GetHomeProjectsQuery = { __typename?: 'Query', projectsCollection?: 
 export type GetHomeExperienceQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetHomeExperienceQuery = { __typename?: 'Query', jobExperienceCollection?: { __typename?: 'JobExperienceCollection', items: Array<{ __typename?: 'JobExperience', jobTitle?: string | null, startDate?: any | null, endDate?: any | null, companyName?: string | null, description?: string | null, url?: string | null } | null> } | null };
+export type GetHomeExperienceQuery = { __typename?: 'Query', jobExperienceCollection?: { __typename?: 'JobExperienceCollection', items: Array<{ __typename?: 'JobExperience', jobTitle?: string | null, type?: string | null, startDate?: any | null, endDate?: any | null, companyName?: string | null, description?: string | null, url?: string | null } | null> } | null };
+
+export type GetProjectsListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetProjectsListQuery = { __typename?: 'Query', projectsCollection?: { __typename?: 'ProjectsCollection', items: Array<{ __typename?: 'Projects', name?: string | null, slug?: string | null, level?: string | null, levelkey?: string | null, imagesCollection?: { __typename?: 'AssetCollection', items: Array<{ __typename?: 'Asset', title?: string | null, url?: string | null } | null> } | null } | null> } | null };

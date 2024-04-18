@@ -44,7 +44,9 @@ export async function Experience(): Promise<JSX.Element> {
             <ol className="relative w-11/12 border-s border-dark-400 dark:border-light-700">
               {jobExperienceArray.map((experience) => (
                 <li key={`job_${experience?.sys?.id}`} className="w-full">
-                  <ExperienceItem experience={experience as JobExperience} />
+                  <ExperienceItem
+                    experienceData={experience as JobExperience}
+                  />
                 </li>
               ))}
             </ol>

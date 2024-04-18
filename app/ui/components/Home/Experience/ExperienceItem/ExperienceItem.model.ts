@@ -1,7 +1,7 @@
 import { JobExperience } from '@/app/lib/api/generated/graphql';
 
 export interface ExperienceItemProps {
-  experience: JobExperience;
+  experienceData: JobExperience;
 }
 
 export interface RendererProps {

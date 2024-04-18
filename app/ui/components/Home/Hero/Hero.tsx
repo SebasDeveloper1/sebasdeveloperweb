@@ -3,12 +3,14 @@ import ReactMarkdown, { Components } from 'react-markdown';
 import { fetchHeroHomeInfo } from '@/app/lib/api/data/fetch/home';
 import { StarsSVG } from '@/app/ui/components/assets/StarsSVG';
 import { RendererProps } from './Hero.model';
+import { GetHeroHomeInfoQuery } from '@/app/lib/api/generated/graphql';
 
 export async function Hero(): Promise<JSX.Element> {
-  const personalInfo = await fetchHeroHomeInfo();
+  const { personalInformationCollection }: GetHeroHomeInfoQuery =
+    await fetchHeroHomeInfo();
 
   const { name, shortDescription, photo, cv, bgVideo } =
-    personalInfo?.personalInformationCollection?.items?.[0] || {};
+    personalInformationCollection?.items?.[0] || {};
 
   const renderers = {
     p: ({ children }: RendererProps) => (

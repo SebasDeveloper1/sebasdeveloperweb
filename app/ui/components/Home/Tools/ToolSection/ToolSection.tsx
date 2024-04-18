@@ -2,13 +2,9 @@
 import { useRef } from 'react';
 import { ToolList } from '../ToolList';
 import { ToolDesc } from '../ToolDesc';
-import { ToolCollection } from '@/app/lib/api/generated/graphql';
+import { ToolSectionProps } from './ToolSection.model';
 
-export function ToolSection({
-  toolCollection,
-}: {
-  toolCollection: ToolCollection;
-}): JSX.Element {
+export function ToolSection({ toolCollection }: ToolSectionProps): JSX.Element {
   const sectionRef = useRef(null);
   return (
     <section ref={sectionRef} className="w-full">

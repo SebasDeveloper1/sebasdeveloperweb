@@ -6,7 +6,7 @@ import {
   ProjectsCollection,
 } from '@/app/lib/api/generated/graphql';
 
-export async function Projects() {
+export async function Projects(): Promise<JSX.Element> {
   const { projectsCollection }: GetHomeProjectsQuery =
     await fetchHomeProjects();
 

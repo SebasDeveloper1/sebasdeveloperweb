@@ -98,7 +98,7 @@ export function NavbarSM({
         className={`overflow-y-auto fixed inset-0 bg-light-50 dark:bg-dark-950 mt-16 transform transition-all  ${openMenu ? 'navbar-menu-open' : 'navbar-menu-close'}`}
       >
         <div className="flex flex-col justify-center gap-6 w-full px-4 pt-2 pb-6">
-          <section className="overflow-hidden w-full bg-light-200 dark:bg-dark-900 rounded-lg">
+          <section className="overflow-hidden w-full bg-light-200 dark:bg-dark-900 rounded-xl">
             <article className="flex flex-col items-center gap-4 w-full">
               <div className="relative w-full h-24 bg-gradient-to-tr from-primary-500 to-accent2-500">
                 <svg

@@ -99,7 +99,7 @@ COMPONENT STYLES
 
   /* Button styles */
   .button {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg text-base font-medium;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl text-base font-medium;
   }
   .padding-button {
     @apply py-2 px-6;
@@ -126,7 +126,7 @@ COMPONENT STYLES
     @apply button text-light-50 bg-light-800 hover:bg-light-900 focus:outline-none focus:ring-4 focus:ring-light-300 dark:bg-dark-800 dark:hover:bg-dark-700 dark:focus:ring-dark-700 dark:border-dark-700;
   }
   .button-alternative {
-    @apply button  text-light-900 focus:outline-none bg-light-50 rounded-lg border border-light-200 hover:bg-light-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-light-100 dark:focus:ring-dark-700 dark:bg-dark-800 dark:text-dark-400 dark:border-dark-600 dark:hover:text-light-50 dark:hover:bg-dark-700;
+    @apply button  text-light-900 focus:outline-none bg-light-50 rounded-xl border border-light-200 hover:bg-light-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-light-100 dark:focus:ring-dark-700 dark:bg-dark-800 dark:text-dark-400 dark:border-dark-600 dark:hover:text-light-50 dark:hover:bg-dark-700;
   }
 
   /* Navbar item styles */

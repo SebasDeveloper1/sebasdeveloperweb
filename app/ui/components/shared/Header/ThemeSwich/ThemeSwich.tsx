@@ -97,7 +97,7 @@ export function ThemeSwich() {
 
   if (!mounted) {
     return (
-      <div className="h-full aspect-square padding-icon rounded-lg bg-light-300 dark:bg-dark-700 text-transparent animate-pulse">
+      <div className="h-full aspect-square padding-icon rounded-xl bg-light-300 dark:bg-dark-700 text-transparent animate-pulse">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="icon icon-tabler icon-tabler-device-desktop"
@@ -191,7 +191,7 @@ export function ThemeSwich() {
         <div className="fixed inset-0 mt-16 bg-dark-900/60 backdrop-blur-sm">
           <ul
             ref={menuThemeRef2}
-            className="absolute top-4 right-4 w-fit max-w-xs rounded-lg shadow-lg py-4 bg-dark-100 dark:bg-dark-800 "
+            className="absolute top-4 right-4 w-fit max-w-xs rounded-xl shadow-lg py-4 bg-dark-100 dark:bg-dark-800 "
           >
             {themeOptions.map((option) => (
               <li key={`theme-${option?.theme}`} className="w-full">

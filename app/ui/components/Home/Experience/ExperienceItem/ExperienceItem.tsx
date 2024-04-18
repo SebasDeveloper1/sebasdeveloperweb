@@ -3,9 +3,9 @@ import rehypeRaw from 'rehype-raw';
 import { ExperienceItemProps, RendererProps } from './ExperienceItem.model';
 import { formatDate } from '@/app/utils/formatDate';
 
-export function ExperienceItem({ experience }: ExperienceItemProps) {
+export function ExperienceItem({ experienceData }: ExperienceItemProps) {
   const { jobTitle, type, startDate, endDate, companyName, description, url } =
-    experience;
+    experienceData;
 
   const renderers = {
     p: ({ children }: RendererProps) => (

@@ -28,7 +28,7 @@ export function ProjectList({ projectsCollection }: ProjectListProps) {
             key={index}
             className={`overflow-hidden rounded-xl ${getConditionalClasses(index)}`}
           >
-            <ProjectCard project={project as Projects} />
+            <ProjectCard projectData={project as Projects} />
           </li>
         ))}
       </ul>

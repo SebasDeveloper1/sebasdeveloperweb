@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import { Tool } from '@/app/lib/api/generated/graphql';
+import { ToolCardProps } from './ToolCard.model';
 
-export function ToolCard({ toolData }: { toolData: Tool }): JSX.Element {
+export function ToolCard({ toolData }: ToolCardProps): JSX.Element {
   const { name, description, url, logo } = toolData;
   return (
-    <li className="overflow-hidden w-full h-full rounded-lg bg-white hover:bg-dark-100 dark:bg-dark-900 dark:hover:bg-dark-800 shadow-xl">
+    <li className="overflow-hidden w-full h-full rounded-xl bg-white hover:bg-dark-100 dark:bg-dark-900 dark:hover:bg-dark-800 shadow-xl">
       <a
         href={`${url}`}
         className="flex justify-between items-center w-full h-full"

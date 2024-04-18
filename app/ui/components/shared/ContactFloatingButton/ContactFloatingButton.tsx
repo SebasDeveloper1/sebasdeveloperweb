@@ -227,7 +227,7 @@ export function ContactFloatingButton(): JSX.Element {
         <div className="z-[99] fixed inset-0 mt-16 bg-dark-900/60 backdrop-blur-sm">
           <ul
             ref={showMenuRef2}
-            className="absolute bottom-16 right-16 w-fit max-w-xs rounded-lg shadow-lg py-4 bg-dark-100 dark:bg-dark-800"
+            className="absolute bottom-16 right-16 w-fit max-w-xs rounded-xl shadow-lg py-4 bg-dark-100 dark:bg-dark-800"
           >
             {contactOptions.map((option) => (
               <li key={`link-${option?.name}`} className="w-full">
