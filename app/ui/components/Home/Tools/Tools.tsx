@@ -1,4 +1,4 @@
-import { fetchToolList } from '@/app/lib/api/data/fetch';
+import { fetchToolList } from '@/app/lib/api/data/fetch/home';
 import { ToolSection } from './ToolSection';
 import {
   GetToolListQuery,

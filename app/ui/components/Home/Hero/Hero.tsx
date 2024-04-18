@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import ReactMarkdown, { Components } from 'react-markdown';
-import { fetchHeroHomeInfo } from '@/app/lib/api/data/fetch';
+import { fetchHeroHomeInfo } from '@/app/lib/api/data/fetch/home';
 import { StarsSVG } from '@/app/ui/components/assets/StarsSVG';
 import { RendererProps } from './Hero.model';
 

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ProjectList } from './ProjectList';
-import { fetchHomeProjects } from '@/app/lib/api/data/fetch';
+import { fetchHomeProjects } from '@/app/lib/api/data/fetch/home';
 import {
   GetHomeProjectsQuery,
   ProjectsCollection,

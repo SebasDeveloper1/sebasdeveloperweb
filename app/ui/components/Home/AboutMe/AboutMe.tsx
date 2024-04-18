@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { fetchAboutMeInfo } from '@/app/lib/api/data/fetch';
+import { fetchAboutMeInfo } from '@/app/lib/api/data/fetch/home';
 import { GetAboutMeInfoQuery } from '@/app/lib/api/generated/graphql';
 import ReactMarkdown, { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';

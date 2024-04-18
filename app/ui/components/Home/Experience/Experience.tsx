@@ -4,7 +4,7 @@ import {
   JobExperienceCollection,
 } from '@/app/lib/api/generated/graphql';
 import { ExperienceItem } from './ExperienceItem/ExperienceItem';
-import { fetchHomeExperience } from '@/app/lib/api/data/fetch';
+import { fetchHomeExperience } from '@/app/lib/api/data/fetch/home';
 
 export async function Experience(): Promise<JSX.Element> {
   const { jobExperienceCollection }: GetHomeExperienceQuery =
