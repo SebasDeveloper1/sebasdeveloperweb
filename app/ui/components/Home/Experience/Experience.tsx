@@ -1,4 +1,18 @@
-export function Experience() {
+import {
+  GetHomeExperienceQuery,
+  JobExperience,
+  JobExperienceCollection,
+} from '@/app/lib/api/generated/graphql';
+import { ExperienceItem } from './ExperienceItem/ExperienceItem';
+import { fetchHomeExperience } from '@/app/lib/api/data/fetch';
+
+export async function Experience(): Promise<JSX.Element> {
+  const { jobExperienceCollection }: GetHomeExperienceQuery =
+    await fetchHomeExperience();
+
+  const { items: jobExperienceArray }: JobExperienceCollection =
+    jobExperienceCollection as JobExperienceCollection;
+
   return (
     <section className="bg-light-100 dark:bg-dark-900">
       <div className="flex justify-center items-center w-full">
@@ -28,92 +42,11 @@ export function Experience() {
               </h2>
             </div>
             <ol className="relative w-11/12 border-s border-dark-400 dark:border-light-700">
-              <li className="flex flex-col items-start gap-4 mb-12 ms-10">
-                <div className="absolute w-8 aspect-square rounded-full mt-4 p-1 -start-4 text-yellow-200 dark:text-yellow-200 border-2 border-yellow-400 dark:border-yellow-400  bg-yellow-600 dark:bg-yellow-600">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="icon icon-tabler icons-tabler-outline icon-tabler-briefcase w-full"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-                    <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
-                    <path d="M12 12l0 .01" />
-                    <path d="M3 13a20 20 0 0 0 18 0" />
-                  </svg>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 items-start gap-2">
-                  <div className="col-span-1 flex flex-col items-start">
-                    <time className="span-sm font-medium leading-none text-dark-600 dark:text-light-400">
-                      Noviembre 2023 - Marzo 2024
-                    </time>
-                    <h3 className="span-xl font-semibold text-yellow-500 dark:text-yellow-400">
-                      Frontend Developer
-                    </h3>
-                    <a
-                      href="/"
-                      className="span-lg font-semibold text-dark-800 dark:text-light-200 hover:text-dark-950 dark:hover:text-light-50"
-                    >
-                      Cinergia Perú
-                    </a>
-                  </div>
-                  <p className="col-span-2 p-4 rounded-xl paragraph-blg font-medium max-w-prose text-dark-600 dark:text-light-400 bg-light-200 dark:bg-dark-800">
-                    Responsable de la plataforma, componentes y utilidades para
-                    la creación y desarrollo de aplicaciones web. Mejora de un
-                    30% en la entrega de software. Implantación de medidas de
-                    integración continua y despliegue con A/B testing en más de
-                    15 equipos.
-                  </p>
-                </div>
-              </li>
-              <li className="flex flex-col items-start gap-4 mb-12 ms-10">
-                <div className="absolute w-8 aspect-square rounded-full mt-4 p-1 -start-4 text-yellow-200 dark:text-yellow-200 border-2 border-yellow-400 dark:border-yellow-400  bg-yellow-600 dark:bg-yellow-600">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="icon icon-tabler icons-tabler-outline icon-tabler-briefcase w-full"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-                    <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
-                    <path d="M12 12l0 .01" />
-                    <path d="M3 13a20 20 0 0 0 18 0" />
-                  </svg>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 items-start gap-2">
-                  <div className="col-span-1 flex flex-col items-start">
-                    <time className="span-sm font-medium leading-none text-dark-600 dark:text-light-400">
-                      Noviembre 2023 - Marzo 2024
-                    </time>
-                    <h3 className="span-xl font-semibold text-yellow-500 dark:text-yellow-400">
-                      Frontend Developer
-                    </h3>
-                    <a
-                      href="/"
-                      className="span-lg font-semibold text-dark-800 dark:text-light-200 hover:text-dark-950 dark:hover:text-light-50"
-                    >
-                      Cinergia Perú
-                    </a>
-                  </div>
-                  <p className="col-span-2 p-4 rounded-xl paragraph-blg font-medium max-w-prose text-dark-600 dark:text-light-400 bg-light-200 dark:bg-dark-800">
-                    Responsable de la plataforma, componentes y utilidades para
-                    la creación y desarrollo de aplicaciones web. Mejora de un
-                    30% en la entrega de software. Implantación de medidas de
-                    integración continua y despliegue con A/B testing en más de
-                    15 equipos.
-                  </p>
-                </div>
-              </li>
+              {jobExperienceArray.map((experience) => (
+                <li key={`job_${experience?.sys?.id}`} className="w-full">
+                  <ExperienceItem experience={experience as JobExperience} />
+                </li>
+              ))}
             </ol>
           </div>
         </article>

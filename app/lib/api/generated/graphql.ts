@@ -15,7 +15,6 @@ export type Scalars = {
   DateTime: { input: any; output: any; }
   Dimension: { input: any; output: any; }
   HexColor: { input: any; output: any; }
-  JSON: { input: any; output: any; }
   Quality: { input: any; output: any; }
 };
 
@@ -387,13 +386,14 @@ export type JobExperience = Entry & {
   __typename?: 'JobExperience';
   companyName?: Maybe<Scalars['String']['output']>;
   contentfulMetadata: ContentfulMetadata;
-  description?: Maybe<JobExperienceDescription>;
+  description?: Maybe<Scalars['String']['output']>;
   endDate?: Maybe<Scalars['DateTime']['output']>;
   jobTitle?: Maybe<Scalars['String']['output']>;
-  link?: Maybe<JobExperienceLink>;
   linkedFrom?: Maybe<JobExperienceLinkingCollections>;
   startDate?: Maybe<Scalars['DateTime']['output']>;
   sys: Sys;
+  type?: Maybe<Scalars['String']['output']>;
+  url?: Maybe<Scalars['String']['output']>;
 };
 
 
@@ -422,12 +422,6 @@ export type JobExperienceJobTitleArgs = {
 
 
 /** job experience  with start date, end date, name company, job title, description [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/jobExperience) */
-export type JobExperienceLinkArgs = {
-  locale?: InputMaybe<Scalars['String']['input']>;
-};
-
-
-/** job experience  with start date, end date, name company, job title, description [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/jobExperience) */
 export type JobExperienceLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
@@ -438,60 +432,24 @@ export type JobExperienceStartDateArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
+/** job experience  with start date, end date, name company, job title, description [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/jobExperience) */
+export type JobExperienceTypeArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** job experience  with start date, end date, name company, job title, description [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/jobExperience) */
+export type JobExperienceUrlArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type JobExperienceCollection = {
   __typename?: 'JobExperienceCollection';
   items: Array<Maybe<JobExperience>>;
   limit: Scalars['Int']['output'];
   skip: Scalars['Int']['output'];
   total: Scalars['Int']['output'];
-};
-
-export type JobExperienceDescription = {
-  __typename?: 'JobExperienceDescription';
-  json: Scalars['JSON']['output'];
-  links: JobExperienceDescriptionLinks;
-};
-
-export type JobExperienceDescriptionAssets = {
-  __typename?: 'JobExperienceDescriptionAssets';
-  block: Array<Maybe<Asset>>;
-  hyperlink: Array<Maybe<Asset>>;
-};
-
-export type JobExperienceDescriptionEntries = {
-  __typename?: 'JobExperienceDescriptionEntries';
-  block: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  inline: Array<Maybe<Entry>>;
-};
-
-export type JobExperienceDescriptionLinks = {
-  __typename?: 'JobExperienceDescriptionLinks';
-  assets: JobExperienceDescriptionAssets;
-  entries: JobExperienceDescriptionEntries;
-  resources: JobExperienceDescriptionResources;
-};
-
-export type JobExperienceDescriptionResources = {
-  __typename?: 'JobExperienceDescriptionResources';
-  block: Array<JobExperienceDescriptionResourcesBlock>;
-  hyperlink: Array<JobExperienceDescriptionResourcesHyperlink>;
-  inline: Array<JobExperienceDescriptionResourcesInline>;
-};
-
-export type JobExperienceDescriptionResourcesBlock = ResourceLink & {
-  __typename?: 'JobExperienceDescriptionResourcesBlock';
-  sys: ResourceSys;
-};
-
-export type JobExperienceDescriptionResourcesHyperlink = ResourceLink & {
-  __typename?: 'JobExperienceDescriptionResourcesHyperlink';
-  sys: ResourceSys;
-};
-
-export type JobExperienceDescriptionResourcesInline = ResourceLink & {
-  __typename?: 'JobExperienceDescriptionResourcesInline';
-  sys: ResourceSys;
 };
 
 export type JobExperienceFilter = {
@@ -505,9 +463,13 @@ export type JobExperienceFilter = {
   companyName_not_contains?: InputMaybe<Scalars['String']['input']>;
   companyName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  description?: InputMaybe<Scalars['String']['input']>;
   description_contains?: InputMaybe<Scalars['String']['input']>;
   description_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  description_not?: InputMaybe<Scalars['String']['input']>;
   description_not_contains?: InputMaybe<Scalars['String']['input']>;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   endDate?: InputMaybe<Scalars['DateTime']['input']>;
   endDate_exists?: InputMaybe<Scalars['Boolean']['input']>;
   endDate_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -524,9 +486,6 @@ export type JobExperienceFilter = {
   jobTitle_not?: InputMaybe<Scalars['String']['input']>;
   jobTitle_not_contains?: InputMaybe<Scalars['String']['input']>;
   jobTitle_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  link_contains?: InputMaybe<Scalars['String']['input']>;
-  link_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  link_not_contains?: InputMaybe<Scalars['String']['input']>;
   startDate?: InputMaybe<Scalars['DateTime']['input']>;
   startDate_exists?: InputMaybe<Scalars['Boolean']['input']>;
   startDate_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -537,54 +496,20 @@ export type JobExperienceFilter = {
   startDate_not?: InputMaybe<Scalars['DateTime']['input']>;
   startDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   sys?: InputMaybe<SysFilter>;
-};
-
-export type JobExperienceLink = {
-  __typename?: 'JobExperienceLink';
-  json: Scalars['JSON']['output'];
-  links: JobExperienceLinkLinks;
-};
-
-export type JobExperienceLinkAssets = {
-  __typename?: 'JobExperienceLinkAssets';
-  block: Array<Maybe<Asset>>;
-  hyperlink: Array<Maybe<Asset>>;
-};
-
-export type JobExperienceLinkEntries = {
-  __typename?: 'JobExperienceLinkEntries';
-  block: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  inline: Array<Maybe<Entry>>;
-};
-
-export type JobExperienceLinkLinks = {
-  __typename?: 'JobExperienceLinkLinks';
-  assets: JobExperienceLinkAssets;
-  entries: JobExperienceLinkEntries;
-  resources: JobExperienceLinkResources;
-};
-
-export type JobExperienceLinkResources = {
-  __typename?: 'JobExperienceLinkResources';
-  block: Array<JobExperienceLinkResourcesBlock>;
-  hyperlink: Array<JobExperienceLinkResourcesHyperlink>;
-  inline: Array<JobExperienceLinkResourcesInline>;
-};
-
-export type JobExperienceLinkResourcesBlock = ResourceLink & {
-  __typename?: 'JobExperienceLinkResourcesBlock';
-  sys: ResourceSys;
-};
-
-export type JobExperienceLinkResourcesHyperlink = ResourceLink & {
-  __typename?: 'JobExperienceLinkResourcesHyperlink';
-  sys: ResourceSys;
-};
-
-export type JobExperienceLinkResourcesInline = ResourceLink & {
-  __typename?: 'JobExperienceLinkResourcesInline';
-  sys: ResourceSys;
+  type?: InputMaybe<Scalars['String']['input']>;
+  type_contains?: InputMaybe<Scalars['String']['input']>;
+  type_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  type_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type_not?: InputMaybe<Scalars['String']['input']>;
+  type_not_contains?: InputMaybe<Scalars['String']['input']>;
+  type_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url?: InputMaybe<Scalars['String']['input']>;
+  url_contains?: InputMaybe<Scalars['String']['input']>;
+  url_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  url_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url_not?: InputMaybe<Scalars['String']['input']>;
+  url_not_contains?: InputMaybe<Scalars['String']['input']>;
+  url_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type JobExperienceLinkingCollections = {
@@ -616,7 +541,11 @@ export enum JobExperienceOrder {
   SysPublishedAtAsc = 'sys_publishedAt_ASC',
   SysPublishedAtDesc = 'sys_publishedAt_DESC',
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TypeAsc = 'type_ASC',
+  TypeDesc = 'type_DESC',
+  UrlAsc = 'url_ASC',
+  UrlDesc = 'url_DESC'
 }
 
 /** personal information with name, short description, long description, photo [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/personalInformation) */
@@ -1108,16 +1037,6 @@ export type QueryToolCollectionArgs = {
   where?: InputMaybe<ToolFilter>;
 };
 
-export type ResourceLink = {
-  sys: ResourceSys;
-};
-
-export type ResourceSys = {
-  __typename?: 'ResourceSys';
-  linkType: Scalars['String']['output'];
-  urn: Scalars['String']['output'];
-};
-
 export type Sys = {
   __typename?: 'Sys';
   environmentId: Scalars['String']['output'];
@@ -1303,3 +1222,8 @@ export type GetHomeProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetHomeProjectsQuery = { __typename?: 'Query', projectsCollection?: { __typename?: 'ProjectsCollection', items: Array<{ __typename?: 'Projects', name?: string | null, slug?: string | null, level?: string | null, imagesCollection?: { __typename?: 'AssetCollection', items: Array<{ __typename?: 'Asset', title?: string | null, url?: string | null } | null> } | null } | null> } | null };
+
+export type GetHomeExperienceQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetHomeExperienceQuery = { __typename?: 'Query', jobExperienceCollection?: { __typename?: 'JobExperienceCollection', items: Array<{ __typename?: 'JobExperience', jobTitle?: string | null, startDate?: any | null, endDate?: any | null, companyName?: string | null, description?: string | null, url?: string | null } | null> } | null };

@@ -2,6 +2,7 @@ import { getClient } from '@/lib/client';
 import {
   GetAboutMeInfoQuery,
   GetHeroHomeInfoQuery,
+  GetHomeExperienceQuery,
   GetHomeProjectsQuery,
   GetNavbarInfoQuery,
   GetToolListQuery,
@@ -9,6 +10,7 @@ import {
 import {
   GetAboutMeInfo,
   GetHeroHomeInfo,
+  GetHomeExperience,
   GetHomeProjects,
   GetNavbarInfo,
   GetToolList,
@@ -88,5 +90,20 @@ export const fetchHomeProjects = async () => {
     return data;
   } catch (error) {
     throw new Error(`Error fetching project list ${error}`);
+  }
+};
+export const fetchHomeExperience = async () => {
+  try {
+    const { data }: { data: GetHomeExperienceQuery } = await getClient().query({
+      query: GetHomeExperience,
+      context: {
+        fetchOptions: {
+          next: { revalidate: 5 },
+        },
+      },
+    });
+    return data;
+  } catch (error) {
+    throw new Error(`Error fetching experience list ${error}`);
   }
 };

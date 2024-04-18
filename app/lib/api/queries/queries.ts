@@ -82,3 +82,18 @@ export const GetHomeProjects = gql`
     }
   }
 `;
+export const GetHomeExperience = gql`
+  query GetHomeExperience {
+    jobExperienceCollection(order: sys_firstPublishedAt_DESC) {
+      items {
+        jobTitle
+        type
+        startDate
+        endDate
+        companyName
+        description
+        url
+      }
+    }
+  }
+`;
