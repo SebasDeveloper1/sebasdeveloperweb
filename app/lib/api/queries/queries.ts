@@ -115,3 +115,27 @@ export const GetProjectsList = gql`
     }
   }
 `;
+
+export const GetProjectDetails = ({ slug }: { slug: string }) => gql`
+  query GetProjectDetails {
+    projectsCollection(where: { slug: "${slug}" }) {
+      items {
+        name
+        type
+        category
+        level
+        device
+        description
+        tools
+        linkView
+        linkRepo
+        imagesCollection {
+          items {
+            title
+            url
+          }
+        }
+      }
+    }
+  }
+`;

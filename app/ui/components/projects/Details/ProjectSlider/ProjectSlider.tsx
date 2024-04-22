@@ -1,9 +1,9 @@
 'use client';
 // Import necessary dependencies and types
-import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
-import SDPhoto from '@/public/images/sebastian2.jpg';
-import { BulletStyleType } from './ProjectSlider.model';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Asset } from '@/app/lib/api/generated/graphql';
+import { BulletStyleType, ProjectSliderProps } from './ProjectSlider.model';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -11,8 +11,7 @@ import 'swiper/css/pagination';
 // Import required modules
 import { Pagination, Autoplay } from 'swiper/modules';
 
-export function ProjectSlider() {
-  const arrayTest: number[] = Array.from({ length: 5 }, (_, index) => index);
+export function ProjectSlider({ projectImages }: ProjectSliderProps) {
   // Define custom styles for Swiper pagination bullets
   const bulletStyle: BulletStyleType = {
     '--swiper-pagination-color': '#069bf1',
@@ -31,14 +30,14 @@ export function ProjectSlider() {
         grabCursor
         style={bulletStyle}
       >
-        {arrayTest.map((index) => (
-          <SwiperSlide key={`HeroSlider-${index}`}>
+        {projectImages.map((image: Asset) => (
+          <SwiperSlide key={`HeroSlider-${image?.title}`}>
             <figure className="relative w-full aspect-video lg:aspect-[4/3]">
               <Image
                 fill
                 sizes="100%"
-                src={SDPhoto}
-                alt={'SebasDeveloper'}
+                src={`${image?.url}`}
+                alt={`${image?.title}`}
                 placeholder="blur"
                 loading="lazy"
                 className="object-cover object-center"

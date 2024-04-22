@@ -1,1 +1,0 @@
-export { ProjectDesc } from './projectDesc';
