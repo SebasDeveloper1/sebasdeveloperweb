@@ -16,7 +16,7 @@ export async function Experience(): Promise<JSX.Element> {
   return (
     <section className="bg-light-100 dark:bg-dark-900">
       <div className="flex justify-center items-center w-full">
-        <article className="flex flex-col justify-center items-center gap-16 w-11/12 lg:w-10/12 py-16">
+        <article className="flex flex-col justify-center items-center gap-16 w-11/12 lg:w-10/12 py-16 md:py-32">
           <div className="flex flex-col justify-center items-center gap-16 w-full">
             <div className="flex flex-col justify-center gap-8 w-full">
               <div className="flex justify-center items-center w-14 aspect-square p-1 rounded-full border-[3px] border-yellow-400 bg-yellow-600 text-yellow-200">

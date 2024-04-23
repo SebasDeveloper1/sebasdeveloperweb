@@ -20,7 +20,7 @@ export async function AboutMe(): Promise<JSX.Element> {
   };
 
   return (
-    <section className="flex justify-center items-center w-full py-20 gradient-primary">
+    <section className="flex justify-center items-center w-full py-16 md:py-32 gradient-primary">
       <article className="grid grid-cols-1 md:grid-flow-col place-items-center gap-8 w-11/12 lg:w-10/12">
         <figure
           className="z-[12] order-1 md:order-2 overflow-hidden relative w-8/12 md:w-80 aspect-square rounded-full drop-shadow-xl"

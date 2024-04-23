@@ -1,5 +1,6 @@
-import Image from 'next/image';
+import { CertificateCard } from './CertificateCard';
 
+/* eslint-disable @next/next/no-img-element */
 const navbarItems = [
   {
     name: 'all',
@@ -190,7 +191,7 @@ export function CertificateList() {
   return (
     <section className="w-full bg-white dark:bg-dark-950">
       <div className="flex justify-center items-center w-full">
-        <article className="flex flex-col justify-center items-center gap-10 w-full py-4">
+        <article className="flex flex-col justify-center items-center gap-10 w-full py-4 lg:py-16">
           <header className="overflow-hidden w-full lg:w-10/12 ">
             <ul className="relative overflow-x-auto hide-scrollbar flex flex-nowrap items-center gap-x-7 xl:gap-x-8 w-full p-4 lg:px-0">
               {navbarItems.map((item) => (
@@ -210,52 +211,10 @@ export function CertificateList() {
             <h2 className="heading-5 font-medium text-light-800 dark:text-dark-100">
               Certificaciones (100)
             </h2>
-            <ul className="columns-sm gap-4 md:gap-6 w-full">
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-6 w-full">
               {arrayTest.map((index) => (
-                <li
-                  key={index}
-                  className="overflow-hidden w-full h-full mb-4 md:mb-6 rounded-xl"
-                >
-                  <a
-                    href="/"
-                    className="group flex justify-center items-center gap-4 w-full h-full px-6 py-4 bg-light-100/50 hover:bg-dark-100 dark:bg-dark-900/30  dark:hover:bg-dark-900"
-                  >
-                    <figure className="relative w-12 aspect-square">
-                      <Image
-                        fill
-                        sizes="100%"
-                        src={
-                          'https://static.platzi.com/cdn-cgi/image/width=1024,quality=50,format=auto/media/achievements/next-defe9ba8-b678-4934-a898-7be2188cdbac.png'
-                        }
-                        alt={'SebasDeveloper'}
-                        placeholder="blur"
-                        loading="lazy"
-                        blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                      />
-                    </figure>
-                    <div className="flex flex-col justify-center gap-2 w-full h-full">
-                      <span className="w-full span-sm font-medium leading-5 line-clamp-2 text-dark-900 dark:text-light-200">
-                        Curso de Next.js: Optimización y Manejo de Grandes
-                        Datasets
-                      </span>
-                      <span className="span-xs font-semibold leading-none text-dark-600 dark:text-light-400">
-                        Platzi | 2024
-                      </span>
-                    </div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right w-6 text-light-400 dark:text-dark-600 group-hover:text-primary-500 dark:group-hover:text-primary-500"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M9 6l6 6l-6 6" />
-                    </svg>
-                  </a>
+                <li key={index} className="w-full h-full">
+                  <CertificateCard />
                 </li>
               ))}
             </ul>

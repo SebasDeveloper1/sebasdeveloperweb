@@ -6,7 +6,7 @@ import { UdecLogo } from '../../assets/UdecLogo';
 export function Education(): JSX.Element {
   return (
     <section className="w-full bg-white dark:bg-dark-950">
-      <div className="overflow-hidden relative flex flex-col justify-center items-center w-full py-16">
+      <div className="overflow-hidden relative flex flex-col justify-center items-center w-full py-16 md:py-32">
         <section className="z-10 flex flex-col justify-center items-center gap-16 w-11/12 lg:w-10/12">
           <article className=" flex flex-col justify-center gap-4 w-full">
             <div className="flex flex-col justify-center gap-8 w-full">
