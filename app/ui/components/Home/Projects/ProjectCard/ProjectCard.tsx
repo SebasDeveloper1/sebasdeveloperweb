@@ -1,3 +1,5 @@
+'use client';
+import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ProjectCardProps } from './ProjectCard.model';
@@ -5,19 +7,29 @@ import { ProjectCardProps } from './ProjectCard.model';
 export function ProjectCard({ projectData }: ProjectCardProps) {
   const { name, slug, level, imagesCollection } = projectData;
 
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
   return (
-    <Link href={`/projects/${slug}`} className="group relative w-full h-full">
+    <Link
+      ref={ref}
+      href={`/projects/${slug}`}
+      className={`group relative w-full h-full ${!inView ? 'opacity-0' : 'animate-fade-in opacity-100'}`}
+    >
       <figure className="relative w-full h-full">
-        <Image
-          fill
-          sizes="100%"
-          src={`${imagesCollection?.items[0]?.url}`}
-          alt={`${imagesCollection?.items[0]?.title}`}
-          placeholder="blur"
-          loading="lazy"
-          className="object-cover object-center lg:transform lg:group-hover:scale-150 lg:transition-all"
-          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-        />
+        {inView ? (
+          <Image
+            fill
+            sizes="100%"
+            src={`${imagesCollection?.items[0]?.url}`}
+            alt={`${imagesCollection?.items[0]?.title}`}
+            placeholder="blur"
+            loading="lazy"
+            className="object-cover object-center lg:transform lg:group-hover:scale-150 lg:transition-all"
+            blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+          />
+        ) : null}
       </figure>
       <section className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent">
         <article className="flex flex-col justify-end w-full h-full p-2 md:p-3">
