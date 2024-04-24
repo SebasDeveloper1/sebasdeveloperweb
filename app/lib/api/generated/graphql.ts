@@ -1,34 +1,21 @@
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K];
-};
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]?: Maybe<T[SubKey]>;
-};
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]: Maybe<T[SubKey]>;
-};
-export type MakeEmpty<
-  T extends { [key: string]: unknown },
-  K extends keyof T,
-> = { [_ in K]?: never };
-export type Incremental<T> =
-  | T
-  | {
-      [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never;
-    };
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string };
-  String: { input: string; output: string };
-  Boolean: { input: boolean; output: boolean };
-  Int: { input: number; output: number };
-  Float: { input: number; output: number };
-  DateTime: { input: any; output: any };
-  Dimension: { input: any; output: any };
-  HexColor: { input: any; output: any };
-  Quality: { input: any; output: any };
+  ID: { input: string; output: string; }
+  String: { input: string; output: string; }
+  Boolean: { input: boolean; output: boolean; }
+  Int: { input: number; output: number; }
+  Float: { input: number; output: number; }
+  DateTime: { input: any; output: any; }
+  Dimension: { input: any; output: any; }
+  HexColor: { input: any; output: any; }
+  Quality: { input: any; output: any; }
 };
 
 /** Represents a binary file in a space. An asset can be any file type. */
@@ -47,40 +34,48 @@ export type Asset = {
   width?: Maybe<Scalars['Int']['output']>;
 };
 
+
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetContentTypeArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetDescriptionArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetFileNameArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetHeightArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
+
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetSizeArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetTitleArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetUrlArgs = {
@@ -88,13 +83,13 @@ export type AssetUrlArgs = {
   transform?: InputMaybe<ImageTransformOptions>;
 };
 
+
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetWidthArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AssetCollection = {
-  [x: string]: any;
   __typename?: 'AssetCollection';
   items: Array<Maybe<Asset>>;
   limit: Scalars['Int']['output'];
@@ -111,9 +106,7 @@ export type AssetFilter = {
   contentType_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   contentType_not?: InputMaybe<Scalars['String']['input']>;
   contentType_not_contains?: InputMaybe<Scalars['String']['input']>;
-  contentType_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  contentType_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_contains?: InputMaybe<Scalars['String']['input']>;
@@ -121,9 +114,7 @@ export type AssetFilter = {
   description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   description_not?: InputMaybe<Scalars['String']['input']>;
   description_not_contains?: InputMaybe<Scalars['String']['input']>;
-  description_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   fileName?: InputMaybe<Scalars['String']['input']>;
   fileName_contains?: InputMaybe<Scalars['String']['input']>;
   fileName_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -177,11 +168,21 @@ export type AssetFilter = {
 
 export type AssetLinkingCollections = {
   __typename?: 'AssetLinkingCollections';
+  certificationCollection?: Maybe<CertificationCollection>;
   entryCollection?: Maybe<EntryCollection>;
   personalInformationCollection?: Maybe<PersonalInformationCollection>;
   projectsCollection?: Maybe<ProjectsCollection>;
   toolCollection?: Maybe<ToolCollection>;
 };
+
+
+export type AssetLinkingCollectionsCertificationCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
 
 export type AssetLinkingCollectionsEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -190,6 +191,7 @@ export type AssetLinkingCollectionsEntryCollectionArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 export type AssetLinkingCollectionsPersonalInformationCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
@@ -197,12 +199,14 @@ export type AssetLinkingCollectionsPersonalInformationCollectionArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 export type AssetLinkingCollectionsProjectsCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
+
 
 export type AssetLinkingCollectionsToolCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -231,7 +235,133 @@ export enum AssetOrder {
   UrlAsc = 'url_ASC',
   UrlDesc = 'url_DESC',
   WidthAsc = 'width_ASC',
-  WidthDesc = 'width_DESC',
+  WidthDesc = 'width_DESC'
+}
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/certification) */
+export type Certification = Entry & {
+  __typename?: 'Certification';
+  category?: Maybe<Scalars['String']['output']>;
+  contentfulMetadata: ContentfulMetadata;
+  image?: Maybe<Asset>;
+  linkedFrom?: Maybe<CertificationLinkingCollections>;
+  school?: Maybe<Scalars['String']['output']>;
+  sys: Sys;
+  title?: Maybe<Scalars['String']['output']>;
+  url?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/certification) */
+export type CertificationCategoryArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/certification) */
+export type CertificationImageArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/certification) */
+export type CertificationLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/certification) */
+export type CertificationSchoolArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/certification) */
+export type CertificationTitleArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/certification) */
+export type CertificationUrlArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CertificationCollection = {
+  __typename?: 'CertificationCollection';
+  items: Array<Maybe<Certification>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type CertificationFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CertificationFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CertificationFilter>>>;
+  category?: InputMaybe<Scalars['String']['input']>;
+  category_contains?: InputMaybe<Scalars['String']['input']>;
+  category_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  category_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  category_not?: InputMaybe<Scalars['String']['input']>;
+  category_not_contains?: InputMaybe<Scalars['String']['input']>;
+  category_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  image_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  school?: InputMaybe<Scalars['String']['input']>;
+  school_contains?: InputMaybe<Scalars['String']['input']>;
+  school_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  school_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  school_not?: InputMaybe<Scalars['String']['input']>;
+  school_not_contains?: InputMaybe<Scalars['String']['input']>;
+  school_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_contains?: InputMaybe<Scalars['String']['input']>;
+  title_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_not?: InputMaybe<Scalars['String']['input']>;
+  title_not_contains?: InputMaybe<Scalars['String']['input']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url?: InputMaybe<Scalars['String']['input']>;
+  url_contains?: InputMaybe<Scalars['String']['input']>;
+  url_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  url_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url_not?: InputMaybe<Scalars['String']['input']>;
+  url_not_contains?: InputMaybe<Scalars['String']['input']>;
+  url_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type CertificationLinkingCollections = {
+  __typename?: 'CertificationLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type CertificationLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export enum CertificationOrder {
+  CategoryAsc = 'category_ASC',
+  CategoryDesc = 'category_DESC',
+  SchoolAsc = 'school_ASC',
+  SchoolDesc = 'school_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+  UrlAsc = 'url_ASC',
+  UrlDesc = 'url_DESC'
 }
 
 export type ContentfulMetadata = {
@@ -288,7 +418,7 @@ export enum EntryOrder {
   SysPublishedAtAsc = 'sys_publishedAt_ASC',
   SysPublishedAtDesc = 'sys_publishedAt_DESC',
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
 export enum ImageFormat {
@@ -310,7 +440,7 @@ export enum ImageFormat {
    */
   Png8 = 'PNG8',
   /** WebP image format. */
-  Webp = 'WEBP',
+  Webp = 'WEBP'
 }
 
 export enum ImageResizeFocus {
@@ -335,7 +465,7 @@ export enum ImageResizeFocus {
   /** Focus the resizing on the top left. */
   TopLeft = 'TOP_LEFT',
   /** Focus the resizing on the top right. */
-  TopRight = 'TOP_RIGHT',
+  TopRight = 'TOP_RIGHT'
 }
 
 export enum ImageResizeStrategy {
@@ -353,7 +483,7 @@ export enum ImageResizeStrategy {
   /** Resizes the image to the specified dimensions, changing the original aspect ratio if needed. */
   Scale = 'SCALE',
   /** Creates a thumbnail from the image. */
-  Thumb = 'THUMB',
+  Thumb = 'THUMB'
 }
 
 export type ImageTransformOptions = {
@@ -401,40 +531,48 @@ export type JobExperience = Entry & {
   url?: Maybe<Scalars['String']['output']>;
 };
 
+
 /** job experience  with start date, end date, name company, job title, description [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/jobExperience) */
 export type JobExperienceCompanyNameArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** job experience  with start date, end date, name company, job title, description [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/jobExperience) */
 export type JobExperienceDescriptionArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** job experience  with start date, end date, name company, job title, description [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/jobExperience) */
 export type JobExperienceEndDateArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** job experience  with start date, end date, name company, job title, description [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/jobExperience) */
 export type JobExperienceJobTitleArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** job experience  with start date, end date, name company, job title, description [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/jobExperience) */
 export type JobExperienceLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
+
 
 /** job experience  with start date, end date, name company, job title, description [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/jobExperience) */
 export type JobExperienceStartDateArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** job experience  with start date, end date, name company, job title, description [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/jobExperience) */
 export type JobExperienceTypeArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** job experience  with start date, end date, name company, job title, description [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/jobExperience) */
 export type JobExperienceUrlArgs = {
@@ -458,9 +596,7 @@ export type JobExperienceFilter = {
   companyName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   companyName_not?: InputMaybe<Scalars['String']['input']>;
   companyName_not_contains?: InputMaybe<Scalars['String']['input']>;
-  companyName_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  companyName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_contains?: InputMaybe<Scalars['String']['input']>;
@@ -468,9 +604,7 @@ export type JobExperienceFilter = {
   description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   description_not?: InputMaybe<Scalars['String']['input']>;
   description_not_contains?: InputMaybe<Scalars['String']['input']>;
-  description_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   endDate?: InputMaybe<Scalars['DateTime']['input']>;
   endDate_exists?: InputMaybe<Scalars['Boolean']['input']>;
   endDate_gt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -495,9 +629,7 @@ export type JobExperienceFilter = {
   startDate_lt?: InputMaybe<Scalars['DateTime']['input']>;
   startDate_lte?: InputMaybe<Scalars['DateTime']['input']>;
   startDate_not?: InputMaybe<Scalars['DateTime']['input']>;
-  startDate_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['DateTime']['input']>>
-  >;
+  startDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   sys?: InputMaybe<SysFilter>;
   type?: InputMaybe<Scalars['String']['input']>;
   type_contains?: InputMaybe<Scalars['String']['input']>;
@@ -519,6 +651,7 @@ export type JobExperienceLinkingCollections = {
   __typename?: 'JobExperienceLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
 };
+
 
 export type JobExperienceLinkingCollectionsEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -547,7 +680,7 @@ export enum JobExperienceOrder {
   TypeAsc = 'type_ASC',
   TypeDesc = 'type_DESC',
   UrlAsc = 'url_ASC',
-  UrlDesc = 'url_DESC',
+  UrlDesc = 'url_DESC'
 }
 
 /** personal information with name, short description, long description, photo [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/personalInformation) */
@@ -566,10 +699,12 @@ export type PersonalInformation = Entry & {
   userName?: Maybe<Scalars['String']['output']>;
 };
 
+
 /** personal information with name, short description, long description, photo [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/personalInformation) */
 export type PersonalInformationAboutMeArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** personal information with name, short description, long description, photo [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/personalInformation) */
 export type PersonalInformationBgVideoArgs = {
@@ -577,11 +712,13 @@ export type PersonalInformationBgVideoArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+
 /** personal information with name, short description, long description, photo [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/personalInformation) */
 export type PersonalInformationCoverArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
+
 
 /** personal information with name, short description, long description, photo [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/personalInformation) */
 export type PersonalInformationCvArgs = {
@@ -589,15 +726,18 @@ export type PersonalInformationCvArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+
 /** personal information with name, short description, long description, photo [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/personalInformation) */
 export type PersonalInformationLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+
 /** personal information with name, short description, long description, photo [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/personalInformation) */
 export type PersonalInformationNameArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** personal information with name, short description, long description, photo [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/personalInformation) */
 export type PersonalInformationPhotoArgs = {
@@ -605,10 +745,12 @@ export type PersonalInformationPhotoArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+
 /** personal information with name, short description, long description, photo [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/personalInformation) */
 export type PersonalInformationShortDescriptionArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** personal information with name, short description, long description, photo [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/personalInformation) */
 export type PersonalInformationUserNameArgs = {
@@ -648,14 +790,10 @@ export type PersonalInformationFilter = {
   shortDescription?: InputMaybe<Scalars['String']['input']>;
   shortDescription_contains?: InputMaybe<Scalars['String']['input']>;
   shortDescription_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  shortDescription_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  shortDescription_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   shortDescription_not?: InputMaybe<Scalars['String']['input']>;
   shortDescription_not_contains?: InputMaybe<Scalars['String']['input']>;
-  shortDescription_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  shortDescription_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sys?: InputMaybe<SysFilter>;
   userName?: InputMaybe<Scalars['String']['input']>;
   userName_contains?: InputMaybe<Scalars['String']['input']>;
@@ -670,6 +808,7 @@ export type PersonalInformationLinkingCollections = {
   __typename?: 'PersonalInformationLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
 };
+
 
 export type PersonalInformationLinkingCollectionsEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -690,7 +829,7 @@ export enum PersonalInformationOrder {
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
   UserNameAsc = 'userName_ASC',
-  UserNameDesc = 'userName_DESC',
+  UserNameDesc = 'userName_DESC'
 }
 
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
@@ -713,20 +852,24 @@ export type Projects = Entry & {
   type?: Maybe<Scalars['String']['output']>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
 export type ProjectsCategoryArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
 export type ProjectsDescriptionArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
 export type ProjectsDeviceArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
 export type ProjectsImagesCollectionArgs = {
@@ -736,45 +879,54 @@ export type ProjectsImagesCollectionArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
 export type ProjectsLevelArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
 export type ProjectsLevelkeyArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
 export type ProjectsLinkRepoArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
 export type ProjectsLinkViewArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
 export type ProjectsLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
 export type ProjectsNameArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
 export type ProjectsSlugArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
 export type ProjectsToolsArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/projects) */
 export type ProjectsTypeArgs = {
@@ -806,9 +958,7 @@ export type ProjectsFilter = {
   description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   description_not?: InputMaybe<Scalars['String']['input']>;
   description_not_contains?: InputMaybe<Scalars['String']['input']>;
-  description_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   device?: InputMaybe<Scalars['String']['input']>;
   device_contains?: InputMaybe<Scalars['String']['input']>;
   device_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -881,6 +1031,7 @@ export type ProjectsLinkingCollections = {
   entryCollection?: Maybe<EntryCollection>;
 };
 
+
 export type ProjectsLinkingCollectionsEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
@@ -916,7 +1067,7 @@ export enum ProjectsOrder {
   ToolsAsc = 'tools_ASC',
   ToolsDesc = 'tools_DESC',
   TypeAsc = 'type_ASC',
-  TypeDesc = 'type_DESC',
+  TypeDesc = 'type_DESC'
 }
 
 export type Query = {
@@ -924,6 +1075,8 @@ export type Query = {
   _node?: Maybe<_Node>;
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
+  certification?: Maybe<Certification>;
+  certificationCollection?: Maybe<CertificationCollection>;
   entryCollection?: Maybe<EntryCollection>;
   jobExperience?: Maybe<JobExperience>;
   jobExperienceCollection?: Maybe<JobExperienceCollection>;
@@ -935,17 +1088,20 @@ export type Query = {
   toolCollection?: Maybe<ToolCollection>;
 };
 
+
 export type Query_NodeArgs = {
   id: Scalars['ID']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+
 export type QueryAssetArgs = {
   id: Scalars['String']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
+
 
 export type QueryAssetCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -956,6 +1112,24 @@ export type QueryAssetCollectionArgs = {
   where?: InputMaybe<AssetFilter>;
 };
 
+
+export type QueryCertificationArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryCertificationCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<CertificationOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<CertificationFilter>;
+};
+
+
 export type QueryEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
@@ -965,11 +1139,13 @@ export type QueryEntryCollectionArgs = {
   where?: InputMaybe<EntryFilter>;
 };
 
+
 export type QueryJobExperienceArgs = {
   id: Scalars['String']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
+
 
 export type QueryJobExperienceCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -980,11 +1156,13 @@ export type QueryJobExperienceCollectionArgs = {
   where?: InputMaybe<JobExperienceFilter>;
 };
 
+
 export type QueryPersonalInformationArgs = {
   id: Scalars['String']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
+
 
 export type QueryPersonalInformationCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -995,11 +1173,13 @@ export type QueryPersonalInformationCollectionArgs = {
   where?: InputMaybe<PersonalInformationFilter>;
 };
 
+
 export type QueryProjectsArgs = {
   id: Scalars['String']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
+
 
 export type QueryProjectsCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -1010,11 +1190,13 @@ export type QueryProjectsCollectionArgs = {
   where?: InputMaybe<ProjectsFilter>;
 };
 
+
 export type QueryToolArgs = {
   id: Scalars['String']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
+
 
 export type QueryToolCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -1040,15 +1222,11 @@ export type SysFilter = {
   firstPublishedAt_exists?: InputMaybe<Scalars['Boolean']['input']>;
   firstPublishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
   firstPublishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
-  firstPublishedAt_in?: InputMaybe<
-    Array<InputMaybe<Scalars['DateTime']['input']>>
-  >;
+  firstPublishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   firstPublishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
   firstPublishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
   firstPublishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
-  firstPublishedAt_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['DateTime']['input']>>
-  >;
+  firstPublishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   id?: InputMaybe<Scalars['String']['input']>;
   id_contains?: InputMaybe<Scalars['String']['input']>;
   id_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1064,22 +1242,16 @@ export type SysFilter = {
   publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
   publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
   publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
-  publishedAt_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['DateTime']['input']>>
-  >;
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   publishedVersion?: InputMaybe<Scalars['Float']['input']>;
   publishedVersion_exists?: InputMaybe<Scalars['Boolean']['input']>;
   publishedVersion_gt?: InputMaybe<Scalars['Float']['input']>;
   publishedVersion_gte?: InputMaybe<Scalars['Float']['input']>;
-  publishedVersion_in?: InputMaybe<
-    Array<InputMaybe<Scalars['Float']['input']>>
-  >;
+  publishedVersion_in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
   publishedVersion_lt?: InputMaybe<Scalars['Float']['input']>;
   publishedVersion_lte?: InputMaybe<Scalars['Float']['input']>;
   publishedVersion_not?: InputMaybe<Scalars['Float']['input']>;
-  publishedVersion_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['Float']['input']>>
-  >;
+  publishedVersion_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
 /** This type of content is tools. [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/tool) */
@@ -1094,15 +1266,18 @@ export type Tool = Entry & {
   url?: Maybe<Scalars['String']['output']>;
 };
 
+
 /** This type of content is tools. [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/tool) */
 export type ToolDescriptionArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** This type of content is tools. [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/tool) */
 export type ToolLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
+
 
 /** This type of content is tools. [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/tool) */
 export type ToolLogoArgs = {
@@ -1110,10 +1285,12 @@ export type ToolLogoArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+
 /** This type of content is tools. [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/tool) */
 export type ToolNameArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** This type of content is tools. [See type definition](https://app.contentful.com/spaces/8e4cftpjs07x/content_types/tool) */
 export type ToolUrlArgs = {
@@ -1138,9 +1315,7 @@ export type ToolFilter = {
   description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   description_not?: InputMaybe<Scalars['String']['input']>;
   description_not_contains?: InputMaybe<Scalars['String']['input']>;
-  description_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   logo_exists?: InputMaybe<Scalars['Boolean']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   name_contains?: InputMaybe<Scalars['String']['input']>;
@@ -1164,6 +1339,7 @@ export type ToolLinkingCollections = {
   entryCollection?: Maybe<EntryCollection>;
 };
 
+
 export type ToolLinkingCollectionsEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
@@ -1185,183 +1361,54 @@ export enum ToolOrder {
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
   UrlAsc = 'url_ASC',
-  UrlDesc = 'url_DESC',
+  UrlDesc = 'url_DESC'
 }
 
 export type _Node = {
   _id: Scalars['ID']['output'];
 };
 
-export type GetHeroHomeInfoQueryVariables = Exact<{ [key: string]: never }>;
+export type GetHeroHomeInfoQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type GetHeroHomeInfoQuery = {
-  __typename?: 'Query';
-  personalInformationCollection?: {
-    __typename?: 'PersonalInformationCollection';
-    items: Array<{
-      __typename?: 'PersonalInformation';
-      name?: string | null;
-      shortDescription?: string | null;
-      photo?: {
-        __typename?: 'Asset';
-        title?: string | null;
-        url?: string | null;
-      } | null;
-      cv?: { __typename?: 'Asset'; url?: string | null } | null;
-      bgVideo?: { __typename?: 'Asset'; url?: string | null } | null;
-    } | null>;
-  } | null;
-};
 
-export type GetNavbarInfoQueryVariables = Exact<{ [key: string]: never }>;
+export type GetHeroHomeInfoQuery = { __typename?: 'Query', personalInformationCollection?: { __typename?: 'PersonalInformationCollection', items: Array<{ __typename?: 'PersonalInformation', name?: string | null, shortDescription?: string | null, photo?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null, cv?: { __typename?: 'Asset', url?: string | null } | null, bgVideo?: { __typename?: 'Asset', url?: string | null } | null } | null> } | null };
 
-export type GetNavbarInfoQuery = {
-  __typename?: 'Query';
-  personalInformationCollection?: {
-    __typename?: 'PersonalInformationCollection';
-    items: Array<{
-      __typename?: 'PersonalInformation';
-      name?: string | null;
-      userName?: string | null;
-      photo?: {
-        __typename?: 'Asset';
-        title?: string | null;
-        url?: string | null;
-      } | null;
-      cv?: { __typename?: 'Asset'; url?: string | null } | null;
-    } | null>;
-  } | null;
-};
+export type GetNavbarInfoQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type GetAboutMeInfoQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetAboutMeInfoQuery = {
-  __typename?: 'Query';
-  personalInformationCollection?: {
-    __typename?: 'PersonalInformationCollection';
-    items: Array<{
-      __typename?: 'PersonalInformation';
-      aboutMe?: string | null;
-      cover?: {
-        __typename?: 'Asset';
-        title?: string | null;
-        url?: string | null;
-      } | null;
-    } | null>;
-  } | null;
-};
+export type GetNavbarInfoQuery = { __typename?: 'Query', personalInformationCollection?: { __typename?: 'PersonalInformationCollection', items: Array<{ __typename?: 'PersonalInformation', name?: string | null, userName?: string | null, photo?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null, cv?: { __typename?: 'Asset', url?: string | null } | null } | null> } | null };
 
-export type GetToolListQueryVariables = Exact<{ [key: string]: never }>;
+export type GetAboutMeInfoQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type GetToolListQuery = {
-  __typename?: 'Query';
-  toolCollection?: {
-    __typename?: 'ToolCollection';
-    items: Array<{
-      __typename?: 'Tool';
-      name?: string | null;
-      description?: string | null;
-      url?: string | null;
-      logo?: {
-        __typename?: 'Asset';
-        title?: string | null;
-        url?: string | null;
-      } | null;
-    } | null>;
-  } | null;
-};
 
-export type GetHomeProjectsQueryVariables = Exact<{ [key: string]: never }>;
+export type GetAboutMeInfoQuery = { __typename?: 'Query', personalInformationCollection?: { __typename?: 'PersonalInformationCollection', items: Array<{ __typename?: 'PersonalInformation', aboutMe?: string | null, cover?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null };
 
-export type GetHomeProjectsQuery = {
-  __typename?: 'Query';
-  projectsCollection?: {
-    __typename?: 'ProjectsCollection';
-    items: Array<{
-      __typename?: 'Projects';
-      name?: string | null;
-      slug?: string | null;
-      level?: string | null;
-      imagesCollection?: {
-        __typename?: 'AssetCollection';
-        items: Array<{
-          __typename?: 'Asset';
-          title?: string | null;
-          url?: string | null;
-        } | null>;
-      } | null;
-    } | null>;
-  } | null;
-};
+export type GetToolListQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type GetHomeExperienceQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetHomeExperienceQuery = {
-  __typename?: 'Query';
-  jobExperienceCollection?: {
-    __typename?: 'JobExperienceCollection';
-    items: Array<{
-      __typename?: 'JobExperience';
-      jobTitle?: string | null;
-      type?: string | null;
-      startDate?: any | null;
-      endDate?: any | null;
-      companyName?: string | null;
-      description?: string | null;
-      url?: string | null;
-    } | null>;
-  } | null;
-};
+export type GetToolListQuery = { __typename?: 'Query', toolCollection?: { __typename?: 'ToolCollection', items: Array<{ __typename?: 'Tool', name?: string | null, description?: string | null, url?: string | null, logo?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null };
 
-export type GetProjectsListQueryVariables = Exact<{ [key: string]: never }>;
+export type GetHomeProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type GetProjectsListQuery = {
-  __typename?: 'Query';
-  projectsCollection?: {
-    __typename?: 'ProjectsCollection';
-    items: Array<{
-      __typename?: 'Projects';
-      name?: string | null;
-      slug?: string | null;
-      level?: string | null;
-      levelkey?: string | null;
-      imagesCollection?: {
-        __typename?: 'AssetCollection';
-        items: Array<{
-          __typename?: 'Asset';
-          title?: string | null;
-          url?: string | null;
-        } | null>;
-      } | null;
-    } | null>;
-  } | null;
-};
 
-export type GetProjectDetailsQueryVariables = Exact<{ [key: string]: never }>;
+export type GetHomeProjectsQuery = { __typename?: 'Query', projectsCollection?: { __typename?: 'ProjectsCollection', items: Array<{ __typename?: 'Projects', name?: string | null, slug?: string | null, level?: string | null, imagesCollection?: { __typename?: 'AssetCollection', items: Array<{ __typename?: 'Asset', title?: string | null, url?: string | null } | null> } | null } | null> } | null };
 
-export type GetProjectDetailsQuery = {
-  __typename?: 'Query';
-  projectsCollection?: {
-    __typename?: 'ProjectsCollection';
-    items: Array<{
-      __typename?: 'Projects';
-      name?: string | null;
-      type?: string | null;
-      category?: string | null;
-      level?: string | null;
-      device?: string | null;
-      description?: string | null;
-      tools?: string | null;
-      linkView?: string | null;
-      linkRepo?: string | null;
-      imagesCollection?: {
-        __typename?: 'AssetCollection';
-        items: Array<{
-          __typename?: 'Asset';
-          title?: string | null;
-          url?: string | null;
-        } | null>;
-      } | null;
-    } | null>;
-  } | null;
-};
+export type GetHomeExperienceQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetHomeExperienceQuery = { __typename?: 'Query', jobExperienceCollection?: { __typename?: 'JobExperienceCollection', items: Array<{ __typename?: 'JobExperience', jobTitle?: string | null, type?: string | null, startDate?: any | null, endDate?: any | null, companyName?: string | null, description?: string | null, url?: string | null } | null> } | null };
+
+export type GetProjectsListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetProjectsListQuery = { __typename?: 'Query', projectsCollection?: { __typename?: 'ProjectsCollection', items: Array<{ __typename?: 'Projects', name?: string | null, slug?: string | null, level?: string | null, levelkey?: string | null, imagesCollection?: { __typename?: 'AssetCollection', items: Array<{ __typename?: 'Asset', title?: string | null, url?: string | null } | null> } | null } | null> } | null };
+
+export type GetProjectDetailsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetProjectDetailsQuery = { __typename?: 'Query', projectsCollection?: { __typename?: 'ProjectsCollection', items: Array<{ __typename?: 'Projects', name?: string | null, type?: string | null, category?: string | null, level?: string | null, device?: string | null, description?: string | null, tools?: string | null, linkView?: string | null, linkRepo?: string | null, imagesCollection?: { __typename?: 'AssetCollection', items: Array<{ __typename?: 'Asset', title?: string | null, url?: string | null } | null> } | null } | null> } | null };
+
+export type GetCertificateListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetCertificateListQuery = { __typename?: 'Query', certificationCollection?: { __typename?: 'CertificationCollection', total: number, items: Array<{ __typename?: 'Certification', title?: string | null, category?: string | null, school?: string | null, url?: string | null, image?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null };

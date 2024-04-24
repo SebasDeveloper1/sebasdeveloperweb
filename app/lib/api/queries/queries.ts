@@ -139,3 +139,21 @@ export const GetProjectDetails = ({ slug }: { slug: string }) => gql`
     }
   }
 `;
+
+export const GetCertificateList = gql`
+  query GetCertificateList {
+    certificationCollection(order: sys_firstPublishedAt_DESC, limit: 200) {
+      total
+      items {
+        title
+        category
+        school
+        url
+        image {
+          title
+          url
+        }
+      }
+    }
+  }
+`;

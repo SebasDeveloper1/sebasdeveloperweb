@@ -4,7 +4,7 @@ import { ToolCardProps } from './ToolCard.model';
 export function ToolCard({ toolData }: ToolCardProps): JSX.Element {
   const { name, description, url, logo } = toolData;
   return (
-    <li className="overflow-hidden w-full h-full rounded-xl bg-light-100 hover:bg-dark-200/70 dark:bg-dark-900 dark:hover:bg-dark-800 shadow-sm shadow-dark-900/5">
+    <li className="overflow-hidden w-full h-full rounded-xl bg-light-100 hover:bg-dark-200/70 dark:bg-dark-900/30 dark:hover:bg-dark-900 shadow-sm">
       <a
         href={`${url}`}
         className="flex justify-between items-center w-full h-full"
