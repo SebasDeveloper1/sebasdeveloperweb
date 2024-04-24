@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import { fetchAboutMeInfo } from '@/app/lib/api/data/fetch/home';
-import { GetAboutMeInfoQuery } from '@/app/lib/api/generated/graphql';
+import { Asset, GetAboutMeInfoQuery } from '@/app/lib/api/generated/graphql';
 import ReactMarkdown, { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { RendererProps } from './AbotMe.model';
+import { AboutMeImage } from './AboutMeImage';
 
 export async function AboutMe(): Promise<JSX.Element> {
   const { personalInformationCollection }: GetAboutMeInfoQuery =
@@ -22,22 +22,7 @@ export async function AboutMe(): Promise<JSX.Element> {
   return (
     <section className="flex justify-center items-center w-full py-16 md:py-32 gradient-primary">
       <article className="grid grid-cols-1 md:grid-flow-col place-items-center gap-8 w-11/12 lg:w-10/12">
-        <figure
-          className="z-[12] order-1 md:order-2 overflow-hidden relative w-8/12 md:w-80 aspect-square rounded-full drop-shadow-xl"
-          style={{
-            borderRadius: '30% 70% 67% 33% / 30% 30% 70% 70% ',
-          }}
-        >
-          <Image
-            fill
-            sizes="100%"
-            src={`${cover?.url}`}
-            alt={`${cover?.title}`}
-            placeholder="blur"
-            loading="lazy"
-            blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-          />
-        </figure>
+        <AboutMeImage cover={cover as Asset} />
         <section className="order-2 md:order-1 w-full">
           <div className="flex flex-col justify-center items-start gap-4 w-full mb-8">
             <div className="flex justify-center items-center w-14 aspect-square p-1 rounded-full border-[3px] border-pink-400 bg-pink-600 text-pink-200">
