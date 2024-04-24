@@ -22,24 +22,6 @@ export function ExperienceItem({ experienceData }: ExperienceItemProps) {
 
   return (
     <div className="flex flex-col items-start gap-4 mb-12 ms-10">
-      <div className="absolute w-8 aspect-square rounded-full mt-8 p-1 -start-4 text-yellow-200 dark:text-yellow-200 border-2 border-yellow-400 dark:border-yellow-400  bg-yellow-600 dark:bg-yellow-600">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="icon icon-tabler icons-tabler-outline icon-tabler-briefcase w-full"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-          <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
-          <path d="M12 12l0 .01" />
-          <path d="M3 13a20 20 0 0 0 18 0" />
-        </svg>
-      </div>
       <div className="grid grid-cols-1 md:grid-cols-3 items-start gap-2">
         <div className="col-span-1 flex flex-col items-start">
           <span className="span-xs w-fit mb-2 font-medium text-indigo-600 dark:text-indigo-300 bg-indigo-400/10 rounded-r-full py-0.5 px-3 capitalize">

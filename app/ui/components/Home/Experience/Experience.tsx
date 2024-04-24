@@ -1,17 +1,13 @@
 import {
   GetHomeExperienceQuery,
-  JobExperience,
   JobExperienceCollection,
 } from '@/app/lib/api/generated/graphql';
-import { ExperienceItem } from './ExperienceItem/ExperienceItem';
 import { fetchHomeExperience } from '@/app/lib/api/data/fetch/home';
+import { ExperienceList } from './ExperienceList';
 
 export async function Experience(): Promise<JSX.Element> {
   const { jobExperienceCollection }: GetHomeExperienceQuery =
     await fetchHomeExperience();
-
-  const { items: jobExperienceArray }: JobExperienceCollection =
-    jobExperienceCollection as JobExperienceCollection;
 
   return (
     <section className="bg-light-100 dark:bg-dark-900">
@@ -41,15 +37,11 @@ export async function Experience(): Promise<JSX.Element> {
                 Experiencia laboral
               </h2>
             </div>
-            <ol className="relative w-11/12 border-s border-dark-400 dark:border-light-700">
-              {jobExperienceArray.map((experience) => (
-                <li key={`job_${experience?.sys?.id}`} className="w-full">
-                  <ExperienceItem
-                    experienceData={experience as JobExperience}
-                  />
-                </li>
-              ))}
-            </ol>
+            <ExperienceList
+              jobExperienceCollection={
+                jobExperienceCollection as JobExperienceCollection
+              }
+            />
           </div>
         </article>
       </div>
