@@ -1,10 +1,20 @@
+'use client';
 import Image from 'next/image';
+import { useInView } from 'react-intersection-observer';
 import { ToolCardProps } from './ToolCard.model';
 
 export function ToolCard({ toolData }: ToolCardProps): JSX.Element {
   const { name, description, url, logo } = toolData;
+
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
   return (
-    <li className="overflow-hidden w-full h-full rounded-xl bg-light-100 hover:bg-dark-200/70 dark:bg-dark-900/30 dark:hover:bg-dark-900 shadow-sm">
+    <li
+      ref={ref}
+      className={`overflow-hidden w-full h-full rounded-xl bg-light-100 hover:bg-dark-200/70 dark:bg-dark-900/30 dark:hover:bg-dark-900 shadow-sm ${!inView ? 'opacity-0' : 'animate-bounce-fade-in opacity-100'}`}
+    >
       <a
         href={`${url}`}
         className="flex justify-between items-center w-full h-full"
@@ -17,16 +27,18 @@ export function ToolCard({ toolData }: ToolCardProps): JSX.Element {
             {description}
           </span>
         </div>
-        <figure className="relative w-28 aspect-square translate-x-3">
-          <Image
-            fill
-            sizes="100%"
-            src={`${logo?.url}`}
-            alt={`${logo?.title}`}
-            placeholder="blur"
-            loading="lazy"
-            blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-          />
+        <figure className="relative w-24 aspect-square translate-x-3 rounded-xl">
+          {inView ? (
+            <Image
+              fill
+              sizes="100%"
+              src={`${logo?.url}`}
+              alt={`${logo?.title}`}
+              placeholder="blur"
+              loading="lazy"
+              blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            />
+          ) : null}
         </figure>
       </a>
     </li>
