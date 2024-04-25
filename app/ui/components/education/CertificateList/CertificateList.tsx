@@ -1,9 +1,12 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Certification } from '@/app/lib/api/generated/graphql';
 import { CertificateCard } from './CertificateCard';
 import { CertificateListProps, NavbarItems } from './CertificateList.model';
 import { navbarItems } from './NavbarItems';
+
+const initialCount = 9;
+
 export function CertificateList({
   certificationCollection,
 }: CertificateListProps) {
@@ -12,16 +15,68 @@ export function CertificateList({
     Certification[]
   >(items as Certification[]);
   const [activeItem, setActiveItem] = useState<NavbarItems>(navbarItems[0]);
+  const [visibleItems, setVisibleItems] = useState<number>(initialCount); // Número de elementos a mostrar inicialmente
 
-  const handleMenuClick = ({ item }: { item: NavbarItems }) => {
-    const updatedCertification =
-      item?.name === 'all'
+  /**
+   * Handle scroll event to load more items when reaching the bottom of the page.
+   */
+  useEffect(() => {
+    const handleScroll = (): void => {
+      const isScrolledToBottom =
+        document.documentElement.offsetHeight -
+          (window.innerHeight + document.documentElement.scrollTop) <=
+        200;
+
+      if (!isScrolledToBottom) return;
+
+      // Calculate the new number of visible items
+      const newVisibleItems = Math.min(
+        filteredCertification.length,
+        visibleItems + initialCount,
+      );
+
+      // Update the visible items count
+      setVisibleItems(newVisibleItems);
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup: remove scroll event listener
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [filteredCertification, visibleItems]);
+
+  /**
+   * Handle menu item click event.
+   *
+   * Updates the visible items based on the selected menu item.
+   *
+   * @param {NavbarItems} item - The selected menu item.
+   */
+  const handleMenuClick = ({ item }: { item: NavbarItems }): void => {
+    // Filter certifications based on the selected menu item
+    const updatedCertification: Certification[] =
+      item.name === 'all'
         ? (items as Certification[])
         : (items.filter(
             (certificate) => certificate?.category === item?.name,
           ) as Certification[]);
 
+    // Determine the number of visible items
+    const visibleItemCount = Math.min(
+      updatedCertification.length,
+      initialCount,
+    );
+
+    // Update the visible items count
+    setVisibleItems(visibleItemCount);
+
+    // Set the filtered certifications
     setFilteredCertification(updatedCertification);
+
+    // Set the active menu item
     setActiveItem(item);
   };
 
@@ -55,16 +110,18 @@ export function CertificateList({
               </span>
             </span>
             <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-6 w-full">
-              {filteredCertification.map((certificate) => (
-                <li
-                  key={`Certidicate_${certificate?.sys?.id}`}
-                  className="w-full h-full"
-                >
-                  <CertificateCard
-                    certificateData={certificate as Certification}
-                  />
-                </li>
-              ))}
+              {filteredCertification
+                .slice(0, visibleItems)
+                .map((certificate) => (
+                  <li
+                    key={`Certidicate_${certificate?.url}`}
+                    className="w-full h-full"
+                  >
+                    <CertificateCard
+                      certificateData={certificate as Certification}
+                    />
+                  </li>
+                ))}
             </ul>
           </section>
         </article>
