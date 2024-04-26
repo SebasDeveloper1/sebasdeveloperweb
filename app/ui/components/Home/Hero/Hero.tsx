@@ -27,14 +27,14 @@ export async function Hero(): Promise<JSX.Element> {
         autoPlay
         muted
         loop
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className="absolute inset-0 w-full h-full object-cover object-center animate-fade-in"
         src={`${bgVideo?.url}`}
       />
       <div className="z-10 flex justify-center items-center w-full min-h-screen py-24 bg-dark-950/60 backdrop-blur-[3px]">
         <article className="relative grid grid-cols-1 md:grid-flow-col items-center gap-8 md:gap-10 w-11/12 lg:w-9/12">
           <StarsSVG />
           <figure
-            className="z-[12] order-1 md:order-2 overflow-hidden relative w-24 md:w-48 aspect-square rounded-full border-2 border-dark-50"
+            className="z-[12] order-1 md:order-2 overflow-hidden relative w-24 md:w-48 aspect-square rounded-full border-2 border-dark-50 animate-fade-in-left"
             style={{
               borderRadius: '30% 70% 67% 33% / 30% 30% 70% 70% ',
             }}
@@ -49,7 +49,7 @@ export async function Hero(): Promise<JSX.Element> {
               blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
             />
           </figure>
-          <div className="z-[12] order-2 md:order-1 flex flex-col justify-center items-start gap-4 w-full">
+          <div className="z-[12] order-2 md:order-1 flex flex-col justify-center items-start gap-4 w-full animate-fade-in-right">
             <span className="heading-2 text-dark-200 font-bold">Hey, soy</span>
             <h1 className="heading-1 text-dark-50 font-bold">{name}</h1>
             <ReactMarkdown components={renderers as Partial<Components>}>

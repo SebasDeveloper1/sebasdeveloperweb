@@ -1,0 +1,1 @@
+export { AboutMeDesc } from './AboutMeDesc';

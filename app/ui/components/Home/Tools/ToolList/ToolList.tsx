@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { ToolCard } from '../ToolCard';
 import { ButtonText, ToolListProps } from './ToolList.model';
 import { Tool } from '@/app/lib/api/generated/graphql';
+import { ToolStaticCard } from '../ToolStaticCard';
 
 const buttonText: ButtonText = {
   showMore: {
@@ -75,13 +76,7 @@ export function ToolList({
         {visibleItems.map((tool) => (
           <ToolCard key={tool?.name} toolData={tool as Tool} />
         ))}
-        <li className="overflow-hidden w-full min-h-[6.5rem] h-full rounded-xl border-2 border-dashed border-primary-500">
-          <div className="flex place-items-center w-full min-h-[6.5rem] h-full p-4 text-center">
-            <span className="w-full span-xl text-dark-800 dark:text-light-300">
-              🚀 Mejorando a diario 😊
-            </span>
-          </div>
-        </li>
+        <ToolStaticCard />
       </ul>
       {ToolList.length > 5 ? (
         <button

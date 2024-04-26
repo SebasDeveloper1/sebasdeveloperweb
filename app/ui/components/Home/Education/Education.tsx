@@ -1,14 +1,22 @@
+'use client';
 import Link from 'next/link';
 import { EducationCard } from './EducationCard';
 import { PlatziLogo } from '../../assets/PlatziLogo';
 import { UdecLogo } from '../../assets/UdecLogo';
+import { useInView } from 'react-intersection-observer';
 
 export function Education(): JSX.Element {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
   return (
-    <section className="w-full bg-white dark:bg-dark-950">
+    <section ref={ref} className="w-full bg-white dark:bg-dark-950">
       <div className="overflow-hidden relative flex flex-col justify-center items-center w-full py-16 md:py-32">
         <section className="z-10 flex flex-col justify-center items-center gap-16 w-11/12 lg:w-10/12">
-          <article className=" flex flex-col justify-center gap-4 w-full">
+          <article
+            className={`flex flex-col justify-center gap-4 w-full ${!inView ? 'opacity-0' : 'animate-fade-in-right opacity-100'}`}
+          >
             <div className="flex flex-col justify-center gap-8 w-full">
               <div className="flex justify-center items-center w-14 aspect-square p-1 rounded-full border-[3px] border-sky-400 bg-sky-600 text-sky-200">
                 <svg
@@ -58,7 +66,9 @@ export function Education(): JSX.Element {
               </svg>
             </Link>
           </article>
-          <ul className="flex justify-evenly items-center gap-8 place-items-center w-11/12 md:w-full ">
+          <ul
+            className={`flex justify-evenly items-center gap-8 place-items-center w-11/12 md:w-full ${!inView ? 'opacity-0' : 'animate-zoom-in opacity-100'}`}
+          >
             <li className="w-2/5 md:w-1/4">
               <EducationCard
                 href="https://platzi.com/p/SebasDeveloper/"

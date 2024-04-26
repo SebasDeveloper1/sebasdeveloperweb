@@ -5,7 +5,7 @@ import { Projects } from '@/app/lib/api/generated/graphql';
 import { ProjectCard } from '../ProjectCard';
 import { navbarItems } from './NavbarItems';
 
-const initialCount = 4;
+const initialCount = 8;
 
 export function ProjectList({ projectsCollection }: ProjectListProps) {
   const { items } = projectsCollection;
@@ -59,7 +59,7 @@ export function ProjectList({ projectsCollection }: ProjectListProps) {
       item.name === 'all'
         ? (items as Projects[])
         : (items.filter(
-            (project) => project?.category === item?.name,
+            (project) => project?.levelkey === item?.name,
           ) as Projects[]);
 
     // Determine the number of visible items

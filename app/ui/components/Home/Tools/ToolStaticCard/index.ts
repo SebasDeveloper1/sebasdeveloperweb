@@ -1,0 +1,1 @@
+export { ToolStaticCard } from './ToolStaticCard';

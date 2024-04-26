@@ -1,6 +1,17 @@
+'use client';
+
+import { useInView } from 'react-intersection-observer';
+
 export function ToolDesc() {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
   return (
-    <section className="flex flex-col justify-center items-center gap-8 w-full pt-16 md:pt-32 pb-12">
+    <section
+      ref={ref}
+      className={`flex flex-col justify-center items-center gap-8 w-full pt-16 md:pt-32 pb-12 ${!inView ? 'opacity-0' : 'animate-fade-in-right opacity-100'}`}
+    >
       <article className="flex flex-col justify-center gap-4 w-11/12 lg:w-10/12">
         <div className="flex flex-col justify-center gap-8 w-full">
           <div className="flex justify-center items-center w-14 aspect-square p-1 rounded-full border-[3px] border-sky-400 bg-sky-600 text-sky-200">
