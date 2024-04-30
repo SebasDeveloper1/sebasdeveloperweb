@@ -4,11 +4,19 @@ import { EducationCard } from './EducationCard';
 import { PlatziLogo } from '../../assets/PlatziLogo';
 import { UdecLogo } from '../../assets/UdecLogo';
 import { useInView } from 'react-intersection-observer';
+import Loading from './Loading';
+import useLoadPage from '@/app/lib/hooks/useLoadPage';
 
 export function Education(): JSX.Element {
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
+
+  const isLoading = useLoadPage();
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <section ref={ref} className="w-full bg-white dark:bg-dark-950">
