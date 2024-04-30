@@ -20,11 +20,22 @@ export default function Loading() {
     <section className="flex flex-col justify-center items-center gap-16 w-full">
       <ul className="overflow-hidden w-full h-full grid grid-cols-3 grid-rows-2 gap-4">
         {/* Skeleton Loading */}
-        {[...Array(6)].map((_, index) => (
+        {[...Array(5)].map((_, index) => (
           <li
             key={index}
-            className={`w-full h-full rounded-xl ${getConditionalClasses(index)} bg-light-500/30 dark:bg-dark-400/20 animate-pulse`}
-          ></li>
+            className={`overflow-hidden w-full h-full rounded-xl ${getConditionalClasses(index)} bg-light-500/30 dark:bg-dark-400/20 animate-pulse`}
+          >
+            <div className="relative w-full h-full">
+              <article className="flex flex-col justify-end w-full h-full p-2 md:p-3">
+                <span className="span-base md:span-lg w-fit rounded-lg font-semibold text-transparent bg-light-500/30 dark:bg-dark-400/20 animate-pulse">
+                  DevMovies
+                </span>
+              </article>
+              <span className="absolute top-0 right-0 span-xs md:span-sm w-fit rounded-bl-full px-4 py-0.5 leading-5 font-semibold text-transparent bg-light-500/30 dark:bg-dark-400/20 animate-pulse">
+                Avanzado
+              </span>
+            </div>
+          </li>
         ))}
       </ul>
     </section>

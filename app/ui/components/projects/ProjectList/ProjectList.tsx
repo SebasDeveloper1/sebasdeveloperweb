@@ -4,6 +4,8 @@ import { NavbarItems, ProjectListProps } from './ProjectList.model';
 import { Projects } from '@/app/lib/api/generated/graphql';
 import { ProjectCard } from '../ProjectCard';
 import { navbarItems } from './NavbarItems';
+import Loading from './Loading';
+import useLoadPage from '@/app/lib/hooks/useLoadPage';
 
 const initialCount = 8;
 
@@ -77,6 +79,12 @@ export function ProjectList({ projectsCollection }: ProjectListProps) {
     // Set the active menu item
     setActiveItem(item);
   };
+
+  const isLoading = useLoadPage();
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <section className="w-full bg-light-50 dark:bg-dark-900">

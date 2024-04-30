@@ -11,16 +11,16 @@ export function Hero() {
           <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-10 w-11/12 lg:w-10/12">
             <div className="relative flex flex-col justify-center gap-4 lg:gap-8 w-full">
               <StarsSVG />
-              <h1 className="heading-1 lg:text-7xl font-bold text-light-50">
+              <h1 className="heading-1 lg:text-7xl font-bold text-light-50 animate-fade-in-right">
                 Mis Proyectos
               </h1>
-              <span className="span-xl max-w-prose text-dark-400 ">
+              <span className="span-xl max-w-prose text-dark-400 animate-fade-in-right">
                 👨‍🚀 Descubre mi trabajo y los proyectos en los que he participado
                 y que me han permitido mostrar mis conocimientos y poner a
                 prueba mis habilidades. 🚀
               </span>
             </div>
-            <section className="w-full">
+            <section className="w-full animate-fade-in-up">
               <article className="grid place-items-center grid-cols-6 grid-rows-2 gap-4">
                 <img
                   src={
