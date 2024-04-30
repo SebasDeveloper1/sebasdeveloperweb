@@ -1,6 +1,10 @@
+'use client';
 import { Projects } from '@/app/lib/api/generated/graphql';
 import { ProjectCard } from '../ProjectCard';
 import { ProjectListProps } from './projectList.model';
+import useLoadPage from '@/app/lib/hooks/useLoadPage';
+import Loading from './Loading';
+import { useInView } from 'react-intersection-observer';
 
 const getConditionalClasses = (index: number) => {
   switch (index) {
@@ -20,8 +24,22 @@ const getConditionalClasses = (index: number) => {
 };
 export function ProjectList({ projectsCollection }: ProjectListProps) {
   const projectList = projectsCollection?.items;
+
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
+  const isLoading = useLoadPage();
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
-    <section className="flex flex-col justify-center items-center gap-16 w-full">
+    <section
+      ref={ref}
+      className={`flex flex-col justify-center items-center gap-16 w-full ${!inView ? 'opacity-0' : 'animate-fade-in-left opacity-100'}`}
+    >
       <ul className="overflow-hidden w-full h-full grid grid-cols-3 grid-rows-2 gap-4">
         {projectList.map((project, index) => (
           <li
