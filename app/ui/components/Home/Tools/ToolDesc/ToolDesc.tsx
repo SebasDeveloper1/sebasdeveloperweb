@@ -1,11 +1,18 @@
 'use client';
-
+import useLoadPage from '@/app/lib/hooks/useLoadPage';
 import { useInView } from 'react-intersection-observer';
+import Loading from './Loading';
 
 export function ToolDesc() {
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
+
+  const isLoading = useLoadPage();
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <section

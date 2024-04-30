@@ -4,6 +4,8 @@ import { ToolCard } from '../ToolCard';
 import { ButtonText, ToolListProps } from './ToolList.model';
 import { Tool } from '@/app/lib/api/generated/graphql';
 import { ToolStaticCard } from '../ToolStaticCard';
+import useLoadPage from '@/app/lib/hooks/useLoadPage';
+import Loading from './Loading';
 
 const buttonText: ButtonText = {
   showMore: {
@@ -59,6 +61,8 @@ export function ToolList({
 }: ToolListProps): JSX.Element {
   const [showAll, setShowAll] = useState(false);
 
+  const isLoading = useLoadPage();
+
   const ToolList = toolCollection?.items;
 
   const visibleItems = showAll ? ToolList : ToolList.slice(0, 5);
@@ -69,6 +73,10 @@ export function ToolList({
       sectionRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <section className="flex flex-col justify-center items-center gap-16 w-full">
