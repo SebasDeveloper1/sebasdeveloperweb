@@ -7,7 +7,7 @@ export function Hero() {
       <article className="w-full min-h-[50vh] bg-blurCyan bg-cover bg-top">
         <div className="flex justify-center items-center w-full min-h-[50vh] py-20">
           <div className="flex flex-col md:flex-row justify-center items-center gap-10 w-11/12 lg:w-10/12">
-            <div className="relative flex flex-col justify-center items-start gap-5 lg:gap-8 w-full">
+            <div className="relative flex flex-col justify-center items-start gap-5 lg:gap-8 w-full animate-fade-in-right">
               <h1 className="heading-1 lg:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-pink-500">
                 Mi preparación
               </h1>
@@ -16,7 +16,7 @@ export function Hero() {
                 habilidades que he obtenido en mi paso por ellas.
               </p>
             </div>
-            <section className="grid place-items-center grid-cols-6 grid-rows-2 gap-8 w-full">
+            <section className="grid place-items-center grid-cols-6 grid-rows-2 gap-8 w-full animate-fade-in-up">
               <a
                 href="https://platzi.com/p/SebasDeveloper/"
                 target="_blank"

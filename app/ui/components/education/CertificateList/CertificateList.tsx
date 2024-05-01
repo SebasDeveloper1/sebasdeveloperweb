@@ -4,6 +4,8 @@ import { Certification } from '@/app/lib/api/generated/graphql';
 import { CertificateCard } from './CertificateCard';
 import { CertificateListProps, NavbarItems } from './CertificateList.model';
 import { navbarItems } from './NavbarItems';
+import useLoadPage from '@/app/lib/hooks/useLoadPage';
+import Loading from './Loading';
 
 const initialCount = 9;
 
@@ -79,6 +81,12 @@ export function CertificateList({
     // Set the active menu item
     setActiveItem(item);
   };
+
+  const isLoading = useLoadPage();
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <section className="w-full bg-white dark:bg-dark-950">
