@@ -25,12 +25,12 @@ export default function Loading() {
                 <div className="relative overflow-hidden w-full h-full rounded-xl">
                   <section className="absolute inset-0">
                     <article className="flex flex-col justify-end w-full h-full p-2 md:p-3">
-                      <span className="span-base md:span-lg w-fit rounded-lg font-semibold text-transparent bg-light-500/30 dark:bg-dark-400/20 animate-pulse">
+                      <span className="span-base md:span-lg w-fit rounded-lg font-semibold text-transparent bg-light-500/30 dark:bg-dark-400/20">
                         DevMovies
                       </span>
                     </article>
                   </section>
-                  <span className="absolute top-0 right-0 span-xs md:span-sm w-fit rounded-bl-full px-4 py-0.5 leading-5 font-semibold text-transparent bg-light-500/30 dark:bg-dark-400/20 animate-pulse">
+                  <span className="absolute top-0 right-0 span-xs md:span-sm w-fit rounded-bl-full px-4 py-0.5 leading-5 font-semibold text-transparent bg-light-500/30 dark:bg-dark-400/20">
                     Avanzado
                   </span>
                 </div>

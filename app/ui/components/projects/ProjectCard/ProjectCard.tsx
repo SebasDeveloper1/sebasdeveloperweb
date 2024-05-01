@@ -15,7 +15,7 @@ export function ProjectCard({ projectData }: ProjectCardProps) {
     <Link
       ref={ref}
       href={`/projects/${slug}`}
-      className="group relative overflow-hidden w-full aspect-[4/3] rounded-xl"
+      className={`group relative overflow-hidden w-full aspect-[4/3] rounded-xl ${!inView ? 'opacity-0' : 'animate-bounce-fade-in opacity-100'}`}
     >
       {inView ? (
         <figure className="relative w-full h-full">

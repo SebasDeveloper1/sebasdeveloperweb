@@ -97,7 +97,7 @@ export function ThemeSwich() {
 
   if (!mounted) {
     return (
-      <div className="h-full aspect-square padding-icon rounded-xl bg-light-300 dark:bg-dark-700 text-transparent animate-pulse">
+      <div className="h-full aspect-square padding-icon rounded-xl bg-light-500/30 dark:bg-dark-400/20 text-transparent animate-pulse">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="icon icon-tabler icon-tabler-device-desktop"
