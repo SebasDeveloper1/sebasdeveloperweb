@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { SDLogo } from '../../assets/SDLogo';
+import { routesPaths } from '@/app/routes/routes';
 
 export function Footer() {
   return (
     <section className="flex justify-center items-center w-full py-20 bg-light-950 dark:bg-dark-900/30">
       <article className="flex flex-col justify-center items-center gap-5 w-11/12 lg:w-10/12 text-center">
         <Link
-          href={'/'}
+          href={routesPaths?.home}
           className="inline-block h-8 md:h-10 text-light-50 dark:text-dark-50"
         >
           <SDLogo />

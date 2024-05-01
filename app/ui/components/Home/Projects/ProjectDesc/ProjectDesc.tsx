@@ -3,6 +3,7 @@ import useLoadPage from '@/app/lib/hooks/useLoadPage';
 import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
 import Loading from './Loading';
+import { routesPaths } from '@/app/routes/routes';
 
 export function ProjectDesc() {
   const [ref, inView] = useInView({
@@ -48,7 +49,7 @@ export function ProjectDesc() {
         mostrar al mundo mi potencial como profesional.
       </p>
       <Link
-        href={'/projects'}
+        href={routesPaths?.projects}
         className="button-tertiary w-fit mt-3 bg-indigo-100 text-indigo-600 hover:bg-indigo-100 hover:text-indigo-700 focus:ring-indigo-600"
       >
         Ver más

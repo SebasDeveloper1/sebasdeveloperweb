@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ProjectCardProps } from './ProjectCard.model';
 import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
+import { routesPaths } from '@/app/routes/routes';
 
 export function ProjectCard({ projectData }: ProjectCardProps) {
   const { name, slug, level, imagesCollection } = projectData;
@@ -14,7 +15,7 @@ export function ProjectCard({ projectData }: ProjectCardProps) {
   return (
     <Link
       ref={ref}
-      href={`/projects/${slug}`}
+      href={`${routesPaths?.projectDetails}${slug}`}
       className={`group relative overflow-hidden w-full aspect-[4/3] rounded-xl ${!inView ? 'opacity-0' : 'animate-bounce-fade-in opacity-100'}`}
     >
       {inView ? (

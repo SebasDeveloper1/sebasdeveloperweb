@@ -6,6 +6,7 @@ import { UdecLogo } from '../../assets/UdecLogo';
 import { useInView } from 'react-intersection-observer';
 import Loading from './Loading';
 import useLoadPage from '@/app/lib/hooks/useLoadPage';
+import { routesPaths } from '@/app/routes/routes';
 
 export function Education(): JSX.Element {
   const [ref, inView] = useInView({
@@ -53,7 +54,7 @@ export function Education(): JSX.Element {
               Inglés y mucho más.
             </p>
             <Link
-              href={'/education'}
+              href={routesPaths?.education}
               className="button-tertiary w-fit mt-3 bg-sky-100 text-sky-600 hover:bg-sky-100 hover:text-sky-700 focus:ring-sky-600"
             >
               Ver más
