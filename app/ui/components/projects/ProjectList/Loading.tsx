@@ -5,7 +5,7 @@ export default function Loading() {
         <article className="flex flex-col justify-center items-center gap-10 w-full py-4 lg:py-16">
           <header className="overflow-hidden w-full lg:w-10/12">
             <ul className="relative overflow-x-auto hide-scrollbar flex flex-nowrap items-center gap-x-7 xl:gap-x-8 w-full p-4 lg:px-0">
-              {[...Array(3)].map((_, index) => (
+              {[...Array(4)].map((_, index) => (
                 <li
                   key={`item-${index}`}
                   className="flex flex-col gap-2 w-16 animate-pulse"
