@@ -1,5 +1,11 @@
 import { SDLogoProps } from './SDLogo.model';
 
+/**
+ * SDLogo component displays the logo of the Platzi educational platform.
+ *
+ * @param {SDLogoProps} props - Props for customizing the SDLogo component.
+ * @returns {JSX.Element} The JSX representation of the SDLogo component.
+ */
 export function SDLogo(props: SDLogoProps) {
   return (
     <svg

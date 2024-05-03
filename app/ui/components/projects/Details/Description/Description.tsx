@@ -1,8 +1,17 @@
-import ReactMarkdown, { Components } from 'react-markdown';
-import { DescriptionProps, RendererProps } from './Description.model';
-import rehypeRaw from 'rehype-raw';
+// External modules
+import ReactMarkdown, { Components } from 'react-markdown'; // Importing ReactMarkdown and Components from 'react-markdown'
+import rehypeRaw from 'rehype-raw'; // Importing rehypeRaw from 'rehype-raw'
 
-export function Description({ projectData }: DescriptionProps) {
+// Custom models
+import { DescriptionProps, RendererProps } from './Description.model'; // Props for the description component
+
+/**
+ * Represents the description section of a project.
+ * Renders project details including name, type, category, level, device, description, tools, and links.
+ * @param {DescriptionProps} projectData - The data of the project to be displayed.
+ * @returns {JSX.Element} - JSX element representing the description section of a project.
+ */
+export function Description({ projectData }: DescriptionProps): JSX.Element {
   const {
     name,
     type,
@@ -15,8 +24,10 @@ export function Description({ projectData }: DescriptionProps) {
     linkRepo,
   } = projectData;
 
+  // Splitting tools string into an array
   const toolsArray = tools?.split(', ');
 
+  // Renderers for ReactMarkdown
   const renderers = {
     p: ({ children }: RendererProps) => (
       <p className="paragraph-lg max-w-prose text-dark-700 dark:text-light-400">

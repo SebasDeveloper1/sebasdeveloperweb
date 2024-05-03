@@ -1,11 +1,19 @@
 'use client';
-import { useInView } from 'react-intersection-observer';
+//External hook
+import { useInView } from 'react-intersection-observer'; // Hook for observing elements entering the viewport
 
+/**
+ * Represents a static card in the ToolList component.
+ * Renders a static card with a motivational message.
+ * @returns {JSX.Element} - JSX element representing the static card.
+ */
 export function ToolStaticCard(): JSX.Element {
+  // Create a reference to the component's visibility
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
 
+  // Render the static card with a motivational message7
   return (
     <li
       ref={ref}

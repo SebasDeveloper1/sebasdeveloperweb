@@ -1,13 +1,24 @@
 'use client';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-import { SDLogo } from '@/app/ui/components/assets/SDLogo';
-import { NavbarLG } from './NavbarLG';
-import { NavbarSM } from './NavbarSM';
-import { NavbarLinks, NavbarProps } from './Navbar.model';
-import { ThemeSwich } from '../ThemeSwich';
-import { routesPaths } from '@/app/routes/routes';
+// External modules
+import Link from 'next/link'; // Link component from Next.js
+import { usePathname } from 'next/navigation'; // Hook for accessing the current URL pathname
 
+// Custom components and models
+import { NavbarLG } from './NavbarLG'; // Large screen navbar component
+import { NavbarSM } from './NavbarSM'; // Small screen navbar component
+import { NavbarLinks, NavbarProps } from './Navbar.model'; // Navbar links and props
+import { ThemeSwich } from '../ThemeSwich'; // Component for switching themes
+import { SDLogo } from '@/app/ui/components/assets/SDLogo'; // Component for the SDLogo
+
+// Utility
+import { routesPaths } from '@/app/routes/routes'; // Paths for application routes
+
+/**
+ * Navbar component for displaying navigation links and theme switch.
+ *
+ * @param {NavbarProps} personalInfo - Personal information for the user.
+ * @returns {JSX.Element} The JSX representation of the Navbar component.
+ */
 export function Navbar({ personalInfo }: NavbarProps) {
   const pathname = usePathname();
   // Define an array of navigation links with names, paths, and icons

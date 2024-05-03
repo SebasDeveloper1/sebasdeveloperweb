@@ -1,5 +1,11 @@
 import { UdecLogoProps } from './UdecLogo.model';
 
+/**
+ * UdecLogo component displays the logo of the Platzi educational platform.
+ *
+ * @param {UdecLogoProps} props - Props for customizing the UdecLogo component.
+ * @returns {JSX.Element} The JSX representation of the UdecLogo component.
+ */
 export function UdecLogo({ ...props }: UdecLogoProps): JSX.Element {
   return (
     <div>

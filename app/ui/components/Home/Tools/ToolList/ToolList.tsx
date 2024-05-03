@@ -1,12 +1,22 @@
 'use client';
-import { useState } from 'react';
-import { ToolCard } from '../ToolCard';
-import { ButtonText, ToolListProps } from './ToolList.model';
-import { Tool } from '@/app/lib/api/generated/graphql';
-import { ToolStaticCard } from '../ToolStaticCard';
-import useLoadPage from '@/app/lib/hooks/useLoadPage';
-import Loading from './Loading';
+// External modules
+import { useState } from 'react'; // State hook from React
 
+// Custom components and models
+import { ToolCard } from '../ToolCard'; // Component for individual tool card
+import { ToolStaticCard } from '../ToolStaticCard'; // Component for static tool card
+import { ButtonText, ToolListProps } from './ToolList.model'; // Button text and props for tool list
+
+// GraphQL type
+import { Tool } from '@/app/lib/api/generated/graphql'; // GraphQL type for tool
+
+// Custom hook and component
+import useLoadPage from '@/app/lib/hooks/useLoadPage'; // Custom hook for loading pages
+import Loading from './Loading'; // Loading component
+
+/**
+ * Represents text and icons for buttons used in the ToolList component.
+ */
 const buttonText: ButtonText = {
   showMore: {
     text: 'Ver más...',
@@ -55,29 +65,43 @@ const buttonText: ButtonText = {
   },
 };
 
+/**
+ * Represents a list of tools.
+ * Renders a list of tools, with the option to show more items.
+ * @param {ToolListProps} props - Props for the ToolList component.
+ * @returns {JSX.Element} - JSX element representing the list of tools.
+ */
 export function ToolList({
   sectionRef,
   toolCollection,
 }: ToolListProps): JSX.Element {
+  // State to manage whether to show all items or not
   const [showAll, setShowAll] = useState(false);
 
+  // Check if the page is loading using useLoadPage hook
   const isLoading = useLoadPage();
 
+  // Extract tool list from props
   const ToolList = toolCollection?.items;
 
+  // Determine visible items based on whether to show all or not
   const visibleItems = showAll ? ToolList : ToolList.slice(0, 5);
 
+  // Function to toggle showing all items
   const toggleShowAll = () => {
     setShowAll(!showAll);
+    // Scroll to the section if showing all items and the section ref exists
     if (showAll && sectionRef.current) {
       sectionRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
+  // If the page is loading, render the Loading component
   if (isLoading) {
     return <Loading />;
   }
 
+  // Render the list of tools
   return (
     <section className="flex flex-col justify-center items-center gap-16 w-full">
       <ul className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 place-items-center gap-5 w-full">

@@ -1,26 +1,42 @@
-import Image from 'next/image';
-import ReactMarkdown, { Components } from 'react-markdown';
-import { fetchHeroHomeInfo } from '@/app/lib/api/data/fetch/home';
-import { StarsSVG } from '@/app/ui/components/assets/StarsSVG';
-import { RendererProps } from './Hero.model';
-import { GetHeroHomeInfoQuery } from '@/app/lib/api/generated/graphql';
+// External modules
+import Image from 'next/image'; // Image component from Next.js
+import ReactMarkdown, { Components } from 'react-markdown'; // Importing ReactMarkdown and Components from 'react-markdown'
 
+// API and GraphQL imports
+import { fetchHeroHomeInfo } from '@/app/lib/api/data/fetch/home'; // Function to fetch hero home information
+import { GetHeroHomeInfoQuery } from '@/app/lib/api/generated/graphql'; // GraphQL query for hero home information
+
+// Custom models and components
+import { RendererProps } from './Hero.model'; // Props for the hero component
+import { StarsSVG } from '@/app/ui/components/assets/StarsSVG'; // Component for stars SVG
+
+/**
+ * Represents the hero section of the home page.
+ * Fetches hero home information and renders a dynamic hero section.
+ * @returns {Promise<JSX.Element>} - Promise resolving to a JSX element representing the hero section.
+ */
 export async function Hero(): Promise<JSX.Element> {
+  // Fetch hero home information
   const { personalInformationCollection }: GetHeroHomeInfoQuery =
     await fetchHeroHomeInfo();
 
+  // Destructure data from personalInformationCollection or provide default values
   const { name, shortDescription, photo, cv, bgVideo } =
     personalInformationCollection?.items?.[0] || {};
 
+  // Define custom renderers for ReactMarkdown
   const renderers = {
+    // Custom renderer for paragraph elements
     p: ({ children }: RendererProps) => (
       <p className="span-xl max-w-prose mt-8 text-dark-300">{children}</p>
     ),
+    // Custom renderer for strong elements
     strong: ({ children }: RendererProps) => (
       <strong className="text-accent3-500 font-semibold">{children}</strong>
     ),
   };
 
+  // Render the hero section
   return (
     <section className="overflow-hidden relative flex justify-center items-center w-full min-h-screen bg-light-950 dark:bg-dark-950">
       <video

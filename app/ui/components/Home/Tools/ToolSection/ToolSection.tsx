@@ -1,11 +1,23 @@
 'use client';
-import { useRef } from 'react';
-import { ToolList } from '../ToolList';
-import { ToolDesc } from '../ToolDesc';
-import { ToolSectionProps } from './ToolSection.model';
+// External modules
+import { useRef } from 'react'; // Ref hook from React
 
+// Custom components and models
+import { ToolList } from '../ToolList'; // Component for the list of tools
+import { ToolDesc } from '../ToolDesc'; // Component for the description of tools
+import { ToolSectionProps } from './ToolSection.model'; // Props for the tool section
+
+/**
+ * Represents a section containing tools.
+ * Renders a section with tool description and list of tools.
+ * @param {ToolSectionProps} toolCollection - Props for the ToolSection component.
+ * @returns {JSX.Element} - JSX element representing the section containing tools.
+ */
 export function ToolSection({ toolCollection }: ToolSectionProps): JSX.Element {
+  // Create a reference to the section
   const sectionRef = useRef(null);
+
+  // Render the section containing tools
   return (
     <section
       ref={sectionRef}

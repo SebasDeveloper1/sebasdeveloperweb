@@ -1,9 +1,13 @@
 'use client';
-// Import necessary dependencies and types
-import Image from 'next/image';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Asset } from '@/app/lib/api/generated/graphql';
-import { BulletStyleType, ProjectSliderProps } from './ProjectSlider.model';
+// External modules
+import Image from 'next/image'; // Image component from Next.js
+import { Swiper, SwiperSlide } from 'swiper/react'; // Swiper components from Swiper library
+
+// GraphQL type
+import { Asset } from '@/app/lib/api/generated/graphql'; // GraphQL type for asset
+
+// Custom models
+import { BulletStyleType, ProjectSliderProps } from './ProjectSlider.model'; // Props for the project slider component
 
 // Import Swiper styles
 import 'swiper/css';
@@ -11,12 +15,20 @@ import 'swiper/css/pagination';
 // Import required modules
 import { Pagination, Autoplay } from 'swiper/modules';
 
+/**
+ * Represents a slider component for project images.
+ * Uses Swiper library for the slider functionality.
+ * @param {ProjectSliderProps} projectImages - An array of project images.
+ * @returns {JSX.Element} - JSX element representing the project slider component.
+ */
 export function ProjectSlider({ projectImages }: ProjectSliderProps) {
   // Define custom styles for Swiper pagination bullets
   const bulletStyle: BulletStyleType = {
     '--swiper-pagination-color': '#069bf1',
     '--swiper-pagination-bullet-inactive-color': '#ffffff',
   };
+
+  //Render Project Slider
   return (
     <div className="w-full rounded-xl shadow-lg shadow-secondary-500/10">
       <Swiper

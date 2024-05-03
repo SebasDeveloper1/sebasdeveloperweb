@@ -1,4 +1,9 @@
-const getConditionalClasses = (index: number) => {
+/**
+ * Function to determine conditional classes based on index.
+ * @param {number} index - Index of the element.
+ * @returns {string} - Conditional classes based on index.
+ */
+const getConditionalClasses = (index: number): string => {
   switch (index) {
     case 0:
       return 'aspect-square';
@@ -15,7 +20,12 @@ const getConditionalClasses = (index: number) => {
   }
 };
 
-export default function Loading() {
+/**
+ * Represents a loading skeleton for displaying placeholder content.
+ * @returns {JSX.Element} - JSX element representing the loading skeleton.
+ */
+export default function Loading(): JSX.Element {
+  // Render the loading skeleton
   return (
     <section className="flex flex-col justify-center items-center gap-16 w-full">
       <ul className="overflow-hidden w-full h-full grid grid-cols-3 grid-rows-2 gap-4">

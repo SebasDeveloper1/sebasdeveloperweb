@@ -1,19 +1,31 @@
 'use client';
-import useLoadPage from '@/app/lib/hooks/useLoadPage';
-import { useInView } from 'react-intersection-observer';
-import Loading from './Loading';
+// External hook
+import { useInView } from 'react-intersection-observer'; // Hook for observing elements entering the viewport
 
-export function ToolDesc() {
+// Custom hook and component
+import useLoadPage from '@/app/lib/hooks/useLoadPage'; // Custom hook for loading pages
+import Loading from './Loading'; // Loading component
+
+/**
+ * Represents a section displaying skills and tools.
+ * Renders a description of skills and tools, emphasizing continuous learning and growth.
+ * @returns {JSX.Element} - JSX element representing the skills and tools section.
+ */
+export function ToolDesc(): JSX.Element {
+  // Check if the component is in view using useInView hook
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
 
+  // Check if the page is loading using useLoadPage hook
   const isLoading = useLoadPage();
 
+  // If the page is loading, render the Loading component
   if (isLoading) {
     return <Loading />;
   }
 
+  // Render the skills and tools section
   return (
     <section
       ref={ref}

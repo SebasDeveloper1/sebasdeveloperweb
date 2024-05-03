@@ -8,6 +8,11 @@ enum ThemeOptionsEnum {
   DARK = 'dark',
 }
 
+/**
+ * ThemeSwitch component for toggling between light, dark, and system themes.
+ *
+ * @returns {JSX.Element} The JSX representation of the ThemeSwitch component.
+ */
 const themeOptions: {
   name: string;
   theme: ThemeOptionsEnum;

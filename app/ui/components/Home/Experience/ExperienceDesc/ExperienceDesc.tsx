@@ -1,20 +1,30 @@
 'use client';
+// Custom hooks and utilities
+import useLoadPage from '@/app/lib/hooks/useLoadPage'; // Custom hook for loading pages
 
-import useLoadPage from '@/app/lib/hooks/useLoadPage';
-import { useInView } from 'react-intersection-observer';
-import Loading from './Loading';
+// External module
+import { useInView } from 'react-intersection-observer'; // Hook for observing elements entering the viewport
 
-export function ExperienceDesc() {
+// Custom components
+import Loading from './Loading'; // Loading component
+
+/**
+ * Component representing the description for the experience section.
+ * @returns {JSX.Element} - JSX element representing the description for the experience section.
+ */
+export function ExperienceDesc(): JSX.Element {
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
 
   const isLoading = useLoadPage();
 
+  // Render loading skeleton while page is loading
   if (isLoading) {
     return <Loading />;
   }
 
+  // Render the description for the experience section
   return (
     <div
       ref={ref}

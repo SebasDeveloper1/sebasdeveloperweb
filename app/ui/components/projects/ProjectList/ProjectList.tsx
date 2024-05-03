@@ -1,24 +1,43 @@
 'use client';
-import { useEffect, useState } from 'react';
-import { NavbarItems, ProjectListProps } from './ProjectList.model';
-import { Projects } from '@/app/lib/api/generated/graphql';
-import { ProjectCard } from '../ProjectCard';
-import { navbarItems } from './NavbarItems';
-import Loading from './Loading';
-import useLoadPage from '@/app/lib/hooks/useLoadPage';
+// External modules
+import { useEffect, useState } from 'react'; // State and effect hooks from React
+
+// Custom models
+import { NavbarItems, ProjectListProps } from './ProjectList.model'; // Props for the project list component
+
+// GraphQL types
+import { Projects } from '@/app/lib/api/generated/graphql'; // GraphQL types for projects
+
+// Custom components
+import { ProjectCard } from '../ProjectCard'; // Component for project card
+import { navbarItems } from './NavbarItems'; // Navbar items
+import Loading from './Loading'; // Loading component
+
+// Custom hook
+import useLoadPage from '@/app/lib/hooks/useLoadPage'; // Custom hook for loading pages
 
 const initialCount = 8;
 
-export function ProjectList({ projectsCollection }: ProjectListProps) {
+/**
+ * Represents a list of projects component.
+ * Renders a list of project cards based on the provided projects collection.
+ * @param {ProjectListProps} projectsCollection - Collection of projects to be displayed.
+ * @returns {JSX.Element} - JSX element representing the project list.
+ */
+export function ProjectList({
+  projectsCollection,
+}: ProjectListProps): JSX.Element {
   const { items } = projectsCollection;
+
+  // State to manage filtered projects and visible items count
   const [filteredProjects, setFilteredProjects] = useState<Projects[]>(
     items as Projects[],
   );
+  const [visibleItems, setVisibleItems] = useState<number>(initialCount);
   const [activeItem, setActiveItem] = useState<NavbarItems>(navbarItems[0]);
-  const [visibleItems, setVisibleItems] = useState<number>(initialCount); // Número de elementos a mostrar inicialmente
 
   /**
-   * Handle scroll event to load more items when reaching the bottom of the page.
+   * Handles scroll event to load more items when reaching the bottom of the page.
    */
   useEffect(() => {
     const handleScroll = (): void => {
@@ -49,15 +68,13 @@ export function ProjectList({ projectsCollection }: ProjectListProps) {
   }, [filteredProjects, visibleItems]);
 
   /**
-   * Handle menu item click event.
-   *
+   * Handles menu item click event.
    * Updates the visible items based on the selected menu item.
-   *
    * @param {NavbarItems} item - The selected menu item.
    */
   const handleMenuClick = ({ item }: { item: NavbarItems }): void => {
-    // Filter certifications based on the selected menu item
-    const updatedCertification: Projects[] =
+    // Filter projects based on the selected menu item
+    const updatedProjects: Projects[] =
       item.name === 'all'
         ? (items as Projects[])
         : (items.filter(
@@ -65,16 +82,13 @@ export function ProjectList({ projectsCollection }: ProjectListProps) {
           ) as Projects[]);
 
     // Determine the number of visible items
-    const visibleItemCount = Math.min(
-      updatedCertification.length,
-      initialCount,
-    );
+    const visibleItemCount = Math.min(updatedProjects.length, initialCount);
 
     // Update the visible items count
     setVisibleItems(visibleItemCount);
 
-    // Set the filtered certifications
-    setFilteredProjects(updatedCertification);
+    // Set the filtered projects
+    setFilteredProjects(updatedProjects);
 
     // Set the active menu item
     setActiveItem(item);
@@ -86,6 +100,7 @@ export function ProjectList({ projectsCollection }: ProjectListProps) {
     return <Loading />;
   }
 
+  // Render ProjectList component
   return (
     <section className="w-full bg-light-50 dark:bg-dark-900">
       <div className="flex justify-center items-center w-full">

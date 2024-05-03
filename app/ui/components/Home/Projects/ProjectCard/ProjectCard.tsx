@@ -1,17 +1,31 @@
 'use client';
-import { useInView } from 'react-intersection-observer';
-import Link from 'next/link';
-import Image from 'next/image';
-import { ProjectCardProps } from './ProjectCard.model';
-import { routesPaths } from '@/app/routes/routes';
+// External modules
+import Link from 'next/link'; // Link component from Next.js
+import Image from 'next/image'; // Image component from Next.js
 
-export function ProjectCard({ projectData }: ProjectCardProps) {
+// Custom models and utilities
+import { ProjectCardProps } from './ProjectCard.model'; // Props for the project card component
+import { routesPaths } from '@/app/routes/routes'; // Paths for application routes
+
+// External hook
+import { useInView } from 'react-intersection-observer'; // Hook for observing elements entering the viewport
+
+/**
+ * Represents a card displaying project information.
+ * Renders project data including name, level, and an image.
+ * @param {ProjectCardProps} projectData - Data of the project to be displayed.
+ * @returns {JSX.Element} - JSX element representing the project card.
+ */
+export function ProjectCard({ projectData }: ProjectCardProps): JSX.Element {
+  // Destructure project data
   const { name, slug, level, imagesCollection } = projectData;
 
+  // Check if the component is in view using useInView hook
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
 
+  // Render the project card
   return (
     <Link
       ref={ref}
@@ -26,7 +40,6 @@ export function ProjectCard({ projectData }: ProjectCardProps) {
             src={`${imagesCollection?.items[0]?.url}`}
             alt={`${imagesCollection?.items[0]?.title}`}
             placeholder="blur"
-            loading="lazy"
             className="object-cover object-center lg:transform lg:group-hover:scale-150 lg:transition-all"
             blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
           />

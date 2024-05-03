@@ -1,9 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
-import { StarsSVG } from '@/app/ui/components/assets/StarsSVG';
-import Image from 'next/image';
-import GHBadge from '@/public/images/badgeGH.png';
+// External modules
+import Image from 'next/image'; // Image component from Next.js
 
+// Custom component
+import { StarsSVG } from '@/app/ui/components/assets/StarsSVG'; // Component for stars SVG
+
+// Asset
+import GHBadge from '@/public/images/badgeGH.png'; // GitHub badge asset
+
+/**
+ * Represents the hero section of the projects page.
+ * Displays a banner with project-related information and statistics.
+ * @returns {JSX.Element} - JSX element representing the hero section.
+ */
 export function Hero() {
+  // Return Hero component
   return (
     <section className="w-full pt-16 bg-dark-950">
       <article className="w-full bg-section_dark bg-cover bg-top">

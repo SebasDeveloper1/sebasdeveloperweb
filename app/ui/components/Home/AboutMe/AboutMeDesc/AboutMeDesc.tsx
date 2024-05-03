@@ -1,12 +1,23 @@
 'use client';
-import ReactMarkdown, { Components } from 'react-markdown';
-import rehypeRaw from 'rehype-raw';
-import { RendererProps } from '../AbotMe.model';
-import { useInView } from 'react-intersection-observer';
-import Loading from './Loading';
-import useLoadPage from '@/app/lib/hooks/useLoadPage';
+// External modules
+import ReactMarkdown, { Components } from 'react-markdown'; // Importing ReactMarkdown and Components from 'react-markdown'
+import rehypeRaw from 'rehype-raw'; // Importing rehypeRaw from 'rehype-raw'
 
-export function AboutMeDesc({ aboutMe }: { aboutMe: string }) {
+// Custom hooks and components
+import { useInView } from 'react-intersection-observer'; // Hook for observing elements entering the viewport
+import useLoadPage from '@/app/lib/hooks/useLoadPage'; // Custom hook for loading pages
+
+// Models and utilities
+import { RendererProps } from '../AbotMe.model'; // Props for custom renderer
+import Loading from './Loading'; // Loading component
+
+/**
+ * Component to display the about me section with a description.
+ * @param {Object} props - Props object containing the aboutMe text.
+ * @param {string} props.aboutMe - Text containing information about the user.
+ * @returns {JSX.Element} - JSX element representing the about me section.
+ */
+export function AboutMeDesc({ aboutMe }: { aboutMe: string }): JSX.Element {
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
@@ -22,10 +33,12 @@ export function AboutMeDesc({ aboutMe }: { aboutMe: string }) {
     ),
   };
 
+  // Render loading skeleton while page is loading
   if (isLoading) {
     return <Loading />;
   }
 
+  // Render the about me section
   return (
     <div
       ref={ref}

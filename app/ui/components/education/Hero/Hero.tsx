@@ -1,6 +1,13 @@
-import { PlatziLogo } from '@/app/ui/components/assets/PlatziLogo';
-import { UdecLogo } from '@/app/ui/components/assets/UdecLogo';
+// Custom components
+import { PlatziLogo } from '@/app/ui/components/assets/PlatziLogo'; // Component for the Platzi logo
+import { UdecLogo } from '@/app/ui/components/assets/UdecLogo'; // Component for the Udec logo
 
+/**
+ * Hero component displaying introductory information about the user's education.
+ * It includes logos of educational institutions and a brief description.
+ *
+ * @returns {JSX.Element} The JSX representation of the Hero component.
+ */
 export function Hero() {
   return (
     <section className="overflow-hidden w-full min-h-[50vh] pt-16">

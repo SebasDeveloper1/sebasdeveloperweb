@@ -1,7 +1,15 @@
-import Link from 'next/link';
-import { SDLogo } from '../../assets/SDLogo';
-import { routesPaths } from '@/app/routes/routes';
+// External modules
+import Link from 'next/link'; // Link component from Next.js
 
+// Custom component
+import { SDLogo } from '@/app/ui/components/assets/SDLogo'; // Component for the SDLogo
+
+// Utility
+import { routesPaths } from '@/app/routes/routes'; // Paths for application routes
+
+/**
+ * Footer component for displaying footer information.
+ */
 export function Footer() {
   return (
     <section className="flex justify-center items-center w-full py-20 bg-light-950 dark:bg-dark-900/30">

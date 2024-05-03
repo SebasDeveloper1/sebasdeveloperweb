@@ -1,3 +1,8 @@
+/**
+ * StarsSVG component displays the logo of the Platzi educational platform.
+ *
+ * @returns {JSX.Element} The JSX representation of the StarsSVG component.
+ */
 export function StarsSVG() {
   return (
     <svg

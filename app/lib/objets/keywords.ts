@@ -1,3 +1,7 @@
+/**
+ * Array containing keywords related to web development, programming, design, and related skills.
+ * These keywords can be used for various purposes such as SEO, tagging, filtering, etc.
+ */
 export const keywords = [
   'Desarrollo Web',
   'Frontend Development',

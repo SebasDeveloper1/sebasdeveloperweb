@@ -1,15 +1,29 @@
 'use client';
-import Image from 'next/image';
-import { useInView } from 'react-intersection-observer';
-import { ToolCardProps } from './ToolCard.model';
+// External modules
+import Image from 'next/image'; // Image component from Next.js
 
+// External hook
+import { useInView } from 'react-intersection-observer'; // Hook for observing elements entering the viewport
+
+// Custom models
+import { ToolCardProps } from './ToolCard.model'; // Props for the tool card component
+
+/**
+ * Represents a card displaying information about a tool.
+ * Renders tool data including name, description, URL, and logo.
+ * @param {ToolCardProps} toolData - Data of the tool to be displayed.
+ * @returns {JSX.Element} - JSX element representing the tool card.
+ */
 export function ToolCard({ toolData }: ToolCardProps): JSX.Element {
+  // Destructure tool data
   const { name, description, url, logo } = toolData;
 
+  // Check if the component is in view using useInView hook
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
 
+  // Render the tool card
   return (
     <li
       ref={ref}

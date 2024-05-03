@@ -1,5 +1,11 @@
-import { PlatziLogoProps } from './PlatziLogo.model';
+import { PlatziLogoProps } from './PlatziLogo.model'; // Import the Props type for PlatziLogo component
 
+/**
+ * PlatziLogo component displays the logo of the Platzi educational platform.
+ *
+ * @param {PlatziLogoProps} props - Props for customizing the PlatziLogo component.
+ * @returns {JSX.Element} The JSX representation of the PlatziLogo component.
+ */
 export function PlatziLogo({ ...props }: PlatziLogoProps): JSX.Element {
   return (
     <div>

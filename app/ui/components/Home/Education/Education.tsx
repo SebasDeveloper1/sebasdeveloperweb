@@ -1,13 +1,22 @@
 'use client';
-import Link from 'next/link';
-import { EducationCard } from './EducationCard';
-import { PlatziLogo } from '../../assets/PlatziLogo';
-import { UdecLogo } from '../../assets/UdecLogo';
-import { useInView } from 'react-intersection-observer';
-import Loading from './Loading';
-import useLoadPage from '@/app/lib/hooks/useLoadPage';
-import { routesPaths } from '@/app/routes/routes';
+// External modules
+import Link from 'next/link'; // Link component from Next.js
+import { useInView } from 'react-intersection-observer'; // Hook for observing elements entering the viewport
 
+// Custom components and hooks
+import { EducationCard } from './EducationCard'; // Component for education card
+import { PlatziLogo } from '@/app/ui/components/assets/PlatziLogo'; // Component for Platzi logo
+import { UdecLogo } from '@/app/ui/components/assets/UdecLogo'; // Component for Udec logo
+import Loading from './Loading'; // Loading component
+
+// Custom hooks and utilities
+import useLoadPage from '@/app/lib/hooks/useLoadPage'; // Custom hook for loading pages
+import { routesPaths } from '@/app/routes/routes'; // Paths for application routes
+
+/**
+ * Component representing the education section.
+ * @returns {JSX.Element} - JSX element representing the education section.
+ */
 export function Education(): JSX.Element {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -15,10 +24,12 @@ export function Education(): JSX.Element {
 
   const isLoading = useLoadPage();
 
+  // Render loading skeleton while page is loading
   if (isLoading) {
     return <Loading />;
   }
 
+  // Render the education section
   return (
     <section ref={ref} className="w-full bg-white dark:bg-dark-950">
       <div className="overflow-hidden relative flex flex-col justify-center items-center w-full py-16 md:py-32">

@@ -1,8 +1,13 @@
 'use client';
-// Import necessary dependencies and types
-import { useState, useRef, useEffect } from 'react';
-import useOnClickOutside from '@/app/lib/hooks/useOnClickOutside';
+// External modules
+import { useState, useRef, useEffect } from 'react'; // State, ref, and effect hooks from React
 
+// Custom hook
+import useOnClickOutside from '@/app/lib/hooks/useOnClickOutside'; // Custom hook for handling clicks outside a component
+
+/**
+ * Floating button component for displaying contact options.
+ */
 export function ContactFloatingButton(): JSX.Element {
   const [mounted, setMounted] = useState(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -11,6 +16,7 @@ export function ContactFloatingButton(): JSX.Element {
     setMounted(true);
   }, []);
 
+  // Contact options data
   const contactOptions: {
     name: string;
     url: string;
@@ -155,8 +161,10 @@ export function ContactFloatingButton(): JSX.Element {
   const showMenuRef1 = useRef(null);
   const showMenuRef2 = useRef(null);
 
+  // Close the menu when clicking outside
   useOnClickOutside(showMenuRef1, () => setShowMenu(false), showMenuRef2);
 
+  // Return a placeholder while component is mounting
   if (!mounted) {
     return (
       <div className="z-[100] fixed bottom-5 right-5 p-3 rounded-full text-transparent animate-pulse">

@@ -1,21 +1,39 @@
 'use client';
-import useLoadPage from '@/app/lib/hooks/useLoadPage';
-import Link from 'next/link';
-import { useInView } from 'react-intersection-observer';
-import Loading from './Loading';
-import { routesPaths } from '@/app/routes/routes';
+// Custom hook
+import useLoadPage from '@/app/lib/hooks/useLoadPage'; // Custom hook for loading pages
 
-export function ProjectDesc() {
+// External modules
+import Link from 'next/link'; // Link component from Next.js
+
+// External hook
+import { useInView } from 'react-intersection-observer'; // Hook for observing elements entering the viewport
+
+// Custom component
+import Loading from './Loading'; // Loading component
+
+// Utility
+import { routesPaths } from '@/app/routes/routes'; // Paths for application routes
+
+/**
+ * Represents a section displaying project descriptions.
+ * Renders a description of recent projects and a link to view more.
+ * @returns {JSX.Element} - JSX element representing the project description section.
+ */
+export function ProjectDesc(): JSX.Element {
+  // Check if the component is in view using useInView hook
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
 
+  // Check if the page is loading using useLoadPage hook
   const isLoading = useLoadPage();
 
+  // If the page is loading, render the Loading component
   if (isLoading) {
     return <Loading />;
   }
 
+  // Render the project description section
   return (
     <div
       ref={ref}

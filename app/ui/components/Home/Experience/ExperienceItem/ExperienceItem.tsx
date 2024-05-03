@@ -1,17 +1,26 @@
 'use client';
-import ReactMarkdown, { Components } from 'react-markdown';
-import rehypeRaw from 'rehype-raw';
-import { ExperienceItemProps, RendererProps } from './ExperienceItem.model';
-import { formatDate } from '@/app/utils/formatDate';
-import { useInView } from 'react-intersection-observer';
+// External modules
+import ReactMarkdown, { Components } from 'react-markdown'; // Importing ReactMarkdown and Components from 'react-markdown'
+import rehypeRaw from 'rehype-raw'; // Importing rehypeRaw from 'rehype-raw'
 
+// Custom utilities and models
+import { ExperienceItemProps, RendererProps } from './ExperienceItem.model'; // Props for the experience item component
+import { formatDate } from '@/app/utils/formatDate'; // Function to format dates
+
+// External hook
+import { useInView } from 'react-intersection-observer'; // Hook for observing elements entering the viewport
+
+/**
+ * Represents an item in the experience section of a webpage.
+ * @param {ExperienceItemProps} experienceData - Data for the experience item.
+ * @returns {JSX.Element} - JSX element representing an item in the experience section.
+ */
 export function ExperienceItem({ experienceData }: ExperienceItemProps) {
   const { jobTitle, type, startDate, endDate, companyName, description, url } =
     experienceData;
 
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.7,
   });
 
   const renderers = {
@@ -27,6 +36,7 @@ export function ExperienceItem({ experienceData }: ExperienceItemProps) {
     ),
   };
 
+  // Render the  Experience Item
   return (
     <div
       ref={ref}

@@ -1,5 +1,8 @@
 import { NavbarItems } from './ProjectList.model';
 
+/**
+ * Array of navigation items for filtering projects.
+ */
 export const navbarItems: NavbarItems[] = [
   {
     name: 'all',

@@ -1,17 +1,32 @@
 'use client';
-import Image from 'next/image';
-import { ProjectCardProps } from './ProjectCard.model';
-import Link from 'next/link';
-import { useInView } from 'react-intersection-observer';
-import { routesPaths } from '@/app/routes/routes';
+// External modules
+import Image from 'next/image'; // Image component from Next.js
+import Link from 'next/link'; // Link component from Next.js
 
-export function ProjectCard({ projectData }: ProjectCardProps) {
+// External hook
+import { useInView } from 'react-intersection-observer'; // Hook for observing elements entering the viewport
+
+// Custom models
+import { ProjectCardProps } from './ProjectCard.model'; // Props for the project card component
+
+// Utility
+import { routesPaths } from '@/app/routes/routes'; // Paths for application routes
+
+/**
+ * Represents a project card component.
+ * Renders a clickable card displaying project information and an image.
+ * @param {ProjectCardProps} projectData - Data of the project to be displayed on the card.
+ * @returns {JSX.Element} - JSX element representing the project card.
+ */
+export function ProjectCard({ projectData }: ProjectCardProps): JSX.Element {
   const { name, slug, level, imagesCollection } = projectData;
 
+  // Hook to detect if the card is in the view
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
 
+  //Render ProjectCard componet
   return (
     <Link
       ref={ref}

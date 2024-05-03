@@ -1,21 +1,34 @@
 'use client';
-import { Asset } from '@/app/lib/api/generated/graphql';
-import useLoadPage from '@/app/lib/hooks/useLoadPage';
-import Image from 'next/image';
-import { useInView } from 'react-intersection-observer';
-import Loading from './Loading';
+// External modules
+import Image from 'next/image'; // Image component from Next.js
 
-export function AboutMeImage({ cover }: { cover: Asset }) {
+// GraphQL and API related imports
+import { Asset } from '@/app/lib/api/generated/graphql'; // GraphQL type for assets
+
+// Custom hooks and components
+import { useInView } from 'react-intersection-observer'; // Hook for observing elements entering the viewport
+import useLoadPage from '@/app/lib/hooks/useLoadPage'; // Custom hook for loading pages
+import Loading from './Loading'; // Loading component
+
+/**
+ * Component to display the cover image for the "About Me" section.
+ * @param {Object} props - Props object containing the cover image.
+ * @param {Asset} props.cover - Asset object representing the cover image.
+ * @returns {JSX.Element} - JSX element representing the cover image.
+ */
+export function AboutMeImage({ cover }: { cover: Asset }): JSX.Element {
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
 
   const isLoading = useLoadPage();
 
+  // Render loading skeleton while page is loading
   if (isLoading) {
     return <Loading />;
   }
 
+  // Render the cover image
   return (
     <figure
       ref={ref}
