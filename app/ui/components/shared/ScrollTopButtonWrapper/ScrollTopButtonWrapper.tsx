@@ -26,7 +26,7 @@ export function ScrollTopButtonWrapper({
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   // Effect to handle scroll events and update visibility state
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 300);
+    const handleScroll = () => setIsScrolled(window.scrollY > 500);
     window.addEventListener('scroll', handleScroll);
     // Cleanup event listener on component unmount
 

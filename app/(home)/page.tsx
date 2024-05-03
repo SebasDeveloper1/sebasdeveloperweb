@@ -11,6 +11,7 @@ import { Education } from '@/app/ui/components/Home/Education'; // Component for
 
 // Objects and utilities
 import { keywords } from '@/app/lib/objets/keywords'; // Object containing keywords
+import { ScrollTopButtonWrapper } from '../ui/components/shared/ScrollTopButtonWrapper';
 
 // Metadata for the page
 export const metadata: Metadata = {
@@ -34,13 +35,15 @@ export const metadata: Metadata = {
 // Home page component
 export default function Home(): JSX.Element {
   return (
-    <main>
-      <Hero />
-      <AboutMe />
-      <Tools />
-      <Projects />
-      <Experience />
-      <Education />
-    </main>
+    <ScrollTopButtonWrapper>
+      <main>
+        <Hero />
+        <AboutMe />
+        <Tools />
+        <Projects />
+        <Experience />
+        <Education />
+      </main>
+    </ScrollTopButtonWrapper>
   );
 }
