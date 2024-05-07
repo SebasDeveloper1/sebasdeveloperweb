@@ -37,7 +37,7 @@ export function Hero() {
                   src={
                     'https://github-readme-stats.vercel.app/api?username=SebasDeveloper1&show_icons=true&rank_icon=github&locale=es&bg_color=1e293b&hide_border=true&title_color=069bf1&text_color=ffffff'
                   }
-                  alt={'SebasDeveloper'}
+                  alt={'github statistics'}
                   className="col-span-5 w-full"
                 />
                 <figure className="overflow-hidden relative col-start-6 row-start-1 block w-full aspect-square">
@@ -45,7 +45,7 @@ export function Hero() {
                     fill
                     sizes="100%"
                     src={GHBadge}
-                    alt={'SebasDeveloper'}
+                    alt={'github badge'}
                     placeholder="blur"
                     className="object-cover object-center"
                     blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
@@ -71,7 +71,7 @@ export function Hero() {
                   src={
                     'https://github-readme-stats.vercel.app/api/top-langs/?username=SebasDeveloper1&show_icons=true&layout=compact&locale=es&bg_color=1e293b&hide_border=true&title_color=069bf1&text_color=ffffff'
                   }
-                  alt={'SebasDeveloper'}
+                  alt={'github languages'}
                   loading="lazy"
                   className="col-span-4 col-start-3 row-start-2 w-full"
                 />
