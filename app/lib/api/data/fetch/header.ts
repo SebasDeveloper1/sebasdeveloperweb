@@ -14,7 +14,7 @@ export const fetchNavbarInfo = async () => {
       query: GetNavbarInfo,
       context: {
         fetchOptions: {
-          next: { revalidate: 5 }, // Options for cache revalidation
+          next: { revalidate: 3600 }, // Options for cache revalidation
         },
       },
     });
