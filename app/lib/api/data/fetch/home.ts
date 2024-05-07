@@ -28,7 +28,7 @@ export const fetchHeroHomeInfo = async () => {
       query: GetHeroHomeInfo,
       context: {
         fetchOptions: {
-          next: { revalidate: 86400 }, // Options for cache revalidation
+          next: { revalidate: 5 }, // Options for cache revalidation
         },
       },
     });
