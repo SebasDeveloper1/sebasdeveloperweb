@@ -17,7 +17,7 @@ export function CertificateCard({ certificateData }: CertificateCardProps) {
       rel="noopener noreferrer"
       className={`overflow-hidden group flex justify-center items-center gap-4 w-full h-full p-4 rounded-xl bg-light-100 hover:bg-dark-200/70 dark:bg-dark-900/30 dark:hover:bg-dark-900 shadow-sm ${!inView ? 'opacity-0' : 'animate-bounce-fade-in opacity-100'}`}
     >
-      <figure className="relative w-20 aspect-square">
+      <figure className="relative w-20 aspect-square rounded-full bg-img_bg bg-cover bg-center">
         {inView ? (
           <img
             src={`${image?.url}`}

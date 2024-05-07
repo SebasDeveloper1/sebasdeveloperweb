@@ -185,6 +185,7 @@ const config: Config = {
       backgroundImage: {
         section_dark: "url('../../public/assets/section_dark.jpg')",
         blurCyan: "url('../../public/assets/blurCyan.webp')",
+        img_bg: "url('../../public/assets/img-bg.svg')",
       },
     },
   },

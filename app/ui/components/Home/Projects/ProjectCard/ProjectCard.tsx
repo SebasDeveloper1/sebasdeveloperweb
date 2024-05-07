@@ -32,7 +32,7 @@ export function ProjectCard({ projectData }: ProjectCardProps): JSX.Element {
       href={`${routesPaths?.projectDetails}${slug}`}
       className={`group relative w-full h-full ${!inView ? 'opacity-0' : 'animate-fade-in opacity-100'}`}
     >
-      <figure className="relative w-full h-full">
+      <figure className="relative w-full h-full bg-img_bg bg-cover bg-center">
         {inView ? (
           <Image
             fill

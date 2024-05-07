@@ -34,7 +34,7 @@ export function ProjectCard({ projectData }: ProjectCardProps): JSX.Element {
       className={`group relative overflow-hidden w-full aspect-[4/3] rounded-xl ${!inView ? 'opacity-0' : 'animate-bounce-fade-in opacity-100'}`}
     >
       {inView ? (
-        <figure className="relative w-full h-full">
+        <figure className="relative w-full h-full bg-img_bg bg-cover bg-center">
           <Image
             fill
             sizes="100%"
