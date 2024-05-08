@@ -39,9 +39,9 @@ export default function Home(): JSX.Element {
       <main>
         <Hero />
         <AboutMe />
-        <Tools />
-        <Projects />
         <Experience />
+        <Projects />
+        <Tools />
         <Education />
       </main>
     </ScrollTopButtonWrapper>
