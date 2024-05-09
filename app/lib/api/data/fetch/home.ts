@@ -51,7 +51,7 @@ export const fetchAboutMeInfo = async () => {
       query: GetAboutMeInfo,
       context: {
         fetchOptions: {
-          next: { revalidate: 86400 }, // Options for cache revalidation
+          next: { revalidate: 3600 }, // Options for cache revalidation
         },
       },
     });
@@ -74,7 +74,7 @@ export const fetchToolList = async () => {
       query: GetToolList,
       context: {
         fetchOptions: {
-          next: { revalidate: 86400 }, // Options for cache revalidation
+          next: { revalidate: 3600 }, // Options for cache revalidation
         },
       },
     });
@@ -97,7 +97,7 @@ export const fetchHomeProjects = async () => {
       query: GetHomeProjects,
       context: {
         fetchOptions: {
-          next: { revalidate: 86400 }, // Options for cache revalidation
+          next: { revalidate: 3600 }, // Options for cache revalidation
         },
       },
     });
@@ -120,7 +120,7 @@ export const fetchHomeExperience = async () => {
       query: GetHomeExperience,
       context: {
         fetchOptions: {
-          next: { revalidate: 86400 }, // Options for cache revalidation
+          next: { revalidate: 3600 }, // Options for cache revalidation
         },
       },
     });

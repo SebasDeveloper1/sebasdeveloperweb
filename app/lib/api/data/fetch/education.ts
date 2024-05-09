@@ -15,7 +15,7 @@ export const fetchCertificateList = async () => {
         query: GetCertificateList,
         context: {
           fetchOptions: {
-            next: { revalidate: 5 }, // Options for cache revalidation
+            next: { revalidate: 3600 }, // Options for cache revalidation
           },
         },
       },

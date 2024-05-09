@@ -22,7 +22,7 @@ export const fetchProjectList = async () => {
       query: GetProjectsList,
       context: {
         fetchOptions: {
-          next: { revalidate: 86400 }, // Options for cache revalidation
+          next: { revalidate: 3600 }, // Options for cache revalidation
         },
       },
     });
@@ -46,7 +46,7 @@ export const fetchProjectDetails = async ({ slug }: { slug: string }) => {
       query: GetProjectDetails({ slug: slug }), // Pass the slug as a parameter to the query function
       context: {
         fetchOptions: {
-          next: { revalidate: 86400 }, // Options for cache revalidation
+          next: { revalidate: 3600 }, // Options for cache revalidation
         },
       },
     });
