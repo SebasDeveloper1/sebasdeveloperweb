@@ -35,7 +35,7 @@ export function Hero() {
               <article className="grid place-items-center grid-cols-6 grid-rows-2 gap-4">
                 <img
                   src={
-                    'https://github-readme-stats.vercel.app/api?username=SebasDeveloper1&show_icons=true&rank_icon=github&locale=es&bg_color=1e293b&hide_border=true&title_color=069bf1&text_color=ffffff'
+                    'https://github-readme-stats-eta-livid-88.vercel.app/api?username=SebasDeveloper1&show_icons=true&rank_icon=github&locale=es&bg_color=1e293b&hide_border=true&title_color=069bf1&text_color=ffffff'
                   }
                   alt={'github statistics'}
                   className="col-span-5 w-full"
@@ -69,7 +69,7 @@ export function Hero() {
                 </figure>
                 <img
                   src={
-                    'https://github-readme-stats.vercel.app/api/top-langs/?username=SebasDeveloper1&show_icons=true&layout=compact&locale=es&bg_color=1e293b&hide_border=true&title_color=069bf1&text_color=ffffff'
+                    'https://github-readme-stats-eta-livid-88.vercel.app/api/top-langs/?username=SebasDeveloper1&show_icons=true&layout=compact&locale=es&bg_color=1e293b&hide_border=true&title_color=069bf1&text_color=ffffff'
                   }
                   alt={'github languages'}
                   loading="lazy"
