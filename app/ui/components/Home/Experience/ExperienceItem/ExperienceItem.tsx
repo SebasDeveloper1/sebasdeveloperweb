@@ -67,7 +67,7 @@ export function ExperienceItem({ experienceData }: ExperienceItemProps) {
               {type}
             </span>
             <time className="span-sm font-medium leading-none text-dark-600 dark:text-light-400">
-              {`${formatDate(startDate)} - ${formatDate(endDate)}`}
+              {`${formatDate(startDate)} - ${!endDate ? 'Presente' : formatDate(endDate)}`}
             </time>
             <h3 className="span-xl font-semibold text-yellow-500 dark:text-yellow-400">
               {jobTitle}
